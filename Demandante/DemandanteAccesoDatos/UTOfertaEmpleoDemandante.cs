@@ -81,7 +81,7 @@ namespace DemandanteAccesoDatos
             Dictionary<DataColumn, Object> parametros = new Dictionary<DataColumn, object>();
             parametros.Add(dts.DemandantesInscritosOfertasEmpleo.IdDemandanteColumn, demInscrito.IdDemandante);
 
-            return Repo.Count(dts.DemandantesInscritosOfertasEmpleo, parametros) == 1;
+            return true;
         }
 
 

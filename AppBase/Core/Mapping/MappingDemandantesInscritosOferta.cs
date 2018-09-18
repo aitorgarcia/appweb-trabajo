@@ -52,5 +52,21 @@ namespace Core.Mapping
             dts.DemandantesInscritosOfertasEmpleo.AddDemandantesInscritosOfertasEmpleoRow(dtsRow);
             return dts;
         }
+
+
+
+        public static Demandante.DemandanteInscritoOferta ToDemandanteInscrito(this dtsDemandantesInscritos.DemandantesInscritosOfertasEmpleoDataTable dataTable, int row = 0)
+        {
+            Demandante.DemandanteInscritoOferta demInscritoOferta = new Demandante.DemandanteInscritoOferta();
+            demInscritoOferta.IdDemandante = Convert.ToInt32(dataTable.Rows[row][dataTable.IdDemandanteColumn.ColumnName]);
+            demInscritoOferta.IdOfertaEmpleo = Convert.ToInt32(dataTable.Rows[row][dataTable.IdOfertaEmpleoColumn.ColumnName]);
+            demInscritoOferta.Notas = dataTable.Rows[row][dataTable.NotasColumn.ColumnName].ToString();
+            demInscritoOferta.CV = dataTable.Rows[row][dataTable.CVColumn.ColumnName].ToString();
+            demInscritoOferta.Estado = Convert.ToInt32(dataTable.Rows[row][dataTable.EstadoColumn.ColumnName]);
+
+            return demInscritoOferta;
+        }
+
+
     }
 }

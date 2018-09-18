@@ -700,36 +700,32 @@ WriteLiteral(" class=\"form-group\"");
 
 WriteLiteral(" style=\"text-align:center\"");
 
-WriteLiteral(">\r\n                                    <i");
+WriteLiteral(">\r\n                                    <b");
+
+WriteLiteral(" style=\"text-align:center\"");
+
+WriteLiteral(">{{ofertaDetalleModal.NumeroVacantes}}   </b>   <i");
 
 WriteLiteral(" class=\"glyphicon glyphicon-user\"");
 
 WriteLiteral(" style=\"text-align:center\"");
 
-WriteLiteral("></i><b");
-
-WriteLiteral(" style=\"text-align:center\"");
-
-WriteLiteral(">  {{ofertaDetalleModal.NumeroVacantes}}</b><br />\r\n                             " +
-"   </div>\r\n                                <div");
+WriteLiteral("></i><br />\r\n                                </div>\r\n                            " +
+"    <div");
 
 WriteLiteral(" class=\"form-group\"");
 
 WriteLiteral(" style=\"text-align:center\"");
 
-WriteLiteral(">\r\n                                    <i");
+WriteLiteral(">\r\n                                    ");
 
-WriteLiteral(" class=\"glyphicon glyphicon-euro\"");
-
-WriteLiteral(" style=\"text-align:center\"");
-
-WriteLiteral("></i><b");
+WriteLiteral("<b");
 
 WriteLiteral(" style=\"text-align:center\"");
 
-WriteLiteral(">  {{ofertaDetalleModal.Sueldo}}</b><br />\r\n                                </div" +
-">\r\n                            </div>\r\n                            <hr /><br />\r" +
-"\n\r\n                            <div");
+WriteLiteral(">  {{ofertaDetalleModal.Sueldo}} €</b><br />\r\n                                </d" +
+"iv>\r\n                            </div>\r\n                            <hr /><br /" +
+">\r\n\r\n                            <div");
 
 WriteLiteral(" class=\"row well well-lg\"");
 
@@ -937,36 +933,30 @@ WriteLiteral(" class=\"form-group\"");
 
 WriteLiteral(" style=\"text-align:center\"");
 
-WriteLiteral(">\r\n                                    <i");
+WriteLiteral(">\r\n                                    <b");
+
+WriteLiteral(" style=\"text-align:center\"");
+
+WriteLiteral(">{{ofertaDetalleModal.NumeroVacantes}}   </b>   <i");
 
 WriteLiteral(" class=\"glyphicon glyphicon-user\"");
 
 WriteLiteral(" style=\"text-align:center\"");
 
-WriteLiteral("></i><b");
-
-WriteLiteral(" style=\"text-align:center\"");
-
-WriteLiteral(">  {{ofertaDetalleModal.NumeroVacantes}}</b><br />\r\n                             " +
-"   </div>\r\n                                <div");
+WriteLiteral("></i><br />\r\n                                </div>\r\n                            " +
+"    <div");
 
 WriteLiteral(" class=\"form-group\"");
 
 WriteLiteral(" style=\"text-align:center\"");
 
-WriteLiteral(">\r\n                                    <i");
-
-WriteLiteral(" class=\"glyphicon glyphicon-euro\"");
+WriteLiteral(">\r\n                                    <b");
 
 WriteLiteral(" style=\"text-align:center\"");
 
-WriteLiteral("></i><b");
-
-WriteLiteral(" style=\"text-align:center\"");
-
-WriteLiteral(">  {{ofertaDetalleModal.Sueldo}}</b><br />\r\n                                </div" +
-">\r\n                            </div>\r\n                            <hr /><br />\r" +
-"\n\r\n                            <div");
+WriteLiteral(">  {{ofertaDetalleModal.Sueldo}} €</b><br />\r\n                                </d" +
+"iv>\r\n                            </div>\r\n                            <hr /><br /" +
+">\r\n\r\n                            <div");
 
 WriteLiteral(" class=\"row well well-lg\"");
 

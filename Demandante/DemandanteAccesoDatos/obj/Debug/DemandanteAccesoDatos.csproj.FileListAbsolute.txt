@@ -8,3 +8,12 @@ C:\Users\Aitor\Documents\Visual Studio 2013\Projects\Demandante\DemandanteAcceso
 C:\Users\Aitor\Documents\Visual Studio 2013\Projects\Demandante\DemandanteAccesoDatos\obj\Debug\DemandanteAccesoDatos.dll
 C:\Users\Aitor\Documents\Visual Studio 2013\Projects\Demandante\DemandanteAccesoDatos\obj\Debug\DemandanteAccesoDatos.pdb
 C:\Users\Aitor\Documents\Visual Studio 2013\Projects\Demandante\DemandanteAccesoDatos\obj\Debug\DemandanteAccesoDatos.csprojResolveAssemblyReference.cache
+C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\Demandante\DemandanteAccesoDatos\bin\Debug\DemandanteAccesoDatos.dll
+C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\Demandante\DemandanteAccesoDatos\bin\Debug\DemandanteAccesoDatos.pdb
+C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\Demandante\DemandanteAccesoDatos\bin\Debug\BaseDeDatos.dll
+C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\Demandante\DemandanteAccesoDatos\bin\Debug\Core.dll
+C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\Demandante\DemandanteAccesoDatos\bin\Debug\BaseDeDatos.pdb
+C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\Demandante\DemandanteAccesoDatos\bin\Debug\Core.pdb
+C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\Demandante\DemandanteAccesoDatos\obj\Debug\DemandanteAccesoDatos.csprojResolveAssemblyReference.cache
+C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\Demandante\DemandanteAccesoDatos\obj\Debug\DemandanteAccesoDatos.dll
+C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\Demandante\DemandanteAccesoDatos\obj\Debug\DemandanteAccesoDatos.pdb

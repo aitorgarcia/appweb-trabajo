@@ -815,34 +815,28 @@ WriteLiteral(" class=\"form-group\"");
 
 WriteLiteral(" style=\"text-align:center\"");
 
-WriteLiteral(">\r\n                                        <i");
+WriteLiteral(">\r\n                                        <b");
+
+WriteLiteral(" style=\"text-align:center\"");
+
+WriteLiteral(">{{ofertaDetalle.NumeroVacantes}}   </b>   <i");
 
 WriteLiteral(" class=\"glyphicon glyphicon-user\"");
 
 WriteLiteral(" style=\"text-align:center\"");
 
-WriteLiteral("></i><b");
-
-WriteLiteral(" style=\"text-align:center\"");
-
-WriteLiteral(">  {{ofertaDetalle.NumeroVacantes}}</b><br />\r\n                                  " +
-"  </div>\r\n                                    <div");
+WriteLiteral("></i><br />\r\n                                    </div>\r\n                        " +
+"            <div");
 
 WriteLiteral(" class=\"form-group\"");
 
 WriteLiteral(" style=\"text-align:center\"");
 
-WriteLiteral(">\r\n                                        <i");
-
-WriteLiteral(" class=\"glyphicon glyphicon-euro\"");
+WriteLiteral(">\r\n                                        <b");
 
 WriteLiteral(" style=\"text-align:center\"");
 
-WriteLiteral("></i><b");
-
-WriteLiteral(" style=\"text-align:center\"");
-
-WriteLiteral(@">  {{ofertaDetalle.Sueldo}}</b><br />
+WriteLiteral(@">  {{ofertaDetalle.Sueldo}} €</b><br />
                                     </div>
                                 </div>
                                 <hr /><br />

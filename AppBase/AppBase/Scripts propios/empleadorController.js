@@ -22,26 +22,6 @@ app.controller('EmpleadorController', ['$scope', '$http', '$element', '$interval
 
 
 
-
-    //$scope.cambiarEstado = function (inscritoCambiar, estado) {
-    //    $scope.cambiarEstadoOfertaDemandante.IdDemandante = inscritoCambiar.IdDemandante;
-    //    $scope.cambiarEstadoOfertaDemandante.IdOfertaEmpleo = inscritoCambiar.IdOfertaEmpleo;
-    //    $scope.cambiarEstadoOfertaDemandante.Estado = estado;
-
-    //    myHttp.post("/Empleador/CambiarEstado", $scope.cambiarEstadoOfertaDemandante)
-    //      .then(function (data) {
-    //          window.location.href = "/Empleador/InicioEmpleador";
-    //      })
-    //      .catch(function (err) {
-    //          alert("Error de la promesa");
-    //          window.location.href = "/Empleador/InicioEmpleador";
-    //      })
-    //};
-
-
-
-
-
     $scope.CambiarEstado = function (inscrito, estado) {
         var url = "/Empleador/CambiarEstado";
         $scope.inscripcionEstado.idDemandante = inscrito.IdDemandante;
@@ -58,8 +38,8 @@ app.controller('EmpleadorController', ['$scope', '$http', '$element', '$interval
             if (result === false) {
                 alert("Fallo al aceptar o rechazar la inscripción.")
             } else {
-                alert("Se ha realizado correctamente.")
-                window.location.href = "/Empleador/InicialDemandante";
+                alert("Los cambios se han realizado correctamente.")
+                window.location.href = "/Empleador/IndexEmpleador";
             }
         }).error(function () {
         });

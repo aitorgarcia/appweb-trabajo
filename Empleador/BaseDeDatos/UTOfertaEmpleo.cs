@@ -66,23 +66,18 @@ namespace AccesoBaseDeDatos
 
 
 
-
-
-        public bool CambiarEstado(int idOferta, int idDemandante, int estado)
+        public bool CambiarEstado(int IdOfertaEmpleo, int IdDemandante, int Estado)
         {
-            dtsDemandantesInscritosOferta dts = new dtsDemandantesInscritosOferta();
-            SqlParameter param1 = new SqlParameter("@IdOferta", idOferta);
-            SqlParameter param2 = new SqlParameter("@Estado", estado);
-            SqlParameter param3 = new SqlParameter("@IdDemandante", idDemandante);
-
-            dts.Merge(this.Repo.Leer("pCambiarEstado", CommandType.StoredProcedure, dts.pDemandantesInscritosOferta.TableName, param1, param2, param3));
-
-            DemandanteInscritoOferta dem = new DemandanteInscritoOferta();
-            dem = MappingDemandantesInscritosOferta.ToDemandante(dts.pDemandantesInscritosOferta, 0);
-
-            return true;
+            try
+            {
+                this.Repo.EjecutarProcedimiento("pCambiarEstado", new SqlParameter("@IdDemandante", IdDemandante), new SqlParameter("@IdOferta", IdOfertaEmpleo), new SqlParameter("@Estado", Estado));
+                return true;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
-
 
 
 

@@ -73,9 +73,9 @@ app.controller('DemandanteController', ['$scope', '$http', '$element', '$interva
             contentType: "application/json; charset=utf-8",
         }).success(function (result) {
             if (result === false) {
-                alert("Compruebe que ha rellenado correctamente todos los campos obligatorios.")
+                alert("Ha ocurrido un error al inscribirse en la oferta.")
             } else {
-                alert("Se ha inscrito correctamente.")
+                alert("Se ha inscrito correctamente en la oferta.")
                 window.location.href = "/Demandante/InicialDemandante";
             }
         }).error(function () {
