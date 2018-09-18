@@ -17,33 +17,6 @@ namespace DemandanteAccesoDatos
     {
 
         /// <summary>
-        ///  Obtiene todos los registros de OfertaEmpleo, los guarda en una lista y los devuelve.
-        /// </summary>
-        /// <returns>Devuelve una lista con objetos OfertaEmpleo</returns>
-        public List<OfertaEmpleo> GetAllOfertas()
-        {
-            dtsOfertaEmpleo dts = new dtsOfertaEmpleo();
-
-            // Realizamos un merge con la tabla vacia del dtsUsuario con los resultados de la tabla obtenida
-            dts.Merge(Repo.Leer(dts.OfertasEmpleo));
-            List<OfertaEmpleo> result = new List<OfertaEmpleo>();
-
-            int i = 0;
-            foreach (DataRow dtRow in dts.OfertasEmpleo)
-            {
-                OfertaEmpleo oferta = new OfertaEmpleo();
-                oferta = MappingOfertaEmpleo.ToOfertaEmpleo(dts.OfertasEmpleo, i);
-                result.Add(oferta);
-                i++;
-            }
-
-            return result;
-        }
-
-
-
-
-        /// <summary>
         ///  Obtiene un objeto EmpleadorModel (llamando al procedimiento 'pEmpleadosLectura') a partir de una id ofrecida por parámetro.
         /// </summary>
         /// <param name="id"></param>
@@ -70,8 +43,35 @@ namespace DemandanteAccesoDatos
 
 
 
+        /// <summary>
+        /// Método que desinscribe al demandante de una oferta en la que esté inscrita.
+        /// Llama al procedimiento 'pDesinscribirse' con los datos introducidos por parámetro.
+        /// </summary>
+        /// <param name="IdOfertaEmpleo"></param>
+        /// <param name="IdDemandante"></param>
+        /// <returns>Devuelve un booleano que muestra que se ha realizado correctamente.</returns>
+        public bool DesinscribirDemandante(int IdOfertaEmpleo, int IdDemandante)
+        {
+            try
+            {
+                this.Repo.EjecutarProcedimiento("pDesinscribirse", new SqlParameter("@IdDemandante", IdDemandante), new SqlParameter("@IdOferta", IdOfertaEmpleo));
+                return true;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
 
 
+
+
+        /// <summary>
+        /// Método que inscribe al demandante en una oferta disponible.
+        /// Crea un nuevo dts con los datos del DemandanteInscritoOferta introducido por parámetro y lo guarda.
+        /// </summary>
+        /// <param name="demInscrito"></param>
+        /// <returns>Devuelve un booleano que muestra que se ha realizado correctamente.</returns>
         public bool InscribirDemandante(DemandanteInscritoOferta demInscrito)
         {
             dtsDemandantesInscritos dts = MappingDemandantesInscritosOferta.ToDtsDemandantesInscritos(demInscrito);

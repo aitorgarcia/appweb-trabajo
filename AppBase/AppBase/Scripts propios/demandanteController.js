@@ -1,6 +1,7 @@
 ﻿var app = angular.module("app", ['ui.bootstrap']);
-
 //var tipoUsuario = Object.freeze({Demandante:1,Empleador:0})
+
+
 
 app.controller('DemandanteController', ['$scope', '$http', '$element', '$interval', function ($scope, $http, $element, $interval) {
 
@@ -15,22 +16,23 @@ app.controller('DemandanteController', ['$scope', '$http', '$element', '$interva
 
 
 
+    //Método que muestra la información detallada de la ofertas disponibles.
     $scope.ModalVerOfertaDisponible = function (oferta) {
         $scope.ofertaDetalleModal = oferta;
-        //$scope.obtenerInscritos(oferta);
         $('#modalVerOfertaDisponible').modal('show');
     };
 
+
+    //Método que muestra la información de la oferta en la que el demandante está inscrito.
     $scope.ModalVerOfertaInscrita = function (oferta) {
         $scope.ofertaDetalleModal = oferta;
-        //$scope.obtenerInscritos(oferta);
         $('#modalVerOfertaInscrita').modal('show');
     };
 
 
 
 
-
+    //Método que obtiene los datos del Demandante para cargar la vista
     $scope.ObtenerDatosDemandanteModel = function (idDemandante) {
         var url = "/Demandante/ObtenerDatosDemandanteModel";
         $http({
@@ -48,20 +50,33 @@ app.controller('DemandanteController', ['$scope', '$http', '$element', '$interva
         }).error(function () {
             alert("Error en la función.")
         });
-        //tipoUsuario.Demandante;
-
-
-        //$scope.dataDemModel.Id = idDemandante;
-        //$scope.CargarOfertasDisponibles();
-        //$scope.CargarOfertasInscritas();
-
     };
 
 
 
+    //Método que desisnscribe al demandante de una oferta de empleo en la que estaba suscrito.
+    $scope.DesinscribirDemandante = function () {
+        var url = "/Demandante/DesinscribirDemandante";
+        $scope.inscripcion.idDemandante = $scope.dataDemModel.Id;
+        $scope.inscripcion.idOfertaEmpleo = $scope.ofertaDetalleModal.Id;
+        $http({
+            method: 'POST',
+            url: url,
+            data: $scope.inscripcion,
+            contentType: "application/json; charset=utf-8",
+        }).success(function (result) {
+            if (result === false) {
+                alert("Ha ocurrido un error al desinscribirse de la oferta.")
+            } else {
+                alert("Se ha desinscrito correctamente de la oferta.")
+                window.location.href = "/Demandante/InicialDemandante";
+            }
+        }).error(function () {
+        });
+    };
 
 
-
+    //Método que inscribe al demandante en una oferta de empleo.
     $scope.InscribirDemandante = function () {
         var url = "/Demandante/InscribirDemandante";
         $scope.inscripcion.idDemandante = $scope.dataDemModel.Id;
@@ -85,7 +100,7 @@ app.controller('DemandanteController', ['$scope', '$http', '$element', '$interva
    
 
 
-
+    //Método que carga las ofertas en las que el usuario se ha inscrito.
     $scope.CargarOfertasInscritas = function () {
         var url = "/Demandante/GetOfertasInscritas";
 
@@ -105,6 +120,7 @@ app.controller('DemandanteController', ['$scope', '$http', '$element', '$interva
     };
 
 
+    //Método que carga las ofertas que tiene disponibles el demandante. (todas - inscritas)
     $scope.CargarOfertasDisponibles = function () {
         var url = "/Demandante/GetOfertasDisponibles";
 
@@ -125,7 +141,7 @@ app.controller('DemandanteController', ['$scope', '$http', '$element', '$interva
 
 
 
-
+    //Método que devuelve los niveles de estudios que hay en la BD.
     $scope.ObtenerEstudios = function () {
         var url = "/Demandante/ObtenerEstudios";
         $http({
@@ -147,7 +163,7 @@ app.controller('DemandanteController', ['$scope', '$http', '$element', '$interva
 
 
 
-
+    //Método que guarda los datos del Demandante cuando accede por primera vez.
     $scope.GuardarDatosDemandante = function () {
         var url = "/Demandante/GuardarDatosDemandante";
         $http({
@@ -169,7 +185,7 @@ app.controller('DemandanteController', ['$scope', '$http', '$element', '$interva
 
 
 
-
+// Método usado para recoger las imagenes introducidas por el demandante.
 app.directive("fileread", [function () {
     return {
         scope: {

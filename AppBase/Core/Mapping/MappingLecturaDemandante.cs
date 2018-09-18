@@ -10,6 +10,12 @@ namespace Core.Mapping
     public static class MappingLecturaDemandante
     {
 
+        /// <summary>
+        /// Recoge los datos del dataTable introducido por parámetro para agregarselos a un nuevo DemandanteModel.
+        /// </summary>
+        /// <param name="dataTable"></param>
+        /// <param name="row"></param>
+        /// <returns>Devuelve un DemandanteModel relleno de valores</returns>
         public static Demandante.DemandanteModel ToDemandanteModel(this dtsLecturaDemandantes.DemandantesDataTable dataTable, int row = 0)
         {
             Demandante.DemandanteModel demModel = new Demandante.DemandanteModel();

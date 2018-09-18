@@ -64,10 +64,39 @@ namespace Demandante.Controllers
 
 
 
-
-
+        /// <summary>
+        /// Método que se ejecuta al pulsar el botón de desisncribirse de una oferta en la que esté inscrito el demandante.
+        /// Envía el DemandanteInscritoOferta recibido por parámetro a la capa de negocio.
+        /// </summary>
+        /// <param name="demInscrito"></param>
+        /// <returns>Un archivo JSON booleano dependiendo de si se ha desisncrito correctamente o no.</returns>
         [HttpPost]
-        public JsonResult InscribirDemandante(Core.Demandante.DemandanteInscritoOferta demInscrito)
+        public JsonResult DesinscribirDemandante(DemandanteInscritoOferta demInscrito)
+        {
+            if (ModelState.IsValid)
+            {
+                CapaNegocio.NGOfertaEmpleoDemandante ngOfertaEmpleo = new CapaNegocio.NGOfertaEmpleoDemandante();
+
+                bool result = ngOfertaEmpleo.DesinscribirDemandante(demInscrito);
+
+                if (result)
+                    return Json(demInscrito);
+                return Json(false);
+            }
+            return Json(false);
+        }
+
+
+
+
+        /// <summary>
+        /// Método que se ejecuta al pulsar el botón de inscribirse en una oferta que esté disponible para el demandante.
+        /// Envía el DemandanteInscritoOferta recibido por parámetro a la capa de negocio.
+        /// </summary>
+        /// <param name="demInscrito"></param>
+        /// <returns>Un archivo JSON booleano dependiendo de si se ha desisncrito correctamente o no.</returns>
+        [HttpPost]
+        public JsonResult InscribirDemandante(DemandanteInscritoOferta demInscrito)
         {
             if (ModelState.IsValid)
             {
@@ -86,32 +115,11 @@ namespace Demandante.Controllers
 
 
 
-
-
-
-
-
-
         /// <summary>
-        /// Método que se ejecuta al cargar la vista PrimerAccesoEmpleador.
-        /// Carga las industrias existentes en la base de datos en un droplist de la vista,
-        /// para cargarlos llama a la capa de negocio.
+        /// Método que muestra las ofertas que el Demandante tiene disponibles para inscribirse.
         /// </summary>
-        /// <returns>Devuelve un archivo JSON con una lista de Industrias si se han recibido correctamente.
-        ///          Si no, devuelve un archivo JSON con el valor a false.</returns>
-        [HttpPost]
-        public JsonResult GetAllOfertas()
-        {
-            CapaNegocio.NGOfertaEmpleoDemandante ngOfertaEmpleoDem = new CapaNegocio.NGOfertaEmpleoDemandante();
-
-            var result = ngOfertaEmpleoDem.GetAllOfertas();
-
-            if (result == null)
-                return Json(false);
-            return Json(result);
-        }
-
-
+        /// <param name="idDemandante"></param>
+        /// <returns>Un archivo JSON booleano dependiendo de si se ha desisncrito correctamente o no.</returns>
         [HttpPost]
         public JsonResult GetOfertasDisponibles(int idDemandante)
         {
@@ -126,6 +134,14 @@ namespace Demandante.Controllers
 
 
 
+
+
+
+        /// <summary>
+        /// Método que muestra las ofertas en las que el Demandante está ya inscrito.
+        /// </summary>
+        /// <param name="idDemandante"></param>
+        /// <returns>Un archivo JSON booleano dependiendo de si se ha desisncrito correctamente o no.</returns>
         [HttpPost]
         public JsonResult GetOfertasInscritas(int idDemandante)
         {
@@ -192,14 +208,6 @@ namespace Demandante.Controllers
         /// <returns>Devuelve la vista InicialDemandante</returns>
         public ActionResult InicialDemandante()
         {
-            //NGDemandante ngDemandante = new NGDemandante();
-            //int id = Convert.ToInt32(Cookies.GetCookie("Id"));
-
-            //Core.Demandante.DemandanteModel demModel = ngDemandante.GetDemandanteModelByUserId(id);
-
-
-
-            //return View(demModel);
             return View();
         }
 

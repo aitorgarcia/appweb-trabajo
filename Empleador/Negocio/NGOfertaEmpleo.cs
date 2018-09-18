@@ -22,53 +22,81 @@ namespace Empleador.CapaNegocio
         /// <returns>Devuelve un booleano dependiendo de si los datos son válidos, o de la llamada a UTOfertaEmpleo.</returns>
         public bool ValidarDatosOfertaEmpleo(Core.Empleador.OfertaEmpleo oferta)
         {
-            UTOfertaEmpleo utOfertaEmpleo = new UTOfertaEmpleo();
-            bool result = utOfertaEmpleo.GuardarDatosOfertaEmpleo(oferta);
+            bool result = _UTOfertaEmpleo.GuardarDatosOfertaEmpleo(oferta);
             return result;
         }
 
 
 
 
+        /// <summary>
+        /// Método que recibe un DemandanteInscritoOferta, de él obtiene sus datos y llama al método de UTOfertaEmpleo.
+        /// </summary>
+        /// <param name="demInscrito"></param>
+        /// <returns>Devuelve un booleano según si se ha logrado cambiar el estado se ha cambiado o no.</returns>
         public bool CambiarEstado(Core.Demandante.DemandanteInscritoOferta demInscrito)
         {
-            UTOfertaEmpleo utOfertaEmpleo = new UTOfertaEmpleo();
             int idOferta = demInscrito.IdOfertaEmpleo;
             int estado = demInscrito.Estado;
             int idDemandante = demInscrito.IdDemandante;
 
-            bool result = utOfertaEmpleo.CambiarEstado(idOferta, idDemandante, estado);
+            bool result = _UTOfertaEmpleo.CambiarEstado(idOferta, idDemandante, estado);
             return result;
         }
-
-
-
-
-
-
 
 
 
 
 
         /// <summary>
-        /// Obtiene todos los tipos de industrias realizando una llamada a UTEmpleador.
+        /// Obtiene todas las ofertas de un Empleador realizando una llamada a UTOfertaEmpleo.
         /// </summary>
-        /// <returns>Una lista de objetos Industria con cada una de ellas.</returns>
+        /// <returns>Una lista de objetos OfertaEmpleo con cada una de ellas.</returns>
         public List<OfertaEmpleo> ObtenerOfertas(int idEmpleador)
         {   
-            UTOfertaEmpleo utOfertaEmpleo = new UTOfertaEmpleo();
             List<OfertaEmpleo> result;
-            return result = utOfertaEmpleo.GetOfertasByIdEmpleador(idEmpleador);
+            return result = _UTOfertaEmpleo.GetOfertasByIdEmpleador(idEmpleador);
         }
 
 
+
+
+
+        /// <summary>
+        /// Método que obtiene los demandantes inscritos en una oferta, para ello llama al método de UTOfertaEmpleo.
+        /// </summary>
+        /// <param name="idOferta"></param>
+        /// <returns>Devuelve una lista de objetos DemandanteInscritoOferta.</returns>
         public List<DemandanteInscritoOferta> GetDemandantesInscritosOferta(int idOferta)
         {
-            UTOfertaEmpleo utOfertaEmpleo = new UTOfertaEmpleo();
             List<DemandanteInscritoOferta> result;
-            return result = utOfertaEmpleo.GetDemandantesInscritosOferta(idOferta);
+            return result = _UTOfertaEmpleo.GetDemandantesInscritosOferta(idOferta);
         }
+
+
+
+
+
+
+        #region PROPIEDADES
+        private UTOfertaEmpleo _utOfertaEmpleo { get; set; }
+
+        private UTOfertaEmpleo _UTOfertaEmpleo
+        {
+            get
+            {
+                if (_utOfertaEmpleo == null)
+                {
+                    _utOfertaEmpleo = new UTOfertaEmpleo();
+                }
+                return _utOfertaEmpleo;
+            }
+        }
+
+        #endregion
+
+
+
 
     }
 }

@@ -1051,12 +1051,13 @@ WriteLiteral(" value=\"Desinscribirse\"");
 
 WriteLiteral(" id=\"btnDesinscribir\"");
 
-WriteLiteral(" ");
+WriteLiteral(" ng-click=\"DesinscribirDemandante()\"");
 
-WriteLiteral(" style=\"margin:auto; background-color: dimgray; color: white;\" />\r\n              " +
-"                      </div>\r\n                                </div>\r\n          " +
-"                  </div>\r\n                        </div>\r\n\r\n                    " +
-"    <div");
+WriteLiteral(" style=\"margin:auto; background-color: dimgray; color: white;\"");
+
+WriteLiteral(" />\r\n                                    </div>\r\n                                " +
+"</div>\r\n                            </div>\r\n                        </div>\r\n\r\n  " +
+"                      <div");
 
 WriteLiteral(" class=\"modal-footer\"");
 

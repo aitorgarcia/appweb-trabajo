@@ -60,6 +60,11 @@ namespace Empleador.Controllers
 
 
 
+        /// <summary>
+        /// Método que cambia el estado de una inscripción cuando se rechaza o acepta.
+        /// </summary>
+        /// <param name="demInscrito"></param>
+        /// <returns>Un archivo JSON booleano según si el estado se ha cambiado correctamente.</returns>
         [HttpPost]
         public JsonResult CambiarEstado(Core.Demandante.DemandanteInscritoOferta demInscrito)
         {
@@ -78,11 +83,6 @@ namespace Empleador.Controllers
 
 
 
-
-
-
-
-        
 
 
 
@@ -181,6 +181,12 @@ namespace Empleador.Controllers
 
 
 
+
+        /// <summary>
+        /// Método que obtiene los demandantes inscritos en una oferta concreta la cual es pasada por parámetro.
+        /// </summary>
+        /// <param name="ofertaAux"></param>
+        /// <returns>Un archivo JSON booleano según si el estado se ha cambiado correctamente.</returns>
         [HttpPost]
         public JsonResult GetDemandantesInscritosOferta(OfertaEmpleo ofertaAux)
         {
@@ -193,6 +199,9 @@ namespace Empleador.Controllers
                 return Json(false);
             return Json(result);
         }
+
+
+
 
 
 

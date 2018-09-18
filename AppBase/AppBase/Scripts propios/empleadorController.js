@@ -9,10 +9,12 @@ app.controller('EmpleadorController', ['$scope', '$http', '$element', '$interval
     $scope.listOfertas = [];
     $scope.ofertaDetalle = {};
     $scope.listInscritos = {};
-
     $scope.inscripcionEstado = {};
 
 
+
+    //Método que muestra una página modal con la información detallada de las ofertas del empleador
+    //  y a su vez llama a CargarDemandantesInscristos()
     $scope.ModalVerOferta = function (oferta) {
         $scope.ofertaDetalle = oferta;
         $scope.CargarDemandantesInscritos(oferta);
@@ -21,7 +23,7 @@ app.controller('EmpleadorController', ['$scope', '$http', '$element', '$interval
 
 
 
-
+    //Método que cambia el estado de una inscripción (de Pendiente a Aceptado o Rechazado).
     $scope.CambiarEstado = function (inscrito, estado) {
         var url = "/Empleador/CambiarEstado";
         $scope.inscripcionEstado.idDemandante = inscrito.IdDemandante;
@@ -47,7 +49,7 @@ app.controller('EmpleadorController', ['$scope', '$http', '$element', '$interval
 
 
 
-
+    //Método que muestra el listado de los demandantes inscritos en una oferta.
     $scope.CargarDemandantesInscritos = function (oferta) {
         var url = "/Empleador/GetDemandantesInscritosOferta";
         $scope.ofertaAux = oferta;
@@ -56,7 +58,6 @@ app.controller('EmpleadorController', ['$scope', '$http', '$element', '$interval
             method: 'POST',
             url: url,
             data: $scope.ofertaAux,
-            //data: { idOferta: $scope.oferta.Id },
             contentType: "application/json; charset=utf-8",
         }).success(function (result) {
             if (result === false) {
@@ -70,7 +71,7 @@ app.controller('EmpleadorController', ['$scope', '$http', '$element', '$interval
 
 
 
-
+    //Método que obtiene los datos del Empleador para mostrarlos en la vista.
     $scope.ObtenerDatosEmpleadorModel = function () {
         var url = "/Empleador/ObtenerDatosEmpleadorModel";
         $http({
@@ -93,7 +94,7 @@ app.controller('EmpleadorController', ['$scope', '$http', '$element', '$interval
 
 
 
-
+    //Método que carga los tipos de industrias existentes en la BD para la vista de primer acceso.
     $scope.ObtenerIndustrias = function () {
         var url = "/Empleador/ObtenerIndustrias";
         $http({
@@ -113,11 +114,10 @@ app.controller('EmpleadorController', ['$scope', '$http', '$element', '$interval
 
 
 
-
+    //Método que crea una oferta nueva con los datos introducidos por el empleador.
     $scope.CrearOferta = function () {
         var url = "/Empleador/GuardarDatosOfertaEmpleo";
         $scope.oferta.IdEmpleador = $scope.dataEmpModel.Id;
-
         $http({
             method: 'POST',
             url: url,
@@ -136,9 +136,9 @@ app.controller('EmpleadorController', ['$scope', '$http', '$element', '$interval
 
 
 
+    //Método que carga las ofertas de un empleador concreto
     $scope.CargarOfertas = function () {
         var url = "/Empleador/ObtenerOfertas";
-
         $http({
             method: 'POST',
             url: url,
@@ -156,9 +156,7 @@ app.controller('EmpleadorController', ['$scope', '$http', '$element', '$interval
 
 
 
-
-
-
+    //Método que guarda los datos del Empleador en la vista del primer acceso.
     $scope.GuardarDatosEmpleador = function () {
         var url = "/Empleador/GuardarDatosEmpleador";
         $http({
@@ -181,6 +179,7 @@ app.controller('EmpleadorController', ['$scope', '$http', '$element', '$interval
 
 
 
+// Método usado para recoger las imagenes introducidas por el empleador.
 app.directive("fileread", [function () {
     return {
         scope: {

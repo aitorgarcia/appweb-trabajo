@@ -41,6 +41,7 @@ namespace CapaNegocio
         }
 
 
+
         /// <summary>
         ///  Comprueba que los datos del Demandante sean válidos y en caso de serlo llama al UTDemandante para guardar sus datos.
         /// </summary>
@@ -72,7 +73,6 @@ namespace CapaNegocio
             }
             return false;
         }
-
 
 
 

@@ -10,6 +10,12 @@ namespace Core.Mapping
     public static class MappingDemandantesInscritosOferta
     {
 
+        /// <summary>
+        /// Recoge los datos del dataTable (dtsDemandantesInscritosOferta) introducido por parámetro para agregarselos a un nuevo DemandanteInscritoOferta.
+        /// </summary>
+        /// <param name="dataTable"></param>
+        /// <param name="row"></param>
+        /// <returns>Devuelve un DemandanteInscritoOferta relleno de valores</returns>
         public static Demandante.DemandanteInscritoOferta ToDemandante(this dtsDemandantesInscritosOferta.pDemandantesInscritosOfertaDataTable dataTable, int row = 0)
         {
             Demandante.DemandanteInscritoOferta demInscritoOferta = new Demandante.DemandanteInscritoOferta();
@@ -38,6 +44,12 @@ namespace Core.Mapping
 
 
 
+
+        /// <summary>
+        /// Recoge los datos del DemandanteInscritoOferta introducido por parámetro para agregarselos a un nuevo dataset de DemandantesInscritos.
+        /// </summary>
+        /// <param name="demInscritos"></param>
+        /// <returns>Devuelve un dataset de DemandantesInscritos relleno de valores.</returns>
         public static dtsDemandantesInscritos ToDtsDemandantesInscritos(this Demandante.DemandanteInscritoOferta demInscritos)
         {
             dtsDemandantesInscritos dts = new dtsDemandantesInscritos();
@@ -55,6 +67,14 @@ namespace Core.Mapping
 
 
 
+
+
+        /// <summary>
+        /// Recoge los datos del dataTable (dtsDemandantesInscritos) introducido por parámetro para agregarselos a un nuevo DemandanteInscritoOferta.
+        /// </summary>
+        /// <param name="dataTable"></param>
+        /// <param name="row"></param>
+        /// <returns>Devuelve un DemandanteInscritoOferta relleno de valores</returns>
         public static Demandante.DemandanteInscritoOferta ToDemandanteInscrito(this dtsDemandantesInscritos.DemandantesInscritosOfertasEmpleoDataTable dataTable, int row = 0)
         {
             Demandante.DemandanteInscritoOferta demInscritoOferta = new Demandante.DemandanteInscritoOferta();

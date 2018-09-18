@@ -36,17 +36,16 @@ namespace AccesoBaseDeDatos
 
 
         /// <summary>
-        ///  Obtiene un objeto Empleador a partir de una id ofrecida por parámetro.
+        /// Devuelve una lista con las ofertas del Empleador cuya id es introducida por parámetro.
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns>Devuelve un objeto Empleador</returns>
+        /// <param name="idEmpleador"></param>
+        /// <returns>Devuelve una lista de objetos OfertaEmpleo</returns>
         public List<OfertaEmpleo> GetOfertasByIdEmpleador(int idEmpleador)
         {
             dtsOfertaEmpleo dts = new dtsOfertaEmpleo();
             Dictionary<DataColumn, Object> parametros = new Dictionary<DataColumn, object>();
             parametros.Add(dts.OfertasEmpleo.IdEmpleadorColumn, idEmpleador);
 
-            // Realizamos un merge con la tabla vacia del dtsUsuario con los resultados de la tabla obtenida
             dtsOfertaEmpleo.OfertasEmpleoDataTable dtOferta = (dtsOfertaEmpleo.OfertasEmpleoDataTable)Repo.Leer(dts.OfertasEmpleo, parametros);
             List<OfertaEmpleo> result = new List<OfertaEmpleo>();
 
@@ -64,8 +63,13 @@ namespace AccesoBaseDeDatos
 
 
 
-
-
+        /// <summary>
+        /// Llama al procedimiento (pCambiarEstado) con los valores introducidos por parámetro para cambiar el estado de una inscripción pendiente a Rechazada o Aceptada.
+        /// </summary>
+        /// <param name="IdOfertaEmpleo"></param>
+        /// <param name="IdDemandante"></param>
+        /// <param name="Estado"></param>
+        /// <returns>Devuelve un bool (true) para que se sepa que el cambio se ha realizado.</returns>
         public bool CambiarEstado(int IdOfertaEmpleo, int IdDemandante, int Estado)
         {
             try
@@ -82,6 +86,11 @@ namespace AccesoBaseDeDatos
 
 
 
+        /// <summary>
+        /// Devuelve una lista con los demandantes inscritos en una oferta concreta cuyo id se pasa por parámetro.
+        /// </summary>
+        /// <param name="idOferta"></param>
+        /// <returns>Devuelve una lista de objetos DemandanteInscritoOferta</returns>
         public List<DemandanteInscritoOferta> GetDemandantesInscritosOferta(int idOferta)
         {
             dtsDemandantesInscritosOferta dts = new dtsDemandantesInscritosOferta();

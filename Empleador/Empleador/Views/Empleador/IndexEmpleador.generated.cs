@@ -943,7 +943,7 @@ WriteLiteral(" class=\"btn btn-success\"");
 
 WriteLiteral(" data-toggle=\"modal\"");
 
-WriteLiteral(" ng-click=\"CambiarEstado(x,1)\"");
+WriteLiteral(" ng-click=\"CambiarEstado(x,2)\"");
 
 WriteLiteral(">Aceptar</button>\r\n                                                        <butto" +
 "n");
@@ -952,7 +952,7 @@ WriteLiteral(" class=\"btn btn-danger\"");
 
 WriteLiteral(" data-toggle=\"modal\"");
 
-WriteLiteral(" ng-click=\"CambiarEstado(x,2)\"");
+WriteLiteral(" ng-click=\"CambiarEstado(x,1)\"");
 
 WriteLiteral(@">Rechazar</button>
                                                     </td>

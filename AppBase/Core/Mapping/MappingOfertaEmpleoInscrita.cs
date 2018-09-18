@@ -10,6 +10,12 @@ namespace Core.Mapping
     public static class MappingOfertaEmpleoInscrita
     {
 
+        /// <summary>
+        /// Recoge los datos del dataTable introducido por parámetro para agregarselos a una nueva OfertaEmpleoInscrita.
+        /// </summary>
+        /// <param name="dataTable"></param>
+        /// <param name="row"></param>
+        /// <returns>Devuelve una OfertaEmpleoInscrita rellena de valores</returns>
         public static Empleador.OfertaEmpleoInscrita ToOfertaEmpleoInscrita(this dtsOfertaEmpleoInscrita.pInscritosLecturaDataTable dataTable, int row = 0)
         {
             Empleador.OfertaEmpleoInscrita ofertaInscrita = new Empleador.OfertaEmpleoInscrita();
@@ -31,8 +37,6 @@ namespace Core.Mapping
             ofertaInscrita.IdDemandante = Convert.ToInt32(dataTable.Rows[row][dataTable.IdDemandanteColumn.ColumnName]);
             ofertaInscrita.IdOfertaEmpleo = Convert.ToInt32(dataTable.Rows[row][dataTable.IdOfertaEmpleoColumn.ColumnName]);
 
-
-
             ofertaInscrita.FechaFinString = ofertaInscrita.FechaFin.ToString();
             ofertaInscrita.FechaFinString = ofertaInscrita.FechaFinString.Substring(0, 10);
             ofertaInscrita.FechaLanzamientoString = ofertaInscrita.FechaLanzamiento.ToString();
@@ -40,35 +44,5 @@ namespace Core.Mapping
 
             return ofertaInscrita;
         }
-
-
-
-
-        //public static dtsOfertaEmpleoInscrita ToDtsOfertaEmpleoInscrita(this Empleador.OfertaEmpleoInscrita ofertaInscrita)
-        //{
-        //    dtsOfertaEmpleoInscrita dts = new dtsOfertaEmpleoInscrita();
-        //    dtsOfertaEmpleoInscrita.pInscritosLecturaRow dtsRow = dts.pInscritosLectura.NewpInscritosLecturaRow();
-
-        //    dtsRow.IdEmpleador = ofertaInscrita.IdEmpleador;
-        //    dtsRow.Descripcion = ofertaInscrita.Descripcion;
-        //    dtsRow.NumeroVacantes = ofertaInscrita.NumeroVacantes;
-        //    dtsRow.Sueldo = ofertaInscrita.Sueldo;
-        //    dtsRow.FechaLanzamiento = DateTime.Now;
-        //    dtsRow.FechaFin = (DateTime)ofertaInscrita.FechaFin;
-        //    dtsRow.Observaciones = ofertaInscrita.Observaciones;
-        //    dtsRow.Titulo = ofertaInscrita.Titulo;
-
-        //    dtsRow.CV = ofertaInscrita.CV;
-        //    dtsRow.Notas = ofertaInscrita.Notas;
-        //    dtsRow.Estado = (short) ofertaInscrita.Estado;
-        //    dtsRow.Nombre = ofertaInscrita.Nombre;
-        //    dtsRow.NombreEmpresa = ofertaInscrita.NombreEmpresa;
-        //    dtsRow.IdDemandante = ofertaInscrita.IdDemandante;
-        //    dtsRow.IdOfertaEmpleo = ofertaInscrita.IdOfertaEmpleo;
-
-        //    dts.pInscritosLectura.AddpInscritosLecturaRow(dtsRow);
-        //    return dts;
-        //}
-
     }
 }

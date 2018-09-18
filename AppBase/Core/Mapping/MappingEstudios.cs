@@ -10,6 +10,11 @@ namespace Core.Mapping
     public class MappingEstudios
     {
 
+        /// <summary>
+        /// Método que recoge los Estudios del DataTable introducido por parámetro y los añade a una lista de Estudios.
+        /// </summary>
+        /// <param name="dt"></param>
+        /// <returns>Devuelve una lista de objetos Estudio.</returns>
         public List<Estudio.Estudio> VolcarEstudios(DataTable dt)
         {
             List<Estudio.Estudio> result = new List<Estudio.Estudio>();

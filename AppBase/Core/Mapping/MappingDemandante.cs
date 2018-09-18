@@ -10,6 +10,12 @@ namespace Core.Mapping
     public static class MappingDemandante
     {
 
+        /// <summary>
+        /// Método que crea un nuevo Demandante que lo devuelve con los valores del DataTable introducido por parámetro. 
+        /// </summary>
+        /// <param name="dataTable"></param>
+        /// <param name="row"></param>
+        /// <returns>Devuelve un Demandante relleno de valores</returns>
         public static Demandante.Demandante ToDemandante(this dtsDemandantes.DemandantesDataTable dataTable, int row = 0)
         {
             Demandante.Demandante dem = new Demandante.Demandante();
@@ -28,7 +34,11 @@ namespace Core.Mapping
 
 
 
-
+        /// <summary>
+        /// Método que devuelve un dtsDemandantes con los valores de un Demandante introducido por parámetro.
+        /// </summary>
+        /// <param name="dem"></param>
+        /// <returns>Devuelve un dataset de Demandantes relleno de valores.</returns>
         public static dtsDemandantes ToDtsDemandantes(this Demandante.Demandante dem)
         {
             dtsDemandantes dts = new dtsDemandantes();
