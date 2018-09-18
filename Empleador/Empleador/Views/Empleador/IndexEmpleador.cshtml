@@ -1,0 +1,260 @@
+﻿@model Core.Empleador.Empleador
+
+<!-- Scripts-->
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
+<script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.5.0/angular-locale_es-es.min.js"></script>
+
+<script src="~/Scripts propios/empleadorController.js"></script>
+
+<div ng-app="app">
+
+    <div ng-controller="EmpleadorController" data-ng-init="ObtenerDatosEmpleadorModel()" class="demo" style="width:auto">
+        <form id="myForm" method="post">
+            <div class="titulo">
+                <br><br><br>
+                <h3>Hola <span style="color:#428bca"><b>{{dataEmpModel.Usuario}}</b></span> esta es tu página de <b>empleador</b>.</h3><br><br>
+            </div>
+            <div class="row">
+
+                <!-- TABS ################-->
+                <div class="container">
+                    <ul class="nav nav-pills nav-justified well well-sm">
+                        <li class="active" style=""><a data-toggle="pill" href="#misdatos">Mis datos</a></li>
+                        <li><a data-toggle="pill" href="#misOfertas">Mis ofertas</a></li>
+                    </ul>
+
+                    <div class="tab-content well well-sm">
+                        <div id="misdatos" class="tab-pane fade in active">
+                            <br />
+                            <div class="panel" style="border-color: #428bca;">
+                                <div class="panel-heading" style="background-color:#428bca"><b style="color:white">Datos de usuario:</b></div>
+                                <div class="panel-body" style="padding-top:0; padding-bottom:0">
+                                    <ul class="list-group row" style="margin-bottom:0;">
+                                        <li class="list-group-item col-xs-4" style="height:45px;">Usuario:</li>
+                                        <li class="list-group-item col-xs-8" style="height:45px;">{{dataEmpModel.Usuario}}</li>
+                                        <li class="list-group-item col-xs-4" style="height:45px;">Nombre:</li>
+                                        <li class="list-group-item col-xs-8" style="height:45px;">{{dataEmpModel.Nombre}}</li>
+                                        <li class="list-group-item col-xs-4" style="height:45px;">Primer apellido:</li>
+                                        <li class="list-group-item col-xs-8" style="height:45px;">{{dataEmpModel.Apellido1}}</li>
+                                        <li class="list-group-item col-xs-4" style="height:45px;">Segundo apellido:</li>
+                                        <li class="list-group-item col-xs-8" style="height:45px;">{{dataEmpModel.Apellido2}}</li>
+                                        <li class="list-group-item col-xs-4" style="height:45px;">Tipo de usuario:</li>
+                                        <li class="list-group-item col-xs-8" ng-if="dataEmpModel.TipoUsuario == 0" style="height:45px;">Empleador</li>
+                                        <li class="list-group-item col-xs-8" ng-if="dataEmpModel.TipoUsuario == 1" style="height:45px;">Demandante</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="panel" style="border-color: #428bca;">
+                                <div class="panel-heading" style="background-color:#428bca"><b style="color:white">Datos de empleador:</b></div>
+                                <div class="panel-body" style="padding-top:0; padding-bottom:0">
+
+                                    <ul class="list-group row" style="margin-bottom:0">
+                                        <li class="list-group-item col-xs-4" style="height:45px;">Nombre empresa:</li>
+                                        <li class="list-group-item col-xs-8" style="height:45px;">{{dataEmpModel.NombreEmpresa}}</li>
+                                        <li class="list-group-item col-xs-4" style="height:45px;">Logo de la empresa:</li>
+                                        <li class="list-group-item col-xs-8" style="min-height:45px;"><img data-ng-src="data:image/jpg;base64,{{dataEmpModel.ImagenB64}}" class="img-responsive" /></li>
+                                        <li class="list-group-item col-xs-4" style="height:45px;">Dirección:</li>
+                                        <li class="list-group-item col-xs-8" style="height:45px;">{{dataEmpModel.Direccion}}</li>
+                                        <li class="list-group-item col-xs-4" style="height:45px;">Teléfono:</li>
+                                        <li class="list-group-item col-xs-8" style="height:45px;">{{dataEmpModel.Telefono}}</li>
+                                        <li class="list-group-item col-xs-4" style="height:45px;">Email:</li>
+                                        <li class="list-group-item col-xs-8" style="height:45px;">{{dataEmpModel.Email}}</li>
+                                        <li class="list-group-item col-xs-4" style="height:45px;">Tipo de industria:</li>
+                                        <li class="list-group-item col-xs-8" style="height:45px;">{{dataEmpModel.TipoIndustriaNombre}}</li>
+                                        <li class="list-group-item col-xs-4" style="height:45px;">Número de empleados:</li>
+                                        <li class="list-group-item col-xs-8" style="height:45px;">{{dataEmpModel.NumeroEmpleados}}</li>
+                                    </ul>
+                                </div>
+                            </div> <!-- cierre panel -->
+                        </div>
+
+
+
+                        <div id="misOfertas" class="tab-pane fade">
+                            <div class="form-group">
+                                <br />
+                                <h4 style="text-align:center">Si desea crear una nueva oferta haga click en el siguiente botón: </h4>
+                                <input type="submit" class="btn btn-info btn-block" value="Crear nueva oferta" id="btn-submit" data-toggle="modal" data-target="#modalPage" style="margin:auto">
+                                <br /><br />
+                            </div>
+
+                            <div class="tab-content well well-sm" style="background-color:white; padding:0">
+                                <div class="container" style="padding:0">
+                                    <table class="table table-striped table-bordered" style="text-align:center">
+                                        <thead style="background-color:#565656; overflow:hidden">
+                                            <tr style="color:white">
+                                                <th style="text-align:center">Título</th>
+                                                <th style="text-align:center">Num. Vacantes</th>
+                                                <th style="text-align:center">Sueldo</th>
+                                                <th style="text-align:center">Fecha de creación</th>
+                                                <th style="text-align:center">Fecha de finalización</th>
+                                                <th style="text-align:center">&equiv;</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="x in listOfertas">
+                                                <td style="vertical-align:middle; margin-left:10px !important">{{x.Titulo}}</td>
+                                                <td style="vertical-align:middle">{{x.NumeroVacantes}}</td>
+                                                <td style="vertical-align:middle">{{x.Sueldo}}</td>
+                                                <td style="vertical-align:middle">{{x.FechaLanzamientoString}}</td>
+                                                <td style="vertical-align:middle">{{x.FechaFinString}}</td>
+                                                <td style="vertical-align:middle"><button class="btn btn-warning" data-toggle="modal" ng-click="ModalVerOferta(x)">Ver detalles</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div> <!-- cierre table -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- TABS ################-->
+
+                <!--  MODAL CREAR OFERTA  ###############################  -->
+                <div class="modal fade" id="modalPage" tabindex="-1" role="dialog" aria-labelledby="modalPage" aria-hidden="true">
+                    <div class="modal-dialog" role="document" style="overflow-y: initial !important; margin-top:160px">
+                        <div class="modal-content" style="overflow: hidden">
+
+                            <div class="modal-header" style="text-align:center; background-color: #5bc0de; padding-bottom:0">
+                                <h4 class=" modal-title" id="modalTitle" style="color:white"><p>Crear nueva oferta de empleo:</p></h4>
+                            </div>
+
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-sm-7">
+                                        <div class="form-group">
+                                            <b>Título:</b><br />
+                                            <input type="text" ng-model="oferta.Titulo" class="form-control" name="ofertaTitulo" id="ofertaTitulo" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <b>Fecha de fin:</b><br />
+                                            <input type="date" ng-model="oferta.FechaFin" class="form-control" name="fechaFin" id="fechaFin">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <div class="form-group">
+                                            <b>Número de vacantes:</b><br />
+                                            <input type="number" ng-model="oferta.NumeroVacantes" class="form-control" name="numeroVacantes" id="numeroVacantes" style="width:auto" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <b>Sueldo:</b><br />
+                                            <input type="number" ng-model="oferta.Sueldo" class="form-control" name="ofertaSueldo" id="ofertaSueldo" style="width:auto">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <b>Observaciones:</b><br />
+                                            <input type="text" ng-model="oferta.Observaciones" class="form-control" name="observaciones" id="observaciones" style="max-width:500px;">
+                                        </div>
+                                        <div class="form-group">
+                                            <b>Descripción:</b><br />
+                                            <textarea class="form-control" rows="5" id="ofertaDescripcion" ng-model="oferta.Descripcion" name="oferta.Descripcion" style="max-width:500px; margin:0 !important; margin-right:0 !important" required></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-" data-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-info" ng-click="CrearOferta()">Crear oferta</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- ################################ -->
+
+                
+                <!--  MODAL VER DETALLE MI OFERTA  ###############################  -->
+                <div class="modal fade" id="modalVerOferta" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+                    <div class="modal-dialog" role="document" style="overflow-y: initial !important; width:1000px">
+                        <div class="modal-content" style="overflow: hidden">
+
+                            <div class="modal-header" style="text-align:center; background-color:#f0ad4e; padding-bottom:0">
+                                <h4 class=" modal-title" id="modalTitle" style="color:white">Detalles de la oferta de empleo:</h4>
+                            </div>
+
+                            <div class="modal-body" style="max-height: calc(100vh - 200px) !important; overflow-y: auto !important;">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <h3><b>{{ofertaDetalle.Titulo}}</b></h3>
+                                            <p style="text-align:justify">{{ofertaDetalle.Descripcion}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <br />
+                                            <b>Observaciones:</b><br />
+                                            <p style="text-align:justify">{{ofertaDetalle.Observaciones}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin:auto">
+                                    <hr />
+                                    <div class="form-group">
+                                        <p style="text-align:center">Disponibilidad:</p>
+                                        <p style="text-align:center"><span><b>{{ofertaDetalle.FechaLanzamientoString}}</b></span> - <span><b>{{ofertaDetalle.FechaFinString}}</b></span></p><br />
+                                    </div>
+                                    <div class="form-group" style="text-align:center">
+                                        <i class="glyphicon glyphicon-user" style="text-align:center"></i><b style="text-align:center">  {{ofertaDetalle.NumeroVacantes}}</b><br />
+                                    </div>
+                                    <div class="form-group" style="text-align:center">
+                                        <i class="glyphicon glyphicon-euro" style="text-align:center"></i><b style="text-align:center">  {{ofertaDetalle.Sueldo}}</b><br />
+                                    </div>
+                                </div>
+                                <hr /><br />
+
+                                <b>Lista de demandantes de empleo inscritos en la oferta:</b><br /><br />
+                                <div class="tab-content well well-sm" style="padding:0">
+                                    <div class="container" style="padding:0">
+                                        <table class="table table-striped table-bordered" style="text-align:center">
+                                            <thead style="background-color:#565656; overflow:hidden">
+                                                <tr style="color:white">
+                                                    <th style="text-align:center">Nombre completo</th>
+                                                    <th style="text-align:center">Teléfono</th>
+                                                    <th style="text-align:center">Estudios</th>
+                                                    <th style="text-align:center">Experiencia laboral</th>
+                                                    <th style="text-align:center">CV</th>
+                                                    <th style="text-align:center">Acciones</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="x in listInscritos">
+                                                    <td style="vertical-align:middle; margin-left:10px !important">{{x.NombreUsuario}} {{x.Apellido1}} {{x.Apellido2}}</td>
+                                                    <td style="vertical-align:middle">{{x.Telefono}}</td>
+                                                    <td style="vertical-align:middle">{{x.Nombre}}</td>
+                                                    <td style="vertical-align:middle">{{x.ExperienciaLaboral}}</td>
+                                                    <td style="vertical-align:middle"><button class="btn btn-warning" data-toggle="modal" ng-click=""><span class="glyphicon glyphicon-download-alt"></span></button></td>
+                                                    <td style="vertical-align:middle">
+                                                        <button class="btn btn-success" data-toggle="modal" ng-click="CambiarEstado(x,1)">Aceptar</button>
+                                                        <button class="btn btn-danger" data-toggle="modal" ng-click="CambiarEstado(x,2)">Rechazar</button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div> <!-- cierre table -->
+                                </div>
+
+
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-" data-dismiss="modal">Atrás</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ################################ -->
+
+
+            </div>
+        </form>
+    </div>
+</div>

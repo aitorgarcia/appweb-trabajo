@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7A172843-151D-4D6B-9A99-1E8688F66B05}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Core</RootNamespace>
+    <AssemblyName>Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Demandante\Demandante.cs" />
+    <Compile Include="Demandante\DemandanteInscritoOferta.cs" />
+    <Compile Include="Demandante\DemandanteModel.cs" />
+    <Compile Include="Empleador\Empleador.cs" />
+    <Compile Include="Empleador\EmpleadorModel.cs" />
+    <Compile Include="Empleador\OfertaEmpleo.cs" />
+    <Compile Include="Empleador\OfertaEmpleoInscrita.cs" />
+    <Compile Include="Enumerados\TipoUsuario.cs" />
+    <Compile Include="Esquemas\dtsDemandantes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dtsDemandantes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Esquemas\dtsDemandantesInscritos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dtsDemandantesInscritos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Esquemas\dtsDemandantesInscritosOferta.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dtsDemandantesInscritosOferta.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Esquemas\dtsEmpleadores.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dtsEmpleadores.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Esquemas\dtsEstudios.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dtsEstudios.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Esquemas\dtsIndustrias.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dtsIndustrias.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Esquemas\dtsLectura.cs">
+      <DependentUpon>dtsLectura.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Esquemas\dtsLectura.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dtsLectura.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Esquemas\dtsLecturaDemandantes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dtsLecturaDemandantes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Esquemas\dtsOfertaEmpleo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dtsOfertaEmpleo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Esquemas\dtsOfertaEmpleoInscrita.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dtsOfertaEmpleoInscrita.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Esquemas\dtsUsuarios.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dtsUsuarios.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Estudio\Estudio.cs" />
+    <Compile Include="Industria\Industria.cs" />
+    <Compile Include="Login\LoginModel.cs" />
+    <Compile Include="Mapping\MappingDemandante.cs" />
+    <Compile Include="Mapping\MappingDemandantesInscritosOferta.cs" />
+    <Compile Include="Mapping\MappingEmpleador.cs" />
+    <Compile Include="Mapping\MappingEstudios.cs" />
+    <Compile Include="Mapping\MappingIndustrias.cs" />
+    <Compile Include="Mapping\MappingLecturaDemandante.cs" />
+    <Compile Include="Mapping\MappingLecturaEmpleador.cs" />
+    <Compile Include="Mapping\MappingOfertaEmpleo.cs" />
+    <Compile Include="Mapping\MappingOfertaEmpleoInscrita.cs" />
+    <Compile Include="Mapping\MappingUsuario.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Registro\RegistroModel.cs" />
+    <Compile Include="Usuario\Usuario.cs" />
+    <Compile Include="Utilidades\Cookies.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Esquemas\dtsDemandantes.xsc">
+      <DependentUpon>dtsDemandantes.xsd</DependentUpon>
+    </None>
+    <None Include="Esquemas\dtsDemandantes.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dtsDemandantes.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Esquemas\dtsDemandantes.xss">
+      <DependentUpon>dtsDemandantes.xsd</DependentUpon>
+    </None>
+    <None Include="Esquemas\dtsDemandantesInscritos.xsc">
+      <DependentUpon>dtsDemandantesInscritos.xsd</DependentUpon>
+    </None>
+    <None Include="Esquemas\dtsDemandantesInscritos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dtsDemandantesInscritos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Esquemas\dtsDemandantesInscritos.xss">
+      <DependentUpon>dtsDemandantesInscritos.xsd</DependentUpon>
+    </None>
+    <None Include="Esquemas\dtsDemandantesInscritosOferta.xsc">
+      <DependentUpon>dtsDemandantesInscritosOferta.xsd</DependentUpon>
+    </None>
+    <None Include="Esquemas\dtsDemandantesInscritosOferta.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dtsDemandantesInscritosOferta.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Esquemas\dtsDemandantesInscritosOferta.xss">
+      <DependentUpon>dtsDemandantesInscritosOferta.xsd</DependentUpon>
+    </None>
+    <None Include="Esquemas\dtsEmpleadores.xsc">
+      <DependentUpon>dtsEmpleadores.xsd</DependentUpon>
+    </None>
+    <None Include="Esquemas\dtsEmpleadores.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dtsEmpleadores.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Esquemas\dtsEmpleadores.xss">
+      <DependentUpon>dtsEmpleadores.xsd</DependentUpon>
+    </None>
+    <None Include="Esquemas\dtsEstudios.xsc">
+      <DependentUpon>dtsEstudios.xsd</DependentUpon>
+    </None>
+    <None Include="Esquemas\dtsEstudios.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dtsEstudios.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Esquemas\dtsEstudios.xss">
+      <DependentUpon>dtsEstudios.xsd</DependentUpon>
+    </None>
+    <None Include="Esquemas\dtsIndustrias.xsc">
+      <DependentUpon>dtsIndustrias.xsd</DependentUpon>
+    </None>
+    <None Include="Esquemas\dtsIndustrias.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dtsIndustrias.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Esquemas\dtsIndustrias.xss">
+      <DependentUpon>dtsIndustrias.xsd</DependentUpon>
+    </None>
+    <None Include="Esquemas\dtsLectura.xsc">
+      <DependentUpon>dtsLectura.xsd</DependentUpon>
+    </None>
+    <None Include="Esquemas\dtsLectura.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dtsLectura.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Esquemas\dtsLectura.xss">
+      <DependentUpon>dtsLectura.xsd</DependentUpon>
+    </None>
+    <None Include="Esquemas\dtsLecturaDemandantes.xsc">
+      <DependentUpon>dtsLecturaDemandantes.xsd</DependentUpon>
+    </None>
+    <None Include="Esquemas\dtsLecturaDemandantes.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dtsLecturaDemandantes.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Esquemas\dtsLecturaDemandantes.xss">
+      <DependentUpon>dtsLecturaDemandantes.xsd</DependentUpon>
+    </None>
+    <None Include="Esquemas\dtsOfertaEmpleo.xsc">
+      <DependentUpon>dtsOfertaEmpleo.xsd</DependentUpon>
+    </None>
+    <None Include="Esquemas\dtsOfertaEmpleo.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dtsOfertaEmpleo.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Esquemas\dtsOfertaEmpleo.xss">
+      <DependentUpon>dtsOfertaEmpleo.xsd</DependentUpon>
+    </None>
+    <None Include="Esquemas\dtsOfertaEmpleoInscrita.xsc">
+      <DependentUpon>dtsOfertaEmpleoInscrita.xsd</DependentUpon>
+    </None>
+    <None Include="Esquemas\dtsOfertaEmpleoInscrita.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dtsOfertaEmpleoInscrita.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Esquemas\dtsOfertaEmpleoInscrita.xss">
+      <DependentUpon>dtsOfertaEmpleoInscrita.xsd</DependentUpon>
+    </None>
+    <None Include="Esquemas\dtsUsuarios.xsc">
+      <DependentUpon>dtsUsuarios.xsd</DependentUpon>
+    </None>
+    <None Include="Esquemas\dtsUsuarios.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dtsUsuarios.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Esquemas\dtsUsuarios.xss">
+      <DependentUpon>dtsUsuarios.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

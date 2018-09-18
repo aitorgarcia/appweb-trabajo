@@ -1,0 +1,45 @@
+﻿@model Core.Login.LoginModels
+
+
+<!-- Scripts-->
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
+<script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.5.0/angular-locale_es-es.min.js"></script>
+
+<script src="~/Scripts propios/loginController.js"></script>
+
+<div ng-app="app">
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <br>
+            <h3>Inicio de sesión:</h3><br>
+
+
+            <div ng-controller="LoginController" data-ng-init="init()" class="demo" style="width:auto">
+                <form id="userForm" method="post" name="userForm" ng-show="!signUp.submitted" ng-submit="userForm.$valid">
+                    <div class="form-group">
+                        <b>Usuario:</b><br />
+                        <i class="fa fa-user icon"></i>
+                        <input type="text" ng-model="user.User" class="form-control" name="users" id="user" required/>
+                        <span class="text-danger" ng-show="userForm.users.$error.required && (userForm.users.$dirty && userForm.users.$touched)"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <b>Contraseña:</b><br />
+                        <input type="password" ng-model="user.Password" class="form-control" name="password" id="password" required /> <br />
+                        <input type="submit" class="btn btn-info" value=" Acceder" id="btn-submit" ng-click="ValidarDatos()">
+                    </div>
+
+                    <div>
+                        <br /><br /><br />
+                        <input type="button" class="btn btn-primary btn-block" value="Registrarse" id="btn-registro" onclick="location.href='/Registro/Index';" />
+                        <br /><br />
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+</div>

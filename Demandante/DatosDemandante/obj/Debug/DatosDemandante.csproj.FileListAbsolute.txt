@@ -1,0 +1,10 @@
+C:\Users\Aitor\Documents\Visual Studio 2013\Projects\Demandante\DatosDemandante\obj\Debug\DatosDemandante.csprojResolveAssemblyReference.cache
+C:\Users\Aitor\Documents\Visual Studio 2013\Projects\Demandante\DatosDemandante\bin\Debug\DatosDemandante.dll
+C:\Users\Aitor\Documents\Visual Studio 2013\Projects\Demandante\DatosDemandante\bin\Debug\DatosDemandante.pdb
+C:\Users\Aitor\Documents\Visual Studio 2013\Projects\Demandante\DatosDemandante\bin\Debug\BaseDeDatos.dll
+C:\Users\Aitor\Documents\Visual Studio 2013\Projects\Demandante\DatosDemandante\bin\Debug\Core.dll
+C:\Users\Aitor\Documents\Visual Studio 2013\Projects\Demandante\DatosDemandante\bin\Debug\GestorBD.dll
+C:\Users\Aitor\Documents\Visual Studio 2013\Projects\Demandante\DatosDemandante\bin\Debug\BaseDeDatos.pdb
+C:\Users\Aitor\Documents\Visual Studio 2013\Projects\Demandante\DatosDemandante\bin\Debug\Core.pdb
+C:\Users\Aitor\Documents\Visual Studio 2013\Projects\Demandante\DatosDemandante\obj\Debug\DatosDemandante.dll
+C:\Users\Aitor\Documents\Visual Studio 2013\Projects\Demandante\DatosDemandante\obj\Debug\DatosDemandante.pdb
