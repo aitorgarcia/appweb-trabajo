@@ -67,7 +67,7 @@ WriteLiteral(">\r\n\r\n    <div");
 
 WriteLiteral(" ng-controller=\"EmpleadorController\"");
 
-WriteLiteral(" data-ng-init=\"ObtenerDatosEmpleadorModel()\"");
+WriteLiteral(" data-ng-init=\"ObtenerDatosEmpleadorModel(); ObtenerIndustrias();\"");
 
 WriteLiteral(" class=\"demo\"");
 
@@ -1142,6 +1142,8 @@ WriteLiteral(" type=\"text\"");
 
 WriteLiteral(" class=\"form-control\"");
 
+WriteLiteral(" ng-model=\"dataEmpModelEditarUsuario.Usuario\"");
+
 WriteLiteral(" name=\"usuario\"");
 
 WriteLiteral(" id=\"usuario\"");
@@ -1160,13 +1162,15 @@ WriteLiteral(" type=\"text\"");
 
 WriteLiteral(" class=\"form-control\"");
 
+WriteLiteral(" ng-model=\"dataEmpModelEditarUsuario.Contrasena\"");
+
 WriteLiteral(" name=\"contrasena\"");
 
 WriteLiteral(" id=\"contrasena\"");
 
-WriteLiteral(" placeholder=\"**********\"");
+WriteLiteral(" value=\"{{dataEmpModel.Contrasena}}\"");
 
-WriteLiteral(" disabled>\r\n                                        </div>\r\n                     " +
+WriteLiteral(" required>\r\n                                        </div>\r\n                     " +
 "                   <div");
 
 WriteLiteral(" class=\"form-group\"");
@@ -1204,9 +1208,9 @@ WriteLiteral(" type=\"button\"");
 
 WriteLiteral(" class=\"btn btn-info\"");
 
-WriteLiteral(" ng-click=\"CrearOferta()\"");
+WriteLiteral(" ng-click=\"ModificarDatosUsuario()\"");
 
-WriteLiteral(@">Crear oferta</button>
+WriteLiteral(@">Guardar datos</button>
                             </div>
 
                         </div>
@@ -1372,29 +1376,24 @@ WriteLiteral(" id=\"numEmpleados\"");
 
 WriteLiteral(" value=\"{{dataEmpModel.NumeroEmpleados}}\"");
 
-WriteLiteral(" required>\r\n                                        </div>\r\n                     " +
-"                   <div");
+WriteLiteral(" required>\r\n                                        </div>\r\n\r\n                   " +
+"                     <div");
 
 WriteLiteral(" class=\"form-group\"");
 
 WriteLiteral(">\r\n                                            <b>Tipo de industria:</b><br />\r\n " +
-"                                           <input");
-
-WriteLiteral(" type=\"text\"");
+"                                           <select");
 
 WriteLiteral(" class=\"form-control\"");
 
-WriteLiteral(" ng-model=\"dataEmpModelEditarEmpleador.Apellido2\"");
+WriteLiteral(" ng-model=\"dataEmpModelEditarEmpleador.TipoIndustria\"");
 
-WriteLiteral(" name=\"tipoIndustria\"");
+WriteLiteral(" ng-options=\"industria.TipoIndustria as industria.Nombre for industria in industr" +
+"ias\"");
 
-WriteLiteral(" id=\"tipoIndustria\"");
-
-WriteLiteral(" placeholder=\"Empleador\"");
-
-WriteLiteral(" disabled>\r\n                                        </div>\r\n                     " +
-"               </div>\r\n                                </div>\r\n                 " +
-"               <div");
+WriteLiteral(" required>\r\n                                            </select>\r\n              " +
+"                          </div>\r\n                                    </div>\r\n  " +
+"                              </div>\r\n                                <div");
 
 WriteLiteral(" class=\"row\"");
 
@@ -1442,9 +1441,9 @@ WriteLiteral(" type=\"button\"");
 
 WriteLiteral(" class=\"btn btn-info\"");
 
-WriteLiteral(" ng-click=\"CrearOferta()\"");
+WriteLiteral(" ng-click=\"ModificarDatosEmpleador()\"");
 
-WriteLiteral(@">Crear oferta</button>
+WriteLiteral(@">Guardar datos</button>
                             </div>
 
                         </div>

@@ -85,6 +85,46 @@ namespace AccesoBaseDeDatos
 
 
         /// <summary>
+        ///  Registra en la base de datos los datos del Empleador ofrecido por parámetro.
+        /// </summary>
+        /// <param name="empModel"></param>
+        /// <returns>Devuelve un booleano según si se ha realizado correctamente o no.</returns>
+        public bool ModificarDatosEmpleador(EmpleadorModel empModel)
+        {
+            Empleador aux = GetEmpleadorByUserId(empModel.IdUsuario);
+            if (aux == null)
+                return false;
+
+            dtsEmpleadores dts = MappingEmpleador.ToDtsEmpleadoresModificar(empModel);
+            Repo.Guardar(dts);
+
+            Dictionary<DataColumn, Object> parametros = new Dictionary<DataColumn, object>();
+            parametros.Add(dts.Empleadores.IdUsuarioColumn, empModel.IdUsuario);
+
+            return true;
+        }
+
+
+
+
+        public bool ModificarDatosUsuario(EmpleadorModel empModel)
+        {
+            Empleador aux = GetEmpleadorByUserId(empModel.IdUsuario);
+            if (aux == null)
+                return false;
+
+            dtsUsuarios dts = MappingEmpleador.ToDtsUsuarioModificar(empModel);
+            Repo.Guardar(dts);
+
+            Dictionary<DataColumn, Object> parametros = new Dictionary<DataColumn, object>();
+            parametros.Add(dts.Usuarios.IdColumn, empModel.IdUsuario);
+
+            return true;
+        }
+
+
+
+        /// <summary>
         /// Obtiene todos los tipos de industrias que hay en la base de datos.
         /// </summary>
         /// <returns>Una lista de objetos Industria con cada una de ellas.</returns>

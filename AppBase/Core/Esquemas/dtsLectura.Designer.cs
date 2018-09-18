@@ -307,6 +307,8 @@ namespace Core.Esquemas {
             
             private global::System.Data.DataColumn columnTipoUsuario;
             
+            private global::System.Data.DataColumn columnContrasena;
+            
             private global::System.Data.DataColumn columnNumeroEmpleados;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -456,6 +458,14 @@ namespace Core.Esquemas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ContrasenaColumn {
+                get {
+                    return this.columnContrasena;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn NumeroEmpleadosColumn {
                 get {
                     return this.columnNumeroEmpleados;
@@ -499,7 +509,7 @@ namespace Core.Esquemas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public EmpleadoresRow AddEmpleadoresRow(int IdUsuario, string NombreEmpresa, byte[] LogoEmpresa, string Direccion, string Telefono, string Email, string TipoIndustriaNombre, short TipoIndustria, string Apellido1, string Apellido2, string Usuario, string Nombre, short TipoUsuario, int NumeroEmpleados) {
+            public EmpleadoresRow AddEmpleadoresRow(int IdUsuario, string NombreEmpresa, byte[] LogoEmpresa, string Direccion, string Telefono, string Email, string TipoIndustriaNombre, short TipoIndustria, string Apellido1, string Apellido2, string Usuario, string Nombre, short TipoUsuario, string Contrasena, int NumeroEmpleados) {
                 EmpleadoresRow rowEmpleadoresRow = ((EmpleadoresRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -516,6 +526,7 @@ namespace Core.Esquemas {
                         Usuario,
                         Nombre,
                         TipoUsuario,
+                        Contrasena,
                         NumeroEmpleados};
                 rowEmpleadoresRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowEmpleadoresRow);
@@ -560,6 +571,7 @@ namespace Core.Esquemas {
                 this.columnUsuario = base.Columns["Usuario"];
                 this.columnNombre = base.Columns["Nombre"];
                 this.columnTipoUsuario = base.Columns["TipoUsuario"];
+                this.columnContrasena = base.Columns["Contrasena"];
                 this.columnNumeroEmpleados = base.Columns["NumeroEmpleados"];
             }
             
@@ -594,6 +606,8 @@ namespace Core.Esquemas {
                 base.Columns.Add(this.columnNombre);
                 this.columnTipoUsuario = new global::System.Data.DataColumn("TipoUsuario", typeof(short), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTipoUsuario);
+                this.columnContrasena = new global::System.Data.DataColumn("Contrasena", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnContrasena);
                 this.columnNumeroEmpleados = new global::System.Data.DataColumn("NumeroEmpleados", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNumeroEmpleados);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
@@ -618,6 +632,7 @@ namespace Core.Esquemas {
                 this.columnUsuario.AllowDBNull = false;
                 this.columnNombre.AllowDBNull = false;
                 this.columnTipoUsuario.AllowDBNull = false;
+                this.columnContrasena.AllowDBNull = false;
                 this.columnNumeroEmpleados.AllowDBNull = false;
             }
             
@@ -925,6 +940,17 @@ namespace Core.Esquemas {
                 }
                 set {
                     this[this.tableEmpleadores.TipoUsuarioColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Contrasena {
+                get {
+                    return ((string)(this[this.tableEmpleadores.ContrasenaColumn]));
+                }
+                set {
+                    this[this.tableEmpleadores.ContrasenaColumn] = value;
                 }
             }
             

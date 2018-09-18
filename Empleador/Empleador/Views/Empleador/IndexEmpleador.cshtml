@@ -9,7 +9,7 @@
 
 <div ng-app="app">
 
-    <div ng-controller="EmpleadorController" data-ng-init="ObtenerDatosEmpleadorModel()" class="demo" style="width:auto">
+    <div ng-controller="EmpleadorController" data-ng-init="ObtenerDatosEmpleadorModel(); ObtenerIndustrias();" class="demo" style="width:auto">
         <form id="myForm" method="post">
             <div class="titulo">
                 <br><br><br>
@@ -281,11 +281,11 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <b>Usuario:</b><br />
-                                            <input type="text" class="form-control" name="usuario" id="usuario" placeholder="{{dataEmpModel.Usuario}}" disabled>
+                                            <input type="text" class="form-control" ng-model="dataEmpModelEditarUsuario.Usuario" name="usuario" id="usuario" placeholder="{{dataEmpModel.Usuario}}" disabled>
                                         </div>
                                         <div class="form-group">
                                             <b>Contraseña:</b><br />
-                                            <input type="text" class="form-control" name="contrasena" id="contrasena" placeholder="**********" disabled>
+                                            <input type="text" class="form-control" ng-model="dataEmpModelEditarUsuario.Contrasena" name="contrasena" id="contrasena" value="{{dataEmpModel.Contrasena}}" required>
                                         </div>
                                         <div class="form-group">
                                             <b>Tipo de usuario:</b><br />
@@ -297,7 +297,7 @@
 
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-" data-dismiss="modal">Cancelar</button>
-                                <button type="button" class="btn btn-info" ng-click="CrearOferta()">Crear oferta</button>
+                                <button type="button" class="btn btn-info" ng-click="ModificarDatosUsuario()">Guardar datos</button>
                             </div>
 
                         </div>
@@ -339,9 +339,11 @@
                                             <b>Número de empleados:</b><br />
                                             <input type="number" class="form-control" ng-model="dataEmpModelEditarEmpleador.NumeroEmpleados" name="numEmpleados" id="numEmpleados" value="{{dataEmpModel.NumeroEmpleados}}" required>
                                         </div>
+
                                         <div class="form-group">
                                             <b>Tipo de industria:</b><br />
-                                            <input type="text" class="form-control" ng-model="dataEmpModelEditarEmpleador.Apellido2" name="tipoIndustria" id="tipoIndustria" placeholder="Empleador" disabled>
+                                            <select class="form-control" ng-model="dataEmpModelEditarEmpleador.TipoIndustria" ng-options="industria.TipoIndustria as industria.Nombre for industria in industrias" required>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -358,7 +360,7 @@
 
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-" data-dismiss="modal">Cancelar</button>
-                                <button type="button" class="btn btn-info" ng-click="CrearOferta()">Crear oferta</button>
+                                <button type="button" class="btn btn-info" ng-click="ModificarDatosEmpleador()">Guardar datos</button>
                             </div>
 
                         </div>

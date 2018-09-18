@@ -33,6 +33,7 @@ namespace Core.Mapping
 
             empModel.Usuario = dataTable.Rows[row][dataTable.UsuarioColumn.ColumnName].ToString();
             empModel.Nombre = dataTable.Rows[row][dataTable.NombreColumn.ColumnName].ToString();
+            empModel.Contrasena = dataTable[row][dataTable.ContrasenaColumn.ColumnName].ToString();
             empModel.Apellido1 = dataTable.Rows[row][dataTable.Apellido1Column.ColumnName].ToString();
             empModel.Apellido2 = dataTable.Rows[row][dataTable.Apellido2Column.ColumnName].ToString();
             empModel.TipoUsuario = Convert.ToInt16(dataTable.Rows[row][dataTable.TipoUsuarioColumn.ColumnName]);

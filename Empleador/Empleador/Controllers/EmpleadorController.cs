@@ -60,6 +60,48 @@ namespace Empleador.Controllers
 
 
 
+
+        [HttpPost]
+        public JsonResult ModificarDatosUsuario(EmpleadorModel empModel)
+        {
+            if (ModelState.IsValid)
+            {
+                CapaNegocio.NGEmpleador ngEmpleador = new CapaNegocio.NGEmpleador();
+                empModel.IdUsuario = Convert.ToInt32(Cookies.GetCookie("Id"));
+
+                bool result = ngEmpleador.ValidarDatosModificarUsuario(empModel);
+
+                if (result)
+                    return Json(empModel);
+                return Json(false);
+            }
+            return Json(false);
+        }
+
+
+
+
+        [HttpPost]
+        public JsonResult ModificarDatosEmpleador(EmpleadorModel empModel)
+        {
+            if (ModelState.IsValid)
+            {
+                CapaNegocio.NGEmpleador ngEmpleador = new CapaNegocio.NGEmpleador();
+                empModel.IdUsuario = Convert.ToInt32(Cookies.GetCookie("Id"));
+
+                bool result = ngEmpleador.ValidarDatosModificarEmpleador(empModel);
+
+                if (result)
+                    return Json(empModel);
+                return Json(false);
+            }
+            return Json(false);
+        }
+
+
+
+
+
         /// <summary>
         /// Método que cambia el estado de una inscripción cuando se rechaza o acepta.
         /// </summary>
@@ -88,7 +130,7 @@ namespace Empleador.Controllers
 
         /// <summary>
         /// Método que se ejecuta al pulsar el botón de guardar los datos en la vista.
-        /// Manda el Empleador con su id (obtenida de la cookie) hacia la capa de negocio para guardar sus datos.
+        /// Manda la OfertaEmpleo hacia la capa de negocio para guardar sus datos.
         /// </summary>
         /// <param name="oferta"></param>
         /// <returns>Un archivo JSON con los datos del Empleador guardado o un JSON con
@@ -99,8 +141,6 @@ namespace Empleador.Controllers
             if (ModelState.IsValid)
             {
                 CapaNegocio.NGOfertaEmpleo ngOfertaEmpleo = new CapaNegocio.NGOfertaEmpleo();
-                //ID?
-
                 bool result = ngOfertaEmpleo.ValidarDatosOfertaEmpleo(oferta);
 
                 if (result)

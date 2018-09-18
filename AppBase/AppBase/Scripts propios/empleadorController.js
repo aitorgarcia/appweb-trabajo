@@ -10,6 +10,8 @@ app.controller('EmpleadorController', ['$scope', '$http', '$element', '$interval
     $scope.ofertaDetalle = {};
     $scope.listInscritos = {};
     $scope.inscripcionEstado = {};
+    $scope.dataEmpModelEditarUsuario = {};
+    $scope.dataEmpModelEditarEmpleador = {};
 
 
 
@@ -36,6 +38,45 @@ app.controller('EmpleadorController', ['$scope', '$http', '$element', '$interval
         $('#modalVerOferta').modal('show');
     };
 
+
+    //Método que guarda los NUEVOS datos MODIFICADOS del Empelador.
+    $scope.ModificarDatosEmpleador = function () {
+        var url = "/Empleador/ModificarDatosEmpleador";
+        $http({
+            method: 'POST',
+            url: url,
+            data: $scope.dataEmpModelEditarEmpleador,
+            contentType: "application/json; charset=utf-8",
+        }).success(function (result) {
+            if (result === false) {
+                alert("Compruebe que ha rellenado correctamente todos los campos obligatorios.")
+            } else {
+                alert("Datos registrados correctamente.")
+                window.location.href = "/Empleador/IndexEmpleador";
+            }
+        }).error(function () {
+        });
+    };
+
+
+    //Método que guarda los NUEVOS datos MODIFICADOS del Empelador.
+    $scope.ModificarDatosUsuario = function () {
+        var url = "/Empleador/ModificarDatosUsuario";
+        $http({
+            method: 'POST',
+            url: url,
+            data: $scope.dataEmpModelEditarUsuario,
+            contentType: "application/json; charset=utf-8",
+        }).success(function (result) {
+            if (result === false) {
+                alert("Compruebe que ha rellenado correctamente todos los campos obligatorios.")
+            } else {
+                alert("Datos registrados correctamente.")
+                window.location.href = "/Empleador/IndexEmpleador";
+            }
+        }).error(function () {
+        });
+    };
 
 
     //Método que cambia el estado de una inscripción (de Pendiente a Aceptado o Rechazado).

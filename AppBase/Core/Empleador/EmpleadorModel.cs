@@ -15,6 +15,7 @@ namespace Core.Empleador
         public int TipoUsuario { get; set; }
         public string TipoIndustriaNombre { get; set; }
         public string ImagenB64 { get; set; }
+        public string Contrasena { get; set; }
 
     }
 }
