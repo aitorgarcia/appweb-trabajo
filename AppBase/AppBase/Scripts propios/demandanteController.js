@@ -16,6 +16,7 @@ app.controller('DemandanteController', ['$scope', '$http', '$element', '$interva
 
 
 
+
     //Método que muestra la información detallada de la ofertas disponibles.
     $scope.ModalVerOfertaDisponible = function (oferta) {
         $scope.ofertaDetalleModal = oferta;

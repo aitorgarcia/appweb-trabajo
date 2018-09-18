@@ -28,7 +28,10 @@
                         <div id="misdatos" class="tab-pane fade in active">
                             <br />
                             <div class="panel" style="border-color: #428bca;">
-                                <div class="panel-heading" style="background-color:#428bca"><b style="color:white">Datos de usuario:</b></div>
+                                <div class="panel-heading clearfix" style="background-color:#428bca">
+                                    <b style="color:white">Datos de usuario:</b>
+                                    <button class="btn btn-info pull-right" style="padding-top:0" data-toggle="modal" ng-click="ModalEditarUsuario(dataEmpModel)"><i class="glyphicon glyphicon-pencil" style="text-align:center; vertical-align:middle"></i></button>
+                                </div>
                                 <div class="panel-body" style="padding-top:0; padding-bottom:0">
                                     <ul class="list-group row" style="margin-bottom:0;">
                                         <li class="list-group-item col-xs-4" style="height:45px;">Usuario:</li>
@@ -47,7 +50,10 @@
                             </div>
 
                             <div class="panel" style="border-color: #428bca;">
-                                <div class="panel-heading" style="background-color:#428bca"><b style="color:white">Datos de empleador:</b></div>
+                                <div class="panel-heading clearfix" style="background-color:#428bca">
+                                    <b style="color:white">Datos de empleador:</b>
+                                    <button class="btn btn-info pull-right" style="padding-top:0" data-toggle="modal" ng-click="ModalEditarEmpleador(dataEmpModel)"><i class="glyphicon glyphicon-pencil" style="text-align:center; vertical-align:middle"></i></button>
+                                </div>
                                 <div class="panel-body" style="padding-top:0; padding-bottom:0">
 
                                     <ul class="list-group row" style="margin-bottom:0">
@@ -110,7 +116,6 @@
                     </div>
                 </div>
                 <!-- TABS ################-->
-
                 <!--  MODAL CREAR OFERTA  ###############################  -->
                 <div class="modal fade" id="modalPage" tabindex="-1" role="dialog" aria-labelledby="modalPage" aria-hidden="true">
                     <div class="modal-dialog" role="document" style="overflow-y: initial !important; margin-top:160px">
@@ -167,8 +172,6 @@
                     </div>
                 </div>
                 <!-- ################################ -->
-
-                
                 <!--  MODAL VER DETALLE MI OFERTA  ###############################  -->
                 <div class="modal fade" id="modalVerOferta" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
                     <div class="modal-dialog" role="document" style="overflow-y: initial !important; width:1000px">
@@ -241,13 +244,123 @@
                                         </table>
                                     </div> <!-- cierre table -->
                                 </div>
-
-
                             </div>
-
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-" data-dismiss="modal">Atrás</button>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ################################ -->
+                <!--  MODAL EDITAR DATOS USUARIO  ###############################  -->
+                <div class="modal fade" id="modalEditarUsuario" tabindex="-1" role="dialog" aria-labelledby="modalEditarUsuario" aria-hidden="true">
+                    <div class="modal-dialog" role="document" style="overflow-y: initial !important; margin-top:160px">
+                        <div class="modal-content" style="overflow: hidden">
+
+                            <div class="modal-header" style="text-align:center; background-color: #5bc0de; padding-bottom:0">
+                                <h4 class=" modal-title" id="modalTitle" style="color:white"><p>Editar datos de usuario:</p></h4>
+                            </div>
+
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <b>Nombre:</b><br />
+                                            <input type="text" class="form-control" ng-model="dataEmpModelEditarUsuario.Nombre" name="nombre" id="nombre" value="{{dataEmpModel.Nombre}}" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <b>Primer apellido:</b><br />
+                                            <input type="text" class="form-control" ng-model="dataEmpModelEditarUsuario.Apellido1" name="apellido1" id="apellido1" value="{{dataEmpModel.Apellido1}}" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <b>Segundo apellido:</b><br />
+                                            <input type="text" class="form-control" ng-model="dataEmpModelEditarUsuario.Apellido2" name="apellido2" id="apellido2" value="{{dataEmpModel.Apellido2}}" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <b>Usuario:</b><br />
+                                            <input type="text" class="form-control" name="usuario" id="usuario" placeholder="{{dataEmpModel.Usuario}}" disabled>
+                                        </div>
+                                        <div class="form-group">
+                                            <b>Contraseña:</b><br />
+                                            <input type="text" class="form-control" name="contrasena" id="contrasena" placeholder="**********" disabled>
+                                        </div>
+                                        <div class="form-group">
+                                            <b>Tipo de usuario:</b><br />
+                                            <input type="text" class="form-control" name="tipoUsuario" id="tipoUsuario" placeholder="Empleador" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-" data-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-info" ng-click="CrearOferta()">Crear oferta</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- ################################ -->
+                <!--  MODAL EDITAR DATOS EMPLEADOR  ###############################  -->
+                <div class="modal fade" id="modalEditarEmpleador" tabindex="-1" role="dialog" aria-labelledby="modalEditarEmpleador" aria-hidden="true">
+                    <div class="modal-dialog" role="document" style="overflow-y: initial !important; margin-top:160px">
+                        <div class="modal-content" style="overflow: hidden">
+
+                            <div class="modal-header" style="text-align:center; background-color: #5bc0de; padding-bottom:0">
+                                <h4 class=" modal-title" id="modalTitle" style="color:white"><p>Editar datos de empleador:</p></h4>
+                            </div>
+
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <b>Nombre de la empresa:</b><br />
+                                            <input type="text" class="form-control" ng-model="dataEmpModelEditarEmpleador.NombreEmpresa" name="nombreEmpresa" id="nombreEmpresa" value="{{dataEmpModel.NombreEmpresa}}" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <b>Dirección:</b><br />
+                                            <input type="text" class="form-control" ng-model="dataEmpModelEditarEmpleador.Direccion" name="direccion" id="direccion" value="{{dataEmpModel.Direccion}}" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <b>Teléfono:</b><br />
+                                            <input type="text" class="form-control" ng-model="dataEmpModelEditarEmpleador.Telefono" name="telefono" id="telefono" value="{{dataEmpModel.Telefono}}" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <b>Email:</b><br />
+                                            <input type="text" class="form-control" ng-model="dataEmpModelEditarEmpleador.Email" name="email" id="email" value="{{dataEmpModel.Email}}" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <b>Número de empleados:</b><br />
+                                            <input type="number" class="form-control" ng-model="dataEmpModelEditarEmpleador.NumeroEmpleados" name="numEmpleados" id="numEmpleados" value="{{dataEmpModel.NumeroEmpleados}}" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <b>Tipo de industria:</b><br />
+                                            <input type="text" class="form-control" ng-model="dataEmpModelEditarEmpleador.Apellido2" name="tipoIndustria" id="tipoIndustria" placeholder="Empleador" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <br />
+                                            <b>Logo de la empresa:</b><br />
+                                            <input type="file" class="form-control" ng-model="dataEmpModelEditarEmpleador.LogoEmpresa" name="logoEmpresa" id="logoEmpresa" style="max-width:700px" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-" data-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-info" ng-click="CrearOferta()">Crear oferta</button>
+                            </div>
+
                         </div>
                     </div>
                 </div>

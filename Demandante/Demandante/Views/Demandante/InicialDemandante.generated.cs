@@ -90,7 +90,7 @@ WriteLiteral(">\r\n                <br><br><br>\r\n                <h3>Hola <spa
 WriteLiteral(" style=\"color:#b94a48\"");
 
 WriteLiteral("><b>{{dataDemModel.Usuario}}</b></span> esta es tu página de <b>demandante</b>.</" +
-"h3><br><br>  \r\n            </div>\r\n\r\n            <div");
+"h3><br><br>\r\n            </div>\r\n\r\n            <div");
 
 WriteLiteral(" class=\"row\"");
 
@@ -145,15 +145,28 @@ WriteLiteral(" style=\"border-color: #428bca;\"");
 
 WriteLiteral(">\r\n                            <div");
 
-WriteLiteral(" class=\"panel-heading\"");
+WriteLiteral(" class=\"panel-heading clearfix\"");
 
 WriteLiteral(" style=\"background-color:#428bca\"");
 
-WriteLiteral("><b");
+WriteLiteral(">\r\n                                <b");
 
 WriteLiteral(" style=\"color:white\"");
 
-WriteLiteral(">Datos de usuario:</b></div>\r\n                            <div");
+WriteLiteral(">Datos de usuario:</b>\r\n                                <button");
+
+WriteLiteral(" class=\"btn btn-info pull-right\"");
+
+WriteLiteral(" style=\"padding-top:0\"");
+
+WriteLiteral("><i");
+
+WriteLiteral(" class=\"glyphicon glyphicon-pencil\"");
+
+WriteLiteral(" style=\"text-align:center; vertical-align:middle\"");
+
+WriteLiteral("></i></button>\r\n                            </div>\r\n                            <" +
+"div");
 
 WriteLiteral(" class=\"panel-body\"");
 
@@ -239,9 +252,8 @@ WriteLiteral(" style=\"height:45px;\"");
 
 WriteLiteral(">Demandante</li>\r\n                                    ");
 
-WriteLiteral("\r\n\r\n                                    \r\n                                </ul>\r\n" +
-"                            </div>\r\n                        </div>\r\n\r\n          " +
-"              <div");
+WriteLiteral("\r\n\r\n\r\n                                </ul>\r\n                            </div>\r\n" +
+"                        </div>\r\n\r\n                        <div");
 
 WriteLiteral(" class=\"panel\"");
 
@@ -249,15 +261,28 @@ WriteLiteral(" style=\"border-color: #428bca;\"");
 
 WriteLiteral(">\r\n                            <div");
 
-WriteLiteral(" class=\"panel-heading\"");
+WriteLiteral(" class=\"panel-heading clearfix\"");
 
 WriteLiteral(" style=\"background-color:#428bca\"");
 
-WriteLiteral("><b");
+WriteLiteral(">\r\n                                <b");
 
 WriteLiteral(" style=\"color:white\"");
 
-WriteLiteral(">Datos de demandante:</b></div>\r\n                            <div");
+WriteLiteral(">Datos de demandante:</b>\r\n                                <button");
+
+WriteLiteral(" class=\"btn btn-info pull-right\"");
+
+WriteLiteral(" style=\"padding-top:0\"");
+
+WriteLiteral("><i");
+
+WriteLiteral(" class=\"glyphicon glyphicon-pencil\"");
+
+WriteLiteral(" style=\"text-align:center; vertical-align:middle\"");
+
+WriteLiteral("></i></button>\r\n                            </div>\r\n                            <" +
+"div");
 
 WriteLiteral(" class=\"panel-body\"");
 
@@ -579,11 +604,6 @@ WriteLiteral(@">Ver detalles</button></td>
                     </div>
                 </div>
             </div><!-- div class row-->
-
-
-
-
-
             <!--  MODAL VER DETALLE OFERTA DISPONIBLE  ###############################  -->
             <div");
 
@@ -717,9 +737,7 @@ WriteLiteral(" class=\"form-group\"");
 
 WriteLiteral(" style=\"text-align:center\"");
 
-WriteLiteral(">\r\n                                    ");
-
-WriteLiteral("<b");
+WriteLiteral(">\r\n                                    <b");
 
 WriteLiteral(" style=\"text-align:center\"");
 
@@ -814,9 +832,6 @@ WriteLiteral(@">Atrás</button>
                 </div>
             </div>
             <!-- ################################ -->
-
-
-
             <!--  MODAL VER DETALLE OFERTA INSCRITA  ###############################  -->
             <div");
 
@@ -1000,7 +1015,7 @@ WriteLiteral(" placeholder=\"{{ofertaDetalleModal.Notas}}\"");
 
 WriteLiteral(" style=\"max-width:500px;\"");
 
-WriteLiteral(" disabled/><br />\r\n                                        <label");
+WriteLiteral(" disabled /><br />\r\n                                        <label");
 
 WriteLiteral(" for=\"cv\"");
 
@@ -1020,7 +1035,7 @@ WriteLiteral(" placeholder=\"{{ofertaDetalleModal.CV}}\"");
 
 WriteLiteral(" style=\"max-width:500px;\"");
 
-WriteLiteral(" disabled/><br /><br />\r\n                                        <label");
+WriteLiteral(" disabled /><br /><br />\r\n                                        <label");
 
 WriteLiteral(" for=\"cv\"");
 
@@ -1041,7 +1056,9 @@ WriteLiteral(" placeholder=\"{{ofertaDetalleModal.Nombre}}\"");
 
 WriteLiteral(" style=\"max-width:500px;\"");
 
-WriteLiteral(" disabled /><br />\r\n\r\n                                        <input");
+WriteLiteral(" disabled /><br />\r\n\r\n                                        ");
+
+WriteLiteral("\r\n                                        <input");
 
 WriteLiteral(" type=\"button\"");
 
@@ -1053,11 +1070,12 @@ WriteLiteral(" id=\"btnDesinscribir\"");
 
 WriteLiteral(" ng-click=\"DesinscribirDemandante()\"");
 
-WriteLiteral(" style=\"margin:auto; background-color: dimgray; color: white;\"");
+WriteLiteral(" ");
 
-WriteLiteral(" />\r\n                                    </div>\r\n                                " +
-"</div>\r\n                            </div>\r\n                        </div>\r\n\r\n  " +
-"                      <div");
+WriteLiteral(" style=\"margin:auto; background-color: dimgray; color: white;\" />\r\n              " +
+"                      </div>\r\n                                </div>\r\n          " +
+"                  </div>\r\n                        </div>\r\n\r\n                    " +
+"    <div");
 
 WriteLiteral(" class=\"modal-footer\"");
 
@@ -1071,7 +1089,7 @@ WriteLiteral(" data-dismiss=\"modal\"");
 
 WriteLiteral(">Atrás</button>\r\n                        </div>\r\n                    </div>\r\n    " +
 "            </div>\r\n            </div>\r\n            <!-- #######################" +
-"######### -->\r\n\r\n\r\n\r\n        </div> \r\n    </form>\r\n</div>");
+"######### -->\r\n\r\n\r\n\r\n</div> \r\n    </form>\r\n</div>");
 
         }
     }

@@ -13,6 +13,21 @@ app.controller('EmpleadorController', ['$scope', '$http', '$element', '$interval
 
 
 
+    //Método que muestra una página modal con los datos del Empleador para editarlos.
+    $scope.ModalEditarEmpleador = function (dataEmpModel) {
+        $scope.dataEmpModelEditarEmpleador = dataEmpModel;
+        $('#modalEditarEmpleador').modal('show');
+    };
+
+
+    //Método que muestra una página modal con los datos del Usuario para editarlos.
+    $scope.ModalEditarUsuario = function (dataEmpModel) {
+        $scope.dataEmpModelEditarUsuario = dataEmpModel;
+        $('#modalEditarUsuario').modal('show');
+    };
+
+
+
     //Método que muestra una página modal con la información detallada de las ofertas del empleador
     //  y a su vez llama a CargarDemandantesInscristos()
     $scope.ModalVerOferta = function (oferta) {

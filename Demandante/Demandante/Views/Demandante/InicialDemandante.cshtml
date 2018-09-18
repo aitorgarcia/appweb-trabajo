@@ -14,7 +14,7 @@
 
             <div class="titulo">
                 <br><br><br>
-                <h3>Hola <span style="color:#b94a48"><b>{{dataDemModel.Usuario}}</b></span> esta es tu página de <b>demandante</b>.</h3><br><br>  
+                <h3>Hola <span style="color:#b94a48"><b>{{dataDemModel.Usuario}}</b></span> esta es tu página de <b>demandante</b>.</h3><br><br>
             </div>
 
             <div class="row">
@@ -31,7 +31,10 @@
                     <div id="misdatos" class="tab-pane fade in active">
                         <br />
                         <div class="panel" style="border-color: #428bca;">
-                            <div class="panel-heading" style="background-color:#428bca"><b style="color:white">Datos de usuario:</b></div>
+                            <div class="panel-heading clearfix" style="background-color:#428bca">
+                                <b style="color:white">Datos de usuario:</b>
+                                <button class="btn btn-info pull-right" style="padding-top:0"><i class="glyphicon glyphicon-pencil" style="text-align:center; vertical-align:middle"></i></button>
+                            </div>
                             <div class="panel-body" style="padding-top:0; padding-bottom:0">
                                 <ul class="list-group row" style="margin-bottom:0;">
                                     <li class="list-group-item col-xs-4" style="height:45px;">Usuario:</li>
@@ -51,13 +54,16 @@
                                         <li class="list-group-item col-xs-8" style="height:45px;">Demandante</li>
                                     }*@
 
-                                    
+
                                 </ul>
                             </div>
                         </div>
 
                         <div class="panel" style="border-color: #428bca;">
-                            <div class="panel-heading" style="background-color:#428bca"><b style="color:white">Datos de demandante:</b></div>
+                            <div class="panel-heading clearfix" style="background-color:#428bca">
+                                <b style="color:white">Datos de demandante:</b>
+                                <button class="btn btn-info pull-right" style="padding-top:0"><i class="glyphicon glyphicon-pencil" style="text-align:center; vertical-align:middle"></i></button>
+                            </div>
                             <div class="panel-body" style="padding-top:0; padding-bottom:0">
 
                                 <ul class="list-group row" style="margin-bottom:0">
@@ -141,11 +147,6 @@
                     </div>
                 </div>
             </div><!-- div class row-->
-
-
-
-
-
             <!--  MODAL VER DETALLE OFERTA DISPONIBLE  ###############################  -->
             <div class="modal fade" id="modalVerOfertaDisponible" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
                 <div class="modal-dialog" role="document" style="overflow-y: initial !important">
@@ -183,7 +184,7 @@
                                     <b style="text-align:center">{{ofertaDetalleModal.NumeroVacantes}}   </b>   <i class="glyphicon glyphicon-user" style="text-align:center"></i><br />
                                 </div>
                                 <div class="form-group" style="text-align:center">
-                                    @*<i class="glyphicon glyphicon-euro" style="text-align:center"></i>*@<b style="text-align:center">  {{ofertaDetalleModal.Sueldo}} €</b><br />
+                                    <b style="text-align:center">  {{ofertaDetalleModal.Sueldo}} €</b><br />
                                 </div>
                             </div>
                             <hr /><br />
@@ -209,9 +210,6 @@
                 </div>
             </div>
             <!-- ################################ -->
-
-
-
             <!--  MODAL VER DETALLE OFERTA INSCRITA  ###############################  -->
             <div class="modal fade" id="modalVerOfertaInscrita" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
                 <div class="modal-dialog" role="document" style="overflow-y: initial !important">
@@ -260,13 +258,14 @@
                                         <p style="text-align:center"><b>¡Ya estás inscrito en esta oferta de empleo!</b></p>
                                         <p style="text-align:center">Estos son tus datos de la inscripción:</p><br />
                                         <label for="notas">Notas:</label>
-                                        <input type="text" ng-model="inscripcion.Notas" class="form-control" name="notas" id="notas" placeholder="{{ofertaDetalleModal.Notas}}" style="max-width:500px;" disabled/><br />
+                                        <input type="text" ng-model="inscripcion.Notas" class="form-control" name="notas" id="notas" placeholder="{{ofertaDetalleModal.Notas}}" style="max-width:500px;" disabled /><br />
                                         <label for="cv">Currículum vitae:</label>
-                                        <input type="text" ng-model="inscripcion.CV" class="form-control" name="cv" id="cv" placeholder="{{ofertaDetalleModal.CV}}" style="max-width:500px;" disabled/><br /><br />
+                                        <input type="text" ng-model="inscripcion.CV" class="form-control" name="cv" id="cv" placeholder="{{ofertaDetalleModal.CV}}" style="max-width:500px;" disabled /><br /><br />
                                         <label for="cv">Estado de la inscripción:</label>
                                         <input type="text" ng-model="inscripcion.Nombre" class="form-control" name="cv" id="cv" placeholder="{{ofertaDetalleModal.Nombre}}" style="max-width:500px;" disabled /><br />
 
-                                        <input type="button" class="btn btn btn-block" value="Desinscribirse" id="btnDesinscribir" ng-click="DesinscribirDemandante()" style="margin:auto; background-color: dimgray; color: white;" />
+                                        @*<button ng-disabled="{{ofertaDetalleModal.Estado}} == 0">Prueba</button>*@
+                                        <input type="button" class="btn btn btn-block" value="Desinscribirse" id="btnDesinscribir" ng-click="DesinscribirDemandante()" @*ng-disabled="ofertaDetalleModal.Estado < 1"*@ style="margin:auto; background-color: dimgray; color: white;" />
                                     </div>
                                 </div>
                             </div>
@@ -282,6 +281,6 @@
 
 
 
-        </div> 
+</div> 
     </form>
 </div>
