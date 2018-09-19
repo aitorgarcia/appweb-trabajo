@@ -1,1 +1,1 @@
-# portal-trabajo
+## Aplicación web para la búsqueda de trabajo.
