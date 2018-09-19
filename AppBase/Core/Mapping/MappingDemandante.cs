@@ -57,5 +57,56 @@ namespace Core.Mapping
             dts.Demandantes.AddDemandantesRow(dtsRow);
             return dts;
         }
+
+
+
+
+        /// <summary>
+        /// Método que devuelve un dtsDemandantes con los valores de un Demandante introducido por parámetro.
+        /// </summary>
+        /// <param name="demModel"></param>
+        /// <returns>Devuelve un dataset de Demandantes relleno de valores.</returns>
+        public static dtsDemandantes ToDtsDemandantesModificar(this Demandante.DemandanteModel demModel)
+        {
+            dtsDemandantes dts = new dtsDemandantes();
+            dtsDemandantes.DemandantesRow dtsRow = dts.Demandantes.NewDemandantesRow();
+
+            dtsRow.Id = demModel.Id;
+            dtsRow.IdUsuario = demModel.IdUsuario;
+            dtsRow.FotoPerfil = demModel.FotoPerfil;
+            dtsRow.Edad = (short)demModel.Edad;
+            dtsRow.Telefono = demModel.Telefono;
+            dtsRow.Email = demModel.Email;
+            dtsRow.PerfilLinkedin = demModel.PerfilLinkedin;
+            dtsRow.ExperienciaLaboral = demModel.ExperienciaLaboral;
+            dtsRow.NivelEstudios = (short)demModel.NivelEstudios;
+
+            dts.Demandantes.AddDemandantesRow(dtsRow);
+            dts.Demandantes.AcceptChanges();
+            dts.Demandantes[0].SetModified();
+            return dts;
+        }
+
+
+
+
+        public static dtsUsuarios ToDtsUsuarioModificar(this Demandante.DemandanteModel demModel)
+        {
+            dtsUsuarios dts = new dtsUsuarios();
+            dtsUsuarios.UsuariosRow dtsRow = dts.Usuarios.NewUsuariosRow();
+
+            dtsRow.Id = demModel.IdUsuario;
+            dtsRow.Usuario = demModel.Usuario;
+            dtsRow.Nombre = demModel.Nombre;
+            dtsRow.Apellido1 = demModel.Apellido1;
+            dtsRow.Apellido2 = demModel.Apellido2;
+            dtsRow.Contrasena = demModel.Contrasena;
+            dtsRow.TipoUsuario = (short)demModel.TipoUsuario;
+
+            dts.Usuarios.AddUsuariosRow(dtsRow);
+            dts.Usuarios.AcceptChanges();
+            dts.Usuarios[0].SetModified();
+            return dts;
+        }
     }
 }

@@ -31,6 +31,7 @@ namespace Core.Mapping
             demModel.NivelEstudios = Convert.ToInt32(dataTable.Rows[row][dataTable.NivelEstudiosColumn.ColumnName]);
 
             demModel.Usuario = dataTable.Rows[row][dataTable.UsuarioColumn.ColumnName].ToString();
+            demModel.Contrasena = dataTable[row][dataTable.ContrasenaColumn.ColumnName].ToString();
             demModel.Nombre = dataTable.Rows[row][dataTable.NombreColumn.ColumnName].ToString();
             demModel.Apellido1 = dataTable.Rows[row][dataTable.Apellido1Column.ColumnName].ToString();
             demModel.Apellido2 = dataTable.Rows[row][dataTable.Apellido2Column.ColumnName].ToString();

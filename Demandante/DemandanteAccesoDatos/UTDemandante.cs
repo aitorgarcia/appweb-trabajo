@@ -103,5 +103,43 @@ namespace DemandanteAccesoDatos
             List<Core.Estudio.Estudio> result = estMap.VolcarEstudios(dts.Estudios);
             return result;
         }
+
+
+
+
+        public bool ModificarDatosDemandante(DemandanteModel demModel)
+        {
+            Demandante aux = GetDemandanteByUserId(demModel.IdUsuario);
+            if (aux == null)
+                return false;
+
+            dtsDemandantes dts = MappingDemandante.ToDtsDemandantesModificar(demModel);
+            Repo.Guardar(dts);
+
+            Dictionary<DataColumn, Object> parametros = new Dictionary<DataColumn, object>();
+            parametros.Add(dts.Demandantes.IdUsuarioColumn, demModel.IdUsuario);
+
+            return true;
+        }
+
+
+
+
+        public bool ModificarDatosUsuario(DemandanteModel demModel)
+        {
+            Demandante aux = GetDemandanteByUserId(demModel.IdUsuario);
+            if (aux == null)
+                return false;
+
+            dtsUsuarios dts = MappingDemandante.ToDtsUsuarioModificar(demModel);
+            Repo.Guardar(dts);
+
+            Dictionary<DataColumn, Object> parametros = new Dictionary<DataColumn, object>();
+            parametros.Add(dts.Usuarios.IdColumn, demModel.IdUsuario);
+
+            return true;
+        }
+
+
     }
 }

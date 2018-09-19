@@ -115,6 +115,52 @@ namespace Demandante.Controllers
 
 
 
+
+
+        [HttpPost]
+        public JsonResult ModificarDatosUsuario(DemandanteModel demModel)
+        {
+            if (ModelState.IsValid)
+            {
+                NGDemandante ngDemandante = new NGDemandante();
+                demModel.IdUsuario = Convert.ToInt32(Cookies.GetCookie("Id"));
+
+                bool result = ngDemandante.ValidarDatosModificarUsuario(demModel);
+
+                if (result)
+                    return Json(demModel);
+                return Json(false);
+            }
+            return Json(false);
+        }
+
+
+
+
+        [HttpPost]
+        public JsonResult ModificarDatosDemandante(DemandanteModel demModel)
+        {
+            if (ModelState.IsValid)
+            {
+                NGDemandante ngDemandante = new NGDemandante();
+                demModel.IdUsuario = Convert.ToInt32(Cookies.GetCookie("Id"));
+
+                bool result = ngDemandante.ValidarDatosModificarDemandante(demModel);
+
+                if (result)
+                    return Json(demModel);
+                return Json(false);
+            }
+            return Json(false);
+        }
+
+
+
+
+
+
+
+
         /// <summary>
         /// Método que muestra las ofertas que el Demandante tiene disponibles para inscribirse.
         /// </summary>

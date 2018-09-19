@@ -60,22 +60,22 @@ namespace Core.Mapping
         /// <summary>
         /// Recoge los datos del Empleador introducido por parámetro para agregarselos a un nuevo dataset de Empleador.
         /// </summary>
-        /// <param name="emp"></param>
+        /// <param name="empModel"></param>
         /// <returns>Devuelve un dataset de Empleadores relleno de valores.</returns>
-        public static dtsEmpleadores ToDtsEmpleadoresModificar(this Empleador.Empleador emp)
+        public static dtsEmpleadores ToDtsEmpleadoresModificar(this Empleador.EmpleadorModel empModel)
         {
             dtsEmpleadores dts = new dtsEmpleadores();
             dtsEmpleadores.EmpleadoresRow dtsRow = dts.Empleadores.NewEmpleadoresRow();
-            dtsRow.Id = emp.Id;
-
-            dtsRow.IdUsuario = emp.IdUsuario;
-            dtsRow.NombreEmpresa = emp.NombreEmpresa;
-            dtsRow.Direccion = emp.Direccion;
-            dtsRow.Telefono = emp.Telefono;
-            dtsRow.Email = emp.Email;
-            dtsRow.NumeroEmpleados = emp.NumeroEmpleados;
-            dtsRow.LogoEmpresa = emp.LogoEmpresa;
-            dtsRow.TipoIndustria = (short)emp.TipoIndustria;
+            
+            dtsRow.Id = empModel.Id;
+            dtsRow.IdUsuario = empModel.IdUsuario;
+            dtsRow.NombreEmpresa = empModel.NombreEmpresa;
+            dtsRow.Direccion = empModel.Direccion;
+            dtsRow.Telefono = empModel.Telefono;
+            dtsRow.Email = empModel.Email;
+            dtsRow.NumeroEmpleados = empModel.NumeroEmpleados;
+            dtsRow.LogoEmpresa = empModel.LogoEmpresa;
+            dtsRow.TipoIndustria = (short)empModel.TipoIndustria;
 
             dts.Empleadores.AddEmpleadoresRow(dtsRow);
             dts.Empleadores.AcceptChanges();
@@ -86,18 +86,18 @@ namespace Core.Mapping
 
 
 
-        public static dtsUsuarios ToDtsUsuarioModificar(this Empleador.EmpleadorModel emp)
+        public static dtsUsuarios ToDtsUsuarioModificar(this Empleador.EmpleadorModel empModel)
         {
             dtsUsuarios dts = new dtsUsuarios();
             dtsUsuarios.UsuariosRow dtsRow = dts.Usuarios.NewUsuariosRow();
 
-            dtsRow.Id = emp.IdUsuario;
-            dtsRow.Usuario = emp.Usuario;
-            dtsRow.Nombre = emp.Nombre;
-            dtsRow.Apellido1 = emp.Apellido1;
-            dtsRow.Apellido2 = emp.Apellido2;
-            dtsRow.Contrasena = emp.Contrasena;
-            dtsRow.TipoUsuario = (short)emp.TipoUsuario;
+            dtsRow.Id = empModel.IdUsuario;
+            dtsRow.Usuario = empModel.Usuario;
+            dtsRow.Nombre = empModel.Nombre;
+            dtsRow.Apellido1 = empModel.Apellido1;
+            dtsRow.Apellido2 = empModel.Apellido2;
+            dtsRow.Contrasena = empModel.Contrasena;
+            dtsRow.TipoUsuario = (short)empModel.TipoUsuario;
 
             dts.Usuarios.AddUsuariosRow(dtsRow);
             dts.Usuarios.AcceptChanges();

@@ -9,7 +9,7 @@
 
 <div ng-app="app">
 
-    <div ng-controller="DemandanteController" data-ng-init="ObtenerDatosDemandanteModel(@*@Model.Id*@)" class="demo" style="width:auto">
+    <div ng-controller="DemandanteController" data-ng-init="ObtenerDatosDemandanteModel(@*@Model.Id*@); ObtenerEstudios()" class="demo" style="width:auto">
         <form id="myForm" method="post">
 
             <div class="titulo">
@@ -33,7 +33,7 @@
                         <div class="panel" style="border-color: #428bca;">
                             <div class="panel-heading clearfix" style="background-color:#428bca">
                                 <b style="color:white">Datos de usuario:</b>
-                                <button class="btn btn-info pull-right" style="padding-top:0"><i class="glyphicon glyphicon-pencil" style="text-align:center; vertical-align:middle"></i></button>
+                                <button class="btn btn-info pull-right" style="padding-top:0" data-toggle="modal" ng-click="ModalEditarUsuario(dataDemModel)"><i class="glyphicon glyphicon-pencil" style="text-align:center; vertical-align:middle"></i></button>
                             </div>
                             <div class="panel-body" style="padding-top:0; padding-bottom:0">
                                 <ul class="list-group row" style="margin-bottom:0;">
@@ -62,7 +62,7 @@
                         <div class="panel" style="border-color: #428bca;">
                             <div class="panel-heading clearfix" style="background-color:#428bca">
                                 <b style="color:white">Datos de demandante:</b>
-                                <button class="btn btn-info pull-right" style="padding-top:0"><i class="glyphicon glyphicon-pencil" style="text-align:center; vertical-align:middle"></i></button>
+                                <button class="btn btn-info pull-right" style="padding-top:0" data-toggle="modal" ng-click="ModalEditarDemandante(dataDemModel)"><i class="glyphicon glyphicon-pencil" style="text-align:center; vertical-align:middle"></i></button>
                             </div>
                             <div class="panel-body" style="padding-top:0; padding-bottom:0">
 
@@ -264,7 +264,6 @@
                                         <label for="cv">Estado de la inscripción:</label>
                                         <input type="text" ng-model="inscripcion.Nombre" class="form-control" name="cv" id="cv" placeholder="{{ofertaDetalleModal.Nombre}}" style="max-width:500px;" disabled /><br />
 
-                                        @*<button ng-disabled="{{ofertaDetalleModal.Estado}} == 0">Prueba</button>*@
                                         <input type="button" class="btn btn btn-block" value="Desinscribirse" id="btnDesinscribir" ng-click="DesinscribirDemandante()" @*ng-disabled="ofertaDetalleModal.Estado < 1"*@ style="margin:auto; background-color: dimgray; color: white;" />
                                     </div>
                                 </div>
@@ -278,9 +277,121 @@
                 </div>
             </div>
             <!-- ################################ -->
+            <!--  MODAL EDITAR DATOS USUARIO  ###############################  -->
+            <div class="modal fade" id="modalEditarUsuario" tabindex="-1" role="dialog" aria-labelledby="modalEditarUsuario" aria-hidden="true">
+                <div class="modal-dialog" role="document" style="overflow-y: initial !important; margin-top:160px">
+                    <div class="modal-content" style="overflow: hidden">
 
+                        <div class="modal-header" style="text-align:center; background-color: #5bc0de; padding-bottom:0">
+                            <h4 class=" modal-title" id="modalTitle" style="color:white"><p>Editar datos de usuario:</p></h4>
+                        </div>
 
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <b>Nombre:</b><br />
+                                        <input type="text" class="form-control" ng-model="dataDemModelEditarUsuario.Nombre" name="nombre" id="nombre" value="{{dataDemModel.Nombre}}" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <b>Primer apellido:</b><br />
+                                        <input type="text" class="form-control" ng-model="dataDemModelEditarUsuario.Apellido1" name="apellido1" id="apellido1" value="{{dataDemModel.Apellido1}}" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <b>Segundo apellido:</b><br />
+                                        <input type="text" class="form-control" ng-model="dataDemModelEditarUsuario.Apellido2" name="apellido2" id="apellido2" value="{{dataDemModel.Apellido2}}" required>
+                                    </div>
+                                </div>
 
-</div> 
-    </form>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <b>Usuario:</b><br />
+                                        <input type="text" class="form-control" ng-model="dataDemModelEditarUsuario.Usuario" name="usuario" id="usuario" placeholder="{{dataDemModel.Usuario}}" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <b>Contraseña:</b><br />
+                                        <input type="text" class="form-control" ng-model="dataDemModelEditarUsuario.Contrasena" name="contrasena" id="contrasena" value="{{dataDemModel.Contrasena}}" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <b>Tipo de usuario:</b><br />
+                                        <input type="text" class="form-control" name="tipoUsuario" id="tipoUsuario" placeholder="Demandante" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-" data-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-info" ng-click="ModificarDatosUsuario()">Guardar datos</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- ################################ -->
+            <!--  MODAL EDITAR DATOS EMPLEADOR  ###############################  -->
+            <div class="modal fade" id="modalEditarDemandante" tabindex="-1" role="dialog" aria-labelledby="modalEditarDemandante" aria-hidden="true">
+                <div class="modal-dialog" role="document" style="overflow-y: initial !important; margin-top:160px">
+                    <div class="modal-content" style="overflow: hidden">
+
+                        <div class="modal-header" style="text-align:center; background-color: #5bc0de; padding-bottom:0">
+                            <h4 class=" modal-title" id="modalTitle" style="color:white"><p>Editar datos de empleador:</p></h4>
+                        </div>
+
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <b>Experiencia laboral:</b><br />
+                                        <input type="text" class="form-control" ng-model="dataDemModelEditarDemandante.ExperienciaLaboral" name="experienciaLaboral" id="experienciaLaboral" value="{{dataDemModel.ExperienciaLaboral}}" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <b>Perfil de LinkedIn:</b><br />
+                                        <input type="text" class="form-control" ng-model="dataDemModelEditarDemandante.PerfilLinkedin" name="perfilLinkedin" id="perfilLinkedin" value="{{dataDemModel.PerfilLinkedin}}" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <b>Teléfono:</b><br />
+                                        <input type="text" class="form-control" ng-model="dataDemModelEditarDemandante.Telefono" name="telefono" id="telefono" value="{{dataDemModel.Telefono}}" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <b>Email:</b><br />
+                                        <input type="text" class="form-control" ng-model="dataDemModelEditarDemandante.Email" name="email" id="email" value="{{dataDemModel.Email}}" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <b>Edad:</b><br />
+                                        <input type="number" class="form-control" ng-model="dataDemModelEditarDemandante.Edad" name="edad" id="edad" value="{{dataDemModel.Edad}}" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <b>Nivel de estudios:</b><br />
+                                        <select class="form-control" ng-model="dataDemModelEditarDemandante.NivelEstudios" ng-options="estudio.NivelEstudios as estudio.Nombre for estudio in estudios" required></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <br />
+                                        <b>Foto de perfil:</b><br />
+                                        <input type="file" class="form-control" fileread="dataDemModelEditarDemandante.ImagenB64"  name="fotoPerfil" id="fotoPerfil" style="max-width:700px" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-" data-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-info" ng-click="ModificarDatosDemandante()">Guardar datos</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- ################################ -->
+
+        </form>
+    </div> 
 </div>

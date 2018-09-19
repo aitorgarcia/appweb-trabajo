@@ -15,5 +15,6 @@ namespace Core.Demandante
         public int TipoUsuario { get; set; }
         public string NivelEstudiosNombre { get; set; }
         public string ImagenB64 { get; set; }
+        public string Contrasena { get; set; }
     }
 }

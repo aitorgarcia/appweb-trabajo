@@ -79,6 +79,33 @@ namespace CapaNegocio
 
 
 
+        public bool ValidarDatosModificarDemandante(DemandanteModel demModel)
+        {
+            if (demModel.ImagenB64 == null)
+                demModel.FotoPerfil = new byte[0];
+            else
+            {
+                demModel.ImagenB64 = demModel.ImagenB64.Replace("data:image/jpeg;base64,", "");
+                demModel.FotoPerfil = Convert.FromBase64String(demModel.ImagenB64);
+            }
+
+            return _UTDemandante.ModificarDatosDemandante(demModel);
+        }
+
+
+
+        public bool ValidarDatosModificarUsuario(DemandanteModel demModel)
+        {
+            return _UTDemandante.ModificarDatosUsuario(demModel);
+        }
+
+
+
+
+
+
+
+
         /// <summary>
         /// Obtiene todos los niveles de estudios realizando una llamada a UTDemandante.
         /// </summary>

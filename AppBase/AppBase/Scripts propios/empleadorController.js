@@ -17,14 +17,14 @@ app.controller('EmpleadorController', ['$scope', '$http', '$element', '$interval
 
     //Método que muestra una página modal con los datos del Empleador para editarlos.
     $scope.ModalEditarEmpleador = function (dataEmpModel) {
-        $scope.dataEmpModelEditarEmpleador = dataEmpModel;
+        $scope.dataEmpModelEditarEmpleador = JSON.parse(JSON.stringify(dataEmpModel));
         $('#modalEditarEmpleador').modal('show');
     };
 
 
     //Método que muestra una página modal con los datos del Usuario para editarlos.
     $scope.ModalEditarUsuario = function (dataEmpModel) {
-        $scope.dataEmpModelEditarUsuario = dataEmpModel;
+        $scope.dataEmpModelEditarUsuario = JSON.parse(JSON.stringify(dataEmpModel));
         $('#modalEditarUsuario').modal('show');
     };
 

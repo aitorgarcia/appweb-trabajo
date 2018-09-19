@@ -69,7 +69,7 @@ WriteLiteral(" ng-controller=\"DemandanteController\"");
 
 WriteLiteral(" data-ng-init=\"ObtenerDatosDemandanteModel(");
 
-WriteLiteral(")\"");
+WriteLiteral("); ObtenerEstudios()\"");
 
 WriteLiteral(" class=\"demo\"");
 
@@ -158,6 +158,10 @@ WriteLiteral(">Datos de usuario:</b>\r\n                                <button"
 WriteLiteral(" class=\"btn btn-info pull-right\"");
 
 WriteLiteral(" style=\"padding-top:0\"");
+
+WriteLiteral(" data-toggle=\"modal\"");
+
+WriteLiteral(" ng-click=\"ModalEditarUsuario(dataDemModel)\"");
 
 WriteLiteral("><i");
 
@@ -274,6 +278,10 @@ WriteLiteral(">Datos de demandante:</b>\r\n                                <butt
 WriteLiteral(" class=\"btn btn-info pull-right\"");
 
 WriteLiteral(" style=\"padding-top:0\"");
+
+WriteLiteral(" data-toggle=\"modal\"");
+
+WriteLiteral(" ng-click=\"ModalEditarDemandante(dataDemModel)\"");
 
 WriteLiteral("><i");
 
@@ -1056,9 +1064,7 @@ WriteLiteral(" placeholder=\"{{ofertaDetalleModal.Nombre}}\"");
 
 WriteLiteral(" style=\"max-width:500px;\"");
 
-WriteLiteral(" disabled /><br />\r\n\r\n                                        ");
-
-WriteLiteral("\r\n                                        <input");
+WriteLiteral(" disabled /><br />\r\n\r\n                                        <input");
 
 WriteLiteral(" type=\"button\"");
 
@@ -1087,9 +1093,446 @@ WriteLiteral(" class=\"btn btn-\"");
 
 WriteLiteral(" data-dismiss=\"modal\"");
 
-WriteLiteral(">Atrás</button>\r\n                        </div>\r\n                    </div>\r\n    " +
-"            </div>\r\n            </div>\r\n            <!-- #######################" +
-"######### -->\r\n\r\n\r\n\r\n</div> \r\n    </form>\r\n</div>");
+WriteLiteral(@">Atrás</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ################################ -->
+            <!--  MODAL EDITAR DATOS USUARIO  ###############################  -->
+            <div");
+
+WriteLiteral(" class=\"modal fade\"");
+
+WriteLiteral(" id=\"modalEditarUsuario\"");
+
+WriteLiteral(" tabindex=\"-1\"");
+
+WriteLiteral(" role=\"dialog\"");
+
+WriteLiteral(" aria-labelledby=\"modalEditarUsuario\"");
+
+WriteLiteral(" aria-hidden=\"true\"");
+
+WriteLiteral(">\r\n                <div");
+
+WriteLiteral(" class=\"modal-dialog\"");
+
+WriteLiteral(" role=\"document\"");
+
+WriteLiteral(" style=\"overflow-y: initial !important; margin-top:160px\"");
+
+WriteLiteral(">\r\n                    <div");
+
+WriteLiteral(" class=\"modal-content\"");
+
+WriteLiteral(" style=\"overflow: hidden\"");
+
+WriteLiteral(">\r\n\r\n                        <div");
+
+WriteLiteral(" class=\"modal-header\"");
+
+WriteLiteral(" style=\"text-align:center; background-color: #5bc0de; padding-bottom:0\"");
+
+WriteLiteral(">\r\n                            <h4");
+
+WriteLiteral(" class=\" modal-title\"");
+
+WriteLiteral(" id=\"modalTitle\"");
+
+WriteLiteral(" style=\"color:white\"");
+
+WriteLiteral("><p>Editar datos de usuario:</p></h4>\r\n                        </div>\r\n\r\n        " +
+"                <div");
+
+WriteLiteral(" class=\"modal-body\"");
+
+WriteLiteral(">\r\n                            <div");
+
+WriteLiteral(" class=\"row\"");
+
+WriteLiteral(">\r\n                                <div");
+
+WriteLiteral(" class=\"col-sm-6\"");
+
+WriteLiteral(">\r\n                                    <div");
+
+WriteLiteral(" class=\"form-group\"");
+
+WriteLiteral(">\r\n                                        <b>Nombre:</b><br />\r\n                " +
+"                        <input");
+
+WriteLiteral(" type=\"text\"");
+
+WriteLiteral(" class=\"form-control\"");
+
+WriteLiteral(" ng-model=\"dataDemModelEditarUsuario.Nombre\"");
+
+WriteLiteral(" name=\"nombre\"");
+
+WriteLiteral(" id=\"nombre\"");
+
+WriteLiteral(" value=\"{{dataDemModel.Nombre}}\"");
+
+WriteLiteral(" required>\r\n                                    </div>\r\n                         " +
+"           <div");
+
+WriteLiteral(" class=\"form-group\"");
+
+WriteLiteral(">\r\n                                        <b>Primer apellido:</b><br />\r\n       " +
+"                                 <input");
+
+WriteLiteral(" type=\"text\"");
+
+WriteLiteral(" class=\"form-control\"");
+
+WriteLiteral(" ng-model=\"dataDemModelEditarUsuario.Apellido1\"");
+
+WriteLiteral(" name=\"apellido1\"");
+
+WriteLiteral(" id=\"apellido1\"");
+
+WriteLiteral(" value=\"{{dataDemModel.Apellido1}}\"");
+
+WriteLiteral(" required>\r\n                                    </div>\r\n                         " +
+"           <div");
+
+WriteLiteral(" class=\"form-group\"");
+
+WriteLiteral(">\r\n                                        <b>Segundo apellido:</b><br />\r\n      " +
+"                                  <input");
+
+WriteLiteral(" type=\"text\"");
+
+WriteLiteral(" class=\"form-control\"");
+
+WriteLiteral(" ng-model=\"dataDemModelEditarUsuario.Apellido2\"");
+
+WriteLiteral(" name=\"apellido2\"");
+
+WriteLiteral(" id=\"apellido2\"");
+
+WriteLiteral(" value=\"{{dataDemModel.Apellido2}}\"");
+
+WriteLiteral(" required>\r\n                                    </div>\r\n                         " +
+"       </div>\r\n\r\n                                <div");
+
+WriteLiteral(" class=\"col-sm-6\"");
+
+WriteLiteral(">\r\n                                    <div");
+
+WriteLiteral(" class=\"form-group\"");
+
+WriteLiteral(">\r\n                                        <b>Usuario:</b><br />\r\n               " +
+"                         <input");
+
+WriteLiteral(" type=\"text\"");
+
+WriteLiteral(" class=\"form-control\"");
+
+WriteLiteral(" ng-model=\"dataDemModelEditarUsuario.Usuario\"");
+
+WriteLiteral(" name=\"usuario\"");
+
+WriteLiteral(" id=\"usuario\"");
+
+WriteLiteral(" placeholder=\"{{dataDemModel.Usuario}}\"");
+
+WriteLiteral(" disabled>\r\n                                    </div>\r\n                         " +
+"           <div");
+
+WriteLiteral(" class=\"form-group\"");
+
+WriteLiteral(">\r\n                                        <b>Contraseña:</b><br />\r\n            " +
+"                            <input");
+
+WriteLiteral(" type=\"text\"");
+
+WriteLiteral(" class=\"form-control\"");
+
+WriteLiteral(" ng-model=\"dataDemModelEditarUsuario.Contrasena\"");
+
+WriteLiteral(" name=\"contrasena\"");
+
+WriteLiteral(" id=\"contrasena\"");
+
+WriteLiteral(" value=\"{{dataDemModel.Contrasena}}\"");
+
+WriteLiteral(" required>\r\n                                    </div>\r\n                         " +
+"           <div");
+
+WriteLiteral(" class=\"form-group\"");
+
+WriteLiteral(">\r\n                                        <b>Tipo de usuario:</b><br />\r\n       " +
+"                                 <input");
+
+WriteLiteral(" type=\"text\"");
+
+WriteLiteral(" class=\"form-control\"");
+
+WriteLiteral(" name=\"tipoUsuario\"");
+
+WriteLiteral(" id=\"tipoUsuario\"");
+
+WriteLiteral(" placeholder=\"Demandante\"");
+
+WriteLiteral(" disabled>\r\n                                    </div>\r\n                         " +
+"       </div>\r\n                            </div>\r\n                        </div" +
+">\r\n\r\n                        <div");
+
+WriteLiteral(" class=\"modal-footer\"");
+
+WriteLiteral(">\r\n                            <button");
+
+WriteLiteral(" type=\"button\"");
+
+WriteLiteral(" class=\"btn btn-\"");
+
+WriteLiteral(" data-dismiss=\"modal\"");
+
+WriteLiteral(">Cancelar</button>\r\n                            <button");
+
+WriteLiteral(" type=\"button\"");
+
+WriteLiteral(" class=\"btn btn-info\"");
+
+WriteLiteral(" ng-click=\"ModificarDatosUsuario()\"");
+
+WriteLiteral(@">Guardar datos</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- ################################ -->
+            <!--  MODAL EDITAR DATOS EMPLEADOR  ###############################  -->
+            <div");
+
+WriteLiteral(" class=\"modal fade\"");
+
+WriteLiteral(" id=\"modalEditarDemandante\"");
+
+WriteLiteral(" tabindex=\"-1\"");
+
+WriteLiteral(" role=\"dialog\"");
+
+WriteLiteral(" aria-labelledby=\"modalEditarDemandante\"");
+
+WriteLiteral(" aria-hidden=\"true\"");
+
+WriteLiteral(">\r\n                <div");
+
+WriteLiteral(" class=\"modal-dialog\"");
+
+WriteLiteral(" role=\"document\"");
+
+WriteLiteral(" style=\"overflow-y: initial !important; margin-top:160px\"");
+
+WriteLiteral(">\r\n                    <div");
+
+WriteLiteral(" class=\"modal-content\"");
+
+WriteLiteral(" style=\"overflow: hidden\"");
+
+WriteLiteral(">\r\n\r\n                        <div");
+
+WriteLiteral(" class=\"modal-header\"");
+
+WriteLiteral(" style=\"text-align:center; background-color: #5bc0de; padding-bottom:0\"");
+
+WriteLiteral(">\r\n                            <h4");
+
+WriteLiteral(" class=\" modal-title\"");
+
+WriteLiteral(" id=\"modalTitle\"");
+
+WriteLiteral(" style=\"color:white\"");
+
+WriteLiteral("><p>Editar datos de empleador:</p></h4>\r\n                        </div>\r\n\r\n      " +
+"                  <div");
+
+WriteLiteral(" class=\"modal-body\"");
+
+WriteLiteral(">\r\n                            <div");
+
+WriteLiteral(" class=\"row\"");
+
+WriteLiteral(">\r\n                                <div");
+
+WriteLiteral(" class=\"col-sm-6\"");
+
+WriteLiteral(">\r\n                                    <div");
+
+WriteLiteral(" class=\"form-group\"");
+
+WriteLiteral(">\r\n                                        <b>Experiencia laboral:</b><br />\r\n   " +
+"                                     <input");
+
+WriteLiteral(" type=\"text\"");
+
+WriteLiteral(" class=\"form-control\"");
+
+WriteLiteral(" ng-model=\"dataDemModelEditarDemandante.ExperienciaLaboral\"");
+
+WriteLiteral(" name=\"experienciaLaboral\"");
+
+WriteLiteral(" id=\"experienciaLaboral\"");
+
+WriteLiteral(" value=\"{{dataDemModel.ExperienciaLaboral}}\"");
+
+WriteLiteral(" required>\r\n                                    </div>\r\n                         " +
+"           <div");
+
+WriteLiteral(" class=\"form-group\"");
+
+WriteLiteral(">\r\n                                        <b>Perfil de LinkedIn:</b><br />\r\n    " +
+"                                    <input");
+
+WriteLiteral(" type=\"text\"");
+
+WriteLiteral(" class=\"form-control\"");
+
+WriteLiteral(" ng-model=\"dataDemModelEditarDemandante.PerfilLinkedin\"");
+
+WriteLiteral(" name=\"perfilLinkedin\"");
+
+WriteLiteral(" id=\"perfilLinkedin\"");
+
+WriteLiteral(" value=\"{{dataDemModel.PerfilLinkedin}}\"");
+
+WriteLiteral(" required>\r\n                                    </div>\r\n                         " +
+"           <div");
+
+WriteLiteral(" class=\"form-group\"");
+
+WriteLiteral(">\r\n                                        <b>Teléfono:</b><br />\r\n              " +
+"                          <input");
+
+WriteLiteral(" type=\"text\"");
+
+WriteLiteral(" class=\"form-control\"");
+
+WriteLiteral(" ng-model=\"dataDemModelEditarDemandante.Telefono\"");
+
+WriteLiteral(" name=\"telefono\"");
+
+WriteLiteral(" id=\"telefono\"");
+
+WriteLiteral(" value=\"{{dataDemModel.Telefono}}\"");
+
+WriteLiteral(" required>\r\n                                    </div>\r\n                         " +
+"       </div>\r\n\r\n                                <div");
+
+WriteLiteral(" class=\"col-sm-6\"");
+
+WriteLiteral(">\r\n                                    <div");
+
+WriteLiteral(" class=\"form-group\"");
+
+WriteLiteral(">\r\n                                        <b>Email:</b><br />\r\n                 " +
+"                       <input");
+
+WriteLiteral(" type=\"text\"");
+
+WriteLiteral(" class=\"form-control\"");
+
+WriteLiteral(" ng-model=\"dataDemModelEditarDemandante.Email\"");
+
+WriteLiteral(" name=\"email\"");
+
+WriteLiteral(" id=\"email\"");
+
+WriteLiteral(" value=\"{{dataDemModel.Email}}\"");
+
+WriteLiteral(" required>\r\n                                    </div>\r\n                         " +
+"           <div");
+
+WriteLiteral(" class=\"form-group\"");
+
+WriteLiteral(">\r\n                                        <b>Edad:</b><br />\r\n                  " +
+"                      <input");
+
+WriteLiteral(" type=\"number\"");
+
+WriteLiteral(" class=\"form-control\"");
+
+WriteLiteral(" ng-model=\"dataDemModelEditarDemandante.Edad\"");
+
+WriteLiteral(" name=\"edad\"");
+
+WriteLiteral(" id=\"edad\"");
+
+WriteLiteral(" value=\"{{dataDemModel.Edad}}\"");
+
+WriteLiteral(" required>\r\n                                    </div>\r\n\r\n                       " +
+"             <div");
+
+WriteLiteral(" class=\"form-group\"");
+
+WriteLiteral(">\r\n                                        <b>Nivel de estudios:</b><br />\r\n     " +
+"                                   <select");
+
+WriteLiteral(" class=\"form-control\"");
+
+WriteLiteral(" ng-model=\"dataDemModelEditarDemandante.NivelEstudios\"");
+
+WriteLiteral(" ng-options=\"estudio.NivelEstudios as estudio.Nombre for estudio in estudios\"");
+
+WriteLiteral(" required></select>\r\n                                    </div>\r\n                " +
+"                </div>\r\n                            </div>\r\n                    " +
+"        <div");
+
+WriteLiteral(" class=\"row\"");
+
+WriteLiteral(">\r\n                                <div");
+
+WriteLiteral(" class=\"col-sm-12\"");
+
+WriteLiteral(">\r\n                                    <div");
+
+WriteLiteral(" class=\"form-group\"");
+
+WriteLiteral(">\r\n                                        <br />\r\n                              " +
+"          <b>Foto de perfil:</b><br />\r\n                                        " +
+"<input");
+
+WriteLiteral(" type=\"file\"");
+
+WriteLiteral(" class=\"form-control\"");
+
+WriteLiteral(" fileread=\"dataDemModelEditarDemandante.ImagenB64\"");
+
+WriteLiteral("  name=\"fotoPerfil\"");
+
+WriteLiteral(" id=\"fotoPerfil\"");
+
+WriteLiteral(" style=\"max-width:700px\"");
+
+WriteLiteral(" required>\r\n                                    </div>\r\n                         " +
+"       </div>\r\n                            </div>\r\n                        </div" +
+">\r\n\r\n                        <div");
+
+WriteLiteral(" class=\"modal-footer\"");
+
+WriteLiteral(">\r\n                            <button");
+
+WriteLiteral(" type=\"button\"");
+
+WriteLiteral(" class=\"btn btn-\"");
+
+WriteLiteral(" data-dismiss=\"modal\"");
+
+WriteLiteral(">Cancelar</button>\r\n                            <button");
+
+WriteLiteral(" type=\"button\"");
+
+WriteLiteral(" class=\"btn btn-info\"");
+
+WriteLiteral(" ng-click=\"ModificarDatosDemandante()\"");
+
+WriteLiteral(">Guardar datos</button>\r\n                        </div>\r\n\r\n                    </" +
+"div>\r\n                </div>\r\n            </div>\r\n            <!-- #############" +
+"################### -->\r\n\r\n        </form>\r\n    </div> \r\n</div>");
 
         }
     }

@@ -307,6 +307,8 @@ namespace Core.Esquemas {
             
             private global::System.Data.DataColumn columnNivelEstudiosNombre;
             
+            private global::System.Data.DataColumn columnContrasena;
+            
             private global::System.Data.DataColumn columnExperienciaLaboral;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -456,6 +458,14 @@ namespace Core.Esquemas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ContrasenaColumn {
+                get {
+                    return this.columnContrasena;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn ExperienciaLaboralColumn {
                 get {
                     return this.columnExperienciaLaboral;
@@ -499,7 +509,7 @@ namespace Core.Esquemas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DemandantesRow AddDemandantesRow(int IdUsuario, byte[] FotoPerfil, short Edad, string Telefono, string Email, string PerfilLinkedin, short NivelEstudios, string Usuario, string Nombre, string Apellido1, string Apellido2, short TipoUsuario, string NivelEstudiosNombre, string ExperienciaLaboral) {
+            public DemandantesRow AddDemandantesRow(int IdUsuario, byte[] FotoPerfil, short Edad, string Telefono, string Email, string PerfilLinkedin, short NivelEstudios, string Usuario, string Nombre, string Apellido1, string Apellido2, short TipoUsuario, string NivelEstudiosNombre, string Contrasena, string ExperienciaLaboral) {
                 DemandantesRow rowDemandantesRow = ((DemandantesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -516,6 +526,7 @@ namespace Core.Esquemas {
                         Apellido2,
                         TipoUsuario,
                         NivelEstudiosNombre,
+                        Contrasena,
                         ExperienciaLaboral};
                 rowDemandantesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDemandantesRow);
@@ -560,6 +571,7 @@ namespace Core.Esquemas {
                 this.columnApellido2 = base.Columns["Apellido2"];
                 this.columnTipoUsuario = base.Columns["TipoUsuario"];
                 this.columnNivelEstudiosNombre = base.Columns["NivelEstudiosNombre"];
+                this.columnContrasena = base.Columns["Contrasena"];
                 this.columnExperienciaLaboral = base.Columns["ExperienciaLaboral"];
             }
             
@@ -594,6 +606,8 @@ namespace Core.Esquemas {
                 base.Columns.Add(this.columnTipoUsuario);
                 this.columnNivelEstudiosNombre = new global::System.Data.DataColumn("NivelEstudiosNombre", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNivelEstudiosNombre);
+                this.columnContrasena = new global::System.Data.DataColumn("Contrasena", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnContrasena);
                 this.columnExperienciaLaboral = new global::System.Data.DataColumn("ExperienciaLaboral", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnExperienciaLaboral);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
@@ -617,6 +631,7 @@ namespace Core.Esquemas {
                 this.columnApellido2.AllowDBNull = false;
                 this.columnTipoUsuario.AllowDBNull = false;
                 this.columnNivelEstudiosNombre.AllowDBNull = false;
+                this.columnContrasena.AllowDBNull = false;
                 this.columnExperienciaLaboral.AllowDBNull = false;
                 this.columnExperienciaLaboral.MaxLength = 2147483647;
             }
@@ -925,6 +940,17 @@ namespace Core.Esquemas {
                 }
                 set {
                     this[this.tableDemandantes.NivelEstudiosNombreColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Contrasena {
+                get {
+                    return ((string)(this[this.tableDemandantes.ContrasenaColumn]));
+                }
+                set {
+                    this[this.tableDemandantes.ContrasenaColumn] = value;
                 }
             }
             

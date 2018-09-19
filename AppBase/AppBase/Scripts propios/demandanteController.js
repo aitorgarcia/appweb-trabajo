@@ -13,6 +13,67 @@ app.controller('DemandanteController', ['$scope', '$http', '$element', '$interva
     $scope.ofertaDetalleModal = {};
     $scope.inscripcion = {};
 
+    $scope.dataDemModelEditarUsuario = {};
+    $scope.dataDemModelEditarDemandante = {};
+
+
+
+
+
+    //Método que muestra una página modal con los datos del Empleador para editarlos.
+    $scope.ModalEditarDemandante = function (dataDemModel) {
+        $scope.dataDemModelEditarDemandante = JSON.parse(JSON.stringify(dataDemModel));
+        $('#modalEditarDemandante').modal('show');
+    };
+
+
+    //Método que muestra una página modal con los datos del Usuario para editarlos.
+    $scope.ModalEditarUsuario = function (dataDemModel) {
+        $scope.dataDemModelEditarUsuario = JSON.parse(JSON.stringify(dataDemModel));
+        $('#modalEditarUsuario').modal('show');
+    };
+
+
+
+    //Método que guarda los NUEVOS datos MODIFICADOS del Demandante.
+    $scope.ModificarDatosDemandante = function () {
+        var url = "/Demandante/ModificarDatosDemandante";
+        $http({
+            method: 'POST',
+            url: url,
+            data: $scope.dataDemModelEditarDemandante,
+            contentType: "application/json; charset=utf-8",
+        }).success(function (result) {
+            if (result === false) {
+                alert("Compruebe que ha rellenado correctamente todos los campos obligatorios.")
+            } else {
+                alert("Datos registrados correctamente.")
+                window.location.href = "/Demandante/InicialDemandante";
+            }
+        }).error(function () {
+        });
+    };
+
+
+    //Método que guarda los NUEVOS datos MODIFICADOS del Empelador.
+    $scope.ModificarDatosUsuario = function () {
+        var url = "/Demandante/ModificarDatosUsuario";
+        $http({
+            method: 'POST',
+            url: url,
+            data: $scope.dataDemModelEditarUsuario,
+            contentType: "application/json; charset=utf-8",
+        }).success(function (result) {
+            if (result === false) {
+                alert("Compruebe que ha rellenado correctamente todos los campos obligatorios.")
+            } else {
+                alert("Datos registrados correctamente.")
+                window.location.href = "/Demandante/InicialDemandante";
+            }
+        }).error(function () {
+        });
+    };
+
 
 
 

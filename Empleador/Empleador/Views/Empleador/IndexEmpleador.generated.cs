@@ -1413,7 +1413,7 @@ WriteLiteral(" type=\"file\"");
 
 WriteLiteral(" class=\"form-control\"");
 
-WriteLiteral(" ng-model=\"dataEmpModelEditarEmpleador.LogoEmpresa\"");
+WriteLiteral(" fileread=\"dataEmpModelEditarEmpleador.ImagenB64\"");
 
 WriteLiteral(" name=\"logoEmpresa\"");
 
