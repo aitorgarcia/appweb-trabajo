@@ -1,4 +1,4 @@
-﻿var app = angular.module("app", ['ui.bootstrap']);
+﻿var app = angular.module("app", []);
 //var tipoUsuario = Object.freeze({Demandante:1,Empleador:0})
 
 

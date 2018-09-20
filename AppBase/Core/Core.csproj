@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administracion\Administrador.cs" />
     <Compile Include="Demandante\Demandante.cs" />
     <Compile Include="Demandante\DemandanteInscritoOferta.cs" />
     <Compile Include="Demandante\DemandanteModel.cs" />
@@ -50,6 +51,11 @@
     <Compile Include="Empleador\OfertaEmpleo.cs" />
     <Compile Include="Empleador\OfertaEmpleoInscrita.cs" />
     <Compile Include="Enumerados\TipoUsuario.cs" />
+    <Compile Include="Esquemas\dtsAdministrador.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dtsAdministrador.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Esquemas\dtsDemandantes.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -112,6 +118,7 @@
     <Compile Include="Estudio\Estudio.cs" />
     <Compile Include="Industria\Industria.cs" />
     <Compile Include="Login\LoginModel.cs" />
+    <Compile Include="Mapping\MappingAdministrador.cs" />
     <Compile Include="Mapping\MappingDemandante.cs" />
     <Compile Include="Mapping\MappingDemandantesInscritosOferta.cs" />
     <Compile Include="Mapping\MappingEmpleador.cs" />
@@ -134,6 +141,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Esquemas\dtsAdministrador.xsc">
+      <DependentUpon>dtsAdministrador.xsd</DependentUpon>
+    </None>
+    <None Include="Esquemas\dtsAdministrador.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dtsAdministrador.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Esquemas\dtsAdministrador.xss">
+      <DependentUpon>dtsAdministrador.xsd</DependentUpon>
+    </None>
     <None Include="Esquemas\dtsDemandantes.xsc">
       <DependentUpon>dtsDemandantes.xsd</DependentUpon>
     </None>

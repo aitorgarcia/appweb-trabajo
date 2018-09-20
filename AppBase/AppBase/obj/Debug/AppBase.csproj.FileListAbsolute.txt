@@ -96,6 +96,7 @@ C:\Users\Aitor\Documents\Visual Studio 2013\Projects\AppBase\AppBase\bin\AccesoB
 C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\AppBase\AppBase\bin\AppBase.dll.config
 C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\AppBase\AppBase\bin\AppBase.dll
 C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\AppBase\AppBase\bin\AppBase.pdb
+C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\AppBase\AppBase\bin\Administracion.dll
 C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\AppBase\AppBase\bin\Antlr3.Runtime.dll
 C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\AppBase\AppBase\bin\BaseDeDatos.dll
 C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\AppBase\AppBase\bin\Core.dll
@@ -130,13 +131,16 @@ C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\AppBase\AppB
 C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\AppBase\AppBase\bin\GestorBD.dll
 C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\AppBase\AppBase\bin\WebActivatorEx.dll
 C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\AppBase\AppBase\bin\RazorGenerator.Mvc.dll
+C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\AppBase\AppBase\bin\Administracion.CapaNegocio.dll
 C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\AppBase\AppBase\bin\CapaNegocio.dll
 C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\AppBase\AppBase\bin\Empleador.CapaNegocio.dll
+C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\AppBase\AppBase\bin\Administracion.AccesoDatos.dll
 C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\AppBase\AppBase\bin\DemandanteAccesoDatos.dll
 C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\AppBase\AppBase\bin\AccesoBaseDeDatos.dll
 C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\AppBase\AppBase\bin\BaseDeDatos.pdb
 C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\AppBase\AppBase\bin\Core.pdb
 C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\AppBase\AppBase\bin\Negocio.pdb
+C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\AppBase\AppBase\bin\Administracion.pdb
 C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\AppBase\AppBase\bin\Demandante.pdb
 C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\AppBase\AppBase\bin\Empleador.pdb
 C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\AppBase\AppBase\bin\System.Web.Helpers.xml
@@ -162,8 +166,10 @@ C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\AppBase\AppB
 C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\AppBase\AppBase\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\AppBase\AppBase\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\AppBase\AppBase\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\AppBase\AppBase\bin\Administracion.CapaNegocio.pdb
 C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\AppBase\AppBase\bin\CapaNegocio.pdb
 C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\AppBase\AppBase\bin\Empleador.CapaNegocio.pdb
+C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\AppBase\AppBase\bin\Administracion.AccesoDatos.pdb
 C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\AppBase\AppBase\bin\DemandanteAccesoDatos.pdb
 C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\AppBase\AppBase\bin\AccesoBaseDeDatos.pdb
 C:\Users\Aitor\Documents\Visual Studio 2013\Projects\portal-trabajo\AppBase\AppBase\bin\es\System.Web.Helpers.resources.dll

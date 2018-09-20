@@ -1,4 +1,4 @@
-﻿var app = angular.module("app", ['ui.bootstrap']);
+﻿var app = angular.module("app", []);
 
 app.controller('LoginController', ['$scope', '$http', '$element', '$interval', function ($scope, $http, $element, $interval) {
 

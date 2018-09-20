@@ -1,0 +1,31 @@
+﻿@model List<Core.Demandante.DemandanteModel>
+
+
+<h4>Listado de demandantes:</h4><br />
+<div data-ng-init="listDemandantes = @Json.Encode(Model)">
+    <table class="table table-striped table-bordered" style="text-align:center">
+        <thead style="background-color:#565656; overflow:hidden">
+            <tr style="color:white">
+                <th style="text-align:center; font-weight:normal; vertical-align:middle">Id Usuario</th>
+                <th style="text-align:center; font-weight:normal; vertical-align:middle">Id Empleador</th>
+                <th style="text-align:center; font-weight:normal; vertical-align:middle">Nombre completo</th>
+                <th style="text-align:center; font-weight:normal; vertical-align:middle">Edad</th>
+                <th style="text-align:center; font-weight:normal; vertical-align:middle">Email</th>
+                <th style="text-align:center; font-weight:normal; vertical-align:middle">Nivel estudios</th>
+                <th style="text-align:center; font-weight:normal; vertical-align:middle">Experiencia laboral</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr ng-repeat="x in listDemandantes">
+                    <td style="vertical-align:middle">{{x.IdUsuario}}</td>
+                    <td style="vertical-align:middle">{{x.Id}}</td>
+                    <td style="vertical-align:middle">{{x.Nombre}} {{x.Apellido1}} {{x.Apellido2}}</td>
+                    <td style="vertical-align:middle">{{x.Edad}}</td>
+                    <td style="vertical-align:middle">{{x.Email}}</td>
+                    <td style="vertical-align:middle">{{x.NivelEstudiosNombre}}</td>
+                    <td style="vertical-align:middle">{{x.ExperienciaLaboral}}</td>
+             </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,35 @@
+﻿@model List<Core.Empleador.EmpleadorModel>
+
+
+<h4>Listado de empleadores:</h4><br />
+<div data-ng-init="listEmpleadores = @Json.Encode(Model)">
+    <table class="table table-striped table-bordered" style="text-align:center">
+        <thead style="background-color:#565656; overflow:hidden">
+            <tr style="color:white">
+                <th style="text-align:center; font-weight:normal; vertical-align:middle">Id Usuario</th>
+                <th style="text-align:center; font-weight:normal; vertical-align:middle">Id Empleador</th>
+                <th style="text-align:center; font-weight:normal; vertical-align:middle">Nombre empresa</th>
+                <th style="text-align:center; font-weight:normal; vertical-align:middle">Dirección</th>
+                <th style="text-align:center; font-weight:normal; vertical-align:middle">Email</th>
+                <th style="text-align:center; font-weight:normal; vertical-align:middle">Teléfono</th>
+                <th style="text-align:center; font-weight:normal; vertical-align:middle">Nº Empleados</th>
+                <th style="text-align:center; font-weight:normal; vertical-align:middle">Tipo Industria</th>
+                <th style="text-align:center; font-weight:normal; vertical-align:middle">&equiv;</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr ng-repeat="x in listEmpleadores">
+                    <td style="vertical-align:middle">{{x.IdUsuario}}</td>
+                    <td style="vertical-align:middle">{{x.Id}}</td>
+                    <td style="vertical-align:middle">{{x.NombreEmpresa}}</td>
+                    <td style="vertical-align:middle">{{x.Direccion}}</td>
+                    <td style="vertical-align:middle">{{x.Email}}</td>
+                    <td style="vertical-align:middle">{{x.Telefono}}</td>
+                    <td style="vertical-align:middle">{{x.NumeroEmpleados}}</td>
+                    <td style="vertical-align:middle">{{x.TipoIndustriaNombre}}</td>
+                    <td style="vertical-align:middle"><button class="btn btn-warning" data-toggle="modal" ng-click="ModalEmpleadores(x.Id)">Ver detalles</button></td>
+                </tr>
+        </tbody>
+    </table>
+</div>

@@ -40,6 +40,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Administracion">
+      <HintPath>..\..\Administracion\Administracion\bin\Administracion.dll</HintPath>
+    </Reference>
     <Reference Include="Demandante">
       <HintPath>..\..\Demandante\Demandante\bin\Demandante.dll</HintPath>
     </Reference>
@@ -185,10 +188,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts propios\administracionController.js" />
     <Content Include="Scripts propios\demandanteController.js" />
     <Content Include="Scripts propios\empleadorController.js" />
     <Content Include="Scripts propios\loginController.js" />
     <Content Include="Scripts propios\registroController.js" />
+    <Content Include="Scripts propios\scriptCompile.js" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
