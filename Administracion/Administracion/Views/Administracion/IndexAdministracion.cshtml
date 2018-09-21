@@ -8,7 +8,7 @@
 
 
 <div ng-app="app">
-    <div class="row" ng-controller="AdministracionController">
+    <div class="row" ng-controller="AdministracionController" ng-init="GetAllOfertas()">
 
 
         <br />
@@ -17,6 +17,7 @@
                 <a ng-click="GetAllOfertas()">1. Ver ofertas</a><br />
                 <a ng-click="GetDemandantes()">2. Ver demandantes</a><br />
                 <a ng-click="GetEmpleadores()">3. Ver empleadores</a><br />
+                <a ng-click="GetUsuarios()">4. Ver usuarios</a><br />
             </div>
         </div>
 
@@ -24,6 +25,7 @@
             <div id="Ofertas"></div>
             <div id="Demandantes"></div>
             <div id="Empleadores"></div>
+            <div id="Usuarios"></div>
         </div>
 
 
@@ -42,7 +44,7 @@
                         <h4 class=" modal-title" id="modalTitle" style="color:white">Detalles del empleador:</h4>
                     </div>
                     <div class="modal-body" style="max-height: calc(100vh - 200px) !important; overflow-y: auto !important;">
-                        
+
 
                         <div id="OfertasPorEmpleador"></div>
 
@@ -54,10 +56,6 @@
             </div>
         </div>
         <!-- ################################ -->
-
-
-
-
         <!--  MODAL VER DETALLE MI OFERTA  ###############################  -->
         <div class="modal fade" id="modalDemandantesInscritos" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
             <div class="modal-dialog" role="document" style="overflow-y: initial !important; width:1000px">
@@ -81,7 +79,29 @@
         <!-- ################################ -->
 
 
+        <!--  MODAL ELIMINAR USUARIO  ###############################  -->
+        <div class="modal fade" id="modalEliminarUsuario" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document" style="overflow-y: initial !important; padding-top:350px; width:450px">
+                <div class="modal-content" style="overflow: hidden">
 
+                    <div class="modal-header" style="background-color:#565656; padding-bottom:0">
+                        <h5 class=" modal-title" id="modalTitle" style="color:white; margin-bottom:10px"><i class="glyphicon glyphicon-trash"></i></h5>
+                    </div>
+                    <div class="modal-body" style="max-height: calc(100vh - 200px) !important; overflow-y: auto !important;">
+
+                        <p style="text-align: center">¿Estás seguro de que deseas eliminar el usuario <span><b>{{usuarioParaEliminar.User}}</b></span>?</p>
+                        <p style="text-align: center">El usuario se borrará permanentemente</p>
+                    </div>
+
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-" data-dismiss="modal">Cancelar</button>
+                        <button class="btn btn-danger" ng-click="EliminarUsuario(usuarioParaEliminar.Id, usuarioParaEliminar.TipoUsuario)">Eliminar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ################################ -->
 
 
 

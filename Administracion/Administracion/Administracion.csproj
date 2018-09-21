@@ -210,6 +210,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_Ofertas.cshtml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Administracion\_Usuarios.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_Usuarios.cshtml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -290,6 +295,10 @@
     <Content Include="Views\Administracion\_Empleadores.cshtml">
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>_Empleadores.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Administracion\_Usuarios.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>_Usuarios.generated.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

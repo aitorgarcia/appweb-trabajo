@@ -30,28 +30,28 @@ namespace ASP
     using Administracion;
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "2.0.0.0")]
-    [System.Web.WebPages.PageVirtualPathAttribute("~/Views/Administracion/_Ofertas.cshtml")]
-    public partial class _Views_Administracion__Ofertas_cshtml : System.Web.Mvc.WebViewPage<List<Core.Empleador.OfertaEmpleo>>
+    [System.Web.WebPages.PageVirtualPathAttribute("~/Views/Administracion/_Usuarios.cshtml")]
+    public partial class _Views_Administracion__Usuarios_cshtml : System.Web.Mvc.WebViewPage<List<Core.Usuario.Usuario>>
     {
-        public _Views_Administracion__Ofertas_cshtml()
+        public _Views_Administracion__Usuarios_cshtml()
         {
         }
         public override void Execute()
         {
-WriteLiteral("\r\n<h4>Listado de ofertas:</h4><br />\r\n<div");
+WriteLiteral("\r\n<h4>Listado de usuarios:</h4>\r\n<div");
 
-WriteLiteral(" data-ng-init=\"listOfertas = ");
+WriteLiteral(" data-ng-init=\"listUsuarios = ");
 
             
-            #line 5 "..\..\Views\Administracion\_Ofertas.cshtml"
-                            Write(Json.Encode(Model));
+            #line 5 "..\..\Views\Administracion\_Usuarios.cshtml"
+                             Write(Json.Encode(Model));
 
             
             #line default
             #line hidden
 WriteLiteral("\"");
 
-WriteLiteral(">\r\n\r\n    <div");
+WriteLiteral(">\r\n\r\n\r\n    <div");
 
 WriteLiteral(" class=\"form-group\"");
 
@@ -65,7 +65,7 @@ WriteLiteral(" class=\"form-control pull-right\"");
 
 WriteLiteral(" placeholder=\"Escribe para filtrar...\"");
 
-WriteLiteral(">\r\n        <br />\r\n    </div>\r\n\r\n    <br />\r\n\r\n\r\n\r\n    <table");
+WriteLiteral(">\r\n        <br />\r\n    </div>\r\n\r\n    <br />\r\n\r\n    <table");
 
 WriteLiteral(" class=\"table table-striped table-bordered\"");
 
@@ -85,7 +85,7 @@ WriteLiteral(" style=\"text-align:center; font-weight:normal; vertical-align:mid
 
 WriteLiteral(" ng-click=\"sort(\'Id\')\"");
 
-WriteLiteral(">\r\n                    Id Oferta \r\n                    <span");
+WriteLiteral(">\r\n                    Id \r\n                    <span");
 
 WriteLiteral(" class=\"glyphicon sort-icon\"");
 
@@ -97,13 +97,13 @@ WriteLiteral("></span>\r\n                </th>\r\n                <th");
 
 WriteLiteral(" style=\"text-align:center; font-weight:normal; vertical-align:middle\"");
 
-WriteLiteral(" ng-click=\"sort(\'IdEmpleador\')\"");
+WriteLiteral(" ng-click=\"sort(\'User\')\"");
 
-WriteLiteral(">\r\n                    Id Empleador \r\n                    <span");
+WriteLiteral(">\r\n                    Usuario \r\n                    <span");
 
 WriteLiteral(" class=\"glyphicon sort-icon\"");
 
-WriteLiteral(" ng-show=\"sortKey==\'IdEmpleador\'\"");
+WriteLiteral(" ng-show=\"sortKey==\'User\'\"");
 
 WriteLiteral(" ng-class=\"{\'glyphicon-chevron-up\':reverse,\'glyphicon-chevron-down\':!reverse}\"");
 
@@ -111,13 +111,13 @@ WriteLiteral("></span>\r\n                </th>\r\n                <th");
 
 WriteLiteral(" style=\"text-align:center; font-weight:normal; vertical-align:middle\"");
 
-WriteLiteral(" ng-click=\"sort(\'Titulo\')\"");
+WriteLiteral(" ng-click=\"sort(\'Contrasena\')\"");
 
-WriteLiteral(">\r\n                    Título \r\n                    <span");
+WriteLiteral(">\r\n                    Contraseña \r\n                    <span");
 
 WriteLiteral(" class=\"glyphicon sort-icon\"");
 
-WriteLiteral(" ng-show=\"sortKey==\'Titulo\'\"");
+WriteLiteral(" ng-show=\"sortKey==\'Contrasena\'\"");
 
 WriteLiteral(" ng-class=\"{\'glyphicon-chevron-up\':reverse,\'glyphicon-chevron-down\':!reverse}\"");
 
@@ -125,13 +125,13 @@ WriteLiteral("></span>\r\n                </th>\r\n                <th");
 
 WriteLiteral(" style=\"text-align:center; font-weight:normal; vertical-align:middle\"");
 
-WriteLiteral(" ng-click=\"sort(\'NumeroVacantes\')\"");
+WriteLiteral(" ng-click=\"sort(\'Nombre\')\"");
 
-WriteLiteral(">\r\n                    Nº Vacantes \r\n                    <span");
+WriteLiteral(">\r\n                    Nombre completo \r\n                    <span");
 
 WriteLiteral(" class=\"glyphicon sort-icon\"");
 
-WriteLiteral(" ng-show=\"sortKey==\'NumeroVacantes\'\"");
+WriteLiteral(" ng-show=\"sortKey==\'Nombre\'\"");
 
 WriteLiteral(" ng-class=\"{\'glyphicon-chevron-up\':reverse,\'glyphicon-chevron-down\':!reverse}\"");
 
@@ -139,13 +139,13 @@ WriteLiteral("></span>\r\n                </th>\r\n                <th");
 
 WriteLiteral(" style=\"text-align:center; font-weight:normal; vertical-align:middle\"");
 
-WriteLiteral(" ng-click=\"sort(\'Sueldo\')\"");
+WriteLiteral(" ng-click=\"sort(\'TipoUsuario\')\"");
 
-WriteLiteral(">\r\n                    Sueldo \r\n                    <span");
+WriteLiteral(">\r\n                    Tipo Usuario \r\n                    <span");
 
 WriteLiteral(" class=\"glyphicon sort-icon\"");
 
-WriteLiteral(" ng-show=\"sortKey==\'Sueldo\'\"");
+WriteLiteral(" ng-show=\"sortKey==\'TipoUsuario\'\"");
 
 WriteLiteral(" ng-class=\"{\'glyphicon-chevron-up\':reverse,\'glyphicon-chevron-down\':!reverse}\"");
 
@@ -153,40 +153,10 @@ WriteLiteral("></span>\r\n                </th>\r\n                <th");
 
 WriteLiteral(" style=\"text-align:center; font-weight:normal; vertical-align:middle\"");
 
-WriteLiteral(" ng-click=\"sort(\'FechaLanzamientoString\')\"");
+WriteLiteral(">&equiv;</th>\r\n            </tr>\r\n        </thead>\r\n        <tbody>\r\n            " +
+"<tr");
 
-WriteLiteral(">\r\n                    Fecha inicio \r\n                    <span");
-
-WriteLiteral(" class=\"glyphicon sort-icon\"");
-
-WriteLiteral(" ng-show=\"sortKey==\'FechaLanzamientoString\'\"");
-
-WriteLiteral(" ng-class=\"{\'glyphicon-chevron-up\':reverse,\'glyphicon-chevron-down\':!reverse}\"");
-
-WriteLiteral("></span>\r\n                </th>\r\n                <th");
-
-WriteLiteral(" style=\"text-align:center; font-weight:normal; vertical-align:middle\"");
-
-WriteLiteral(" ng-click=\"sort(\'FechaFinString\')\"");
-
-WriteLiteral(">\r\n                    Fecha fin \r\n                    <span");
-
-WriteLiteral(" class=\"glyphicon sort-icon\"");
-
-WriteLiteral(" ng-show=\"sortKey==\'FechaFinString\'\"");
-
-WriteLiteral(" ng-class=\"{\'glyphicon-chevron-up\':reverse,\'glyphicon-chevron-down\':!reverse}\"");
-
-WriteLiteral("></span>\r\n                </th>\r\n                <th");
-
-WriteLiteral(" style=\"text-align:center; font-weight:normal; vertical-align:middle\"");
-
-WriteLiteral(">&equiv;</th>\r\n            </tr>\r\n        </thead>\r\n\r\n        <tbody>\r\n          " +
-"  ");
-
-WriteLiteral("\r\n            <tr");
-
-WriteLiteral(" ng-repeat=\"x in listOfertas | orderBy:sortKey:reverse | filter:filtro\"");
+WriteLiteral(" ng-repeat=\"x in listUsuarios | orderBy:sortKey:reverse | filter:filtro\"");
 
 WriteLiteral(">\r\n                <td");
 
@@ -196,40 +166,44 @@ WriteLiteral(">{{x.Id}}</td>\r\n                <td");
 
 WriteLiteral(" style=\"vertical-align:middle\"");
 
-WriteLiteral(">{{x.IdEmpleador}}</td>\r\n                <td");
+WriteLiteral(">{{x.User}}</td>\r\n                <td");
 
 WriteLiteral(" style=\"vertical-align:middle\"");
 
-WriteLiteral(">{{x.Titulo}}</td>\r\n                <td");
+WriteLiteral(">{{x.Contrasena}}</td>\r\n                <td");
 
 WriteLiteral(" style=\"vertical-align:middle\"");
 
-WriteLiteral(">{{x.NumeroVacantes}}</td>\r\n                <td");
+WriteLiteral(">{{x.Nombre}} {{x.Apellido1}} {{x.Apellido2}}</td>\r\n                <td");
 
 WriteLiteral(" style=\"vertical-align:middle\"");
 
-WriteLiteral(">{{x.Sueldo}}</td>\r\n                <td");
+WriteLiteral(" ng-if=\"x.TipoUsuario == 0\"");
+
+WriteLiteral(">Empleador</td>\r\n                <td");
 
 WriteLiteral(" style=\"vertical-align:middle\"");
 
-WriteLiteral(">{{x.FechaLanzamientoString}}</td>\r\n                <td");
+WriteLiteral(" ng-if=\"x.TipoUsuario == 1\"");
 
-WriteLiteral(" style=\"vertical-align:middle\"");
-
-WriteLiteral(">{{x.FechaFinString}}</td>\r\n                <td");
+WriteLiteral(">Demandante</td>\r\n                <td");
 
 WriteLiteral(" style=\"vertical-align:middle\"");
 
 WriteLiteral("><button");
 
-WriteLiteral(" class=\"btn btn-warning\"");
+WriteLiteral(" class=\"btn btn-danger\"");
 
 WriteLiteral(" data-toggle=\"modal\"");
 
-WriteLiteral(" ng-click=\"ModalOfertas(x.Id)\"");
+WriteLiteral(" ng-click=\"ModalEliminarUsuario(x)\"");
 
-WriteLiteral(">Ver detalles</button></td>\r\n            </tr>\r\n        </tbody>\r\n    </table>\r\n " +
-"   <br />\r\n    <br />\r\n    <br />\r\n    <br />\r\n</div>\r\n");
+WriteLiteral("><i");
+
+WriteLiteral(" class=\"glyphicon glyphicon-trash\"");
+
+WriteLiteral("></i></button></td>\r\n            </tr>\r\n        </tbody>\r\n    </table>\r\n</div>\r\n\r" +
+"\n<ar");
 
         }
     }

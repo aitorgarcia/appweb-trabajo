@@ -3,33 +3,67 @@
 
 <h4>Listado de empleadores:</h4><br />
 <div data-ng-init="listEmpleadores = @Json.Encode(Model)">
+
+    <div class="form-group">
+        <input type="text" ng-model="filtro" class="form-control pull-right" placeholder="Escribe para filtrar...">
+        <br />
+    </div>
+
+    <br />
+
+
     <table class="table table-striped table-bordered" style="text-align:center">
         <thead style="background-color:#565656; overflow:hidden">
             <tr style="color:white">
-                <th style="text-align:center; font-weight:normal; vertical-align:middle">Id Usuario</th>
-                <th style="text-align:center; font-weight:normal; vertical-align:middle">Id Empleador</th>
-                <th style="text-align:center; font-weight:normal; vertical-align:middle">Nombre empresa</th>
-                <th style="text-align:center; font-weight:normal; vertical-align:middle">Dirección</th>
-                <th style="text-align:center; font-weight:normal; vertical-align:middle">Email</th>
-                <th style="text-align:center; font-weight:normal; vertical-align:middle">Teléfono</th>
-                <th style="text-align:center; font-weight:normal; vertical-align:middle">Nº Empleados</th>
-                <th style="text-align:center; font-weight:normal; vertical-align:middle">Tipo Industria</th>
+                <th style="text-align:center; font-weight:normal; vertical-align:middle" ng-click="sort('IdUsuario')">
+                    Id Usuario 
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='IdUsuario'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th style="text-align:center; font-weight:normal; vertical-align:middle" ng-click="sort('Id')">
+                    Id Empleador 
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='Id'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th style="text-align:center; font-weight:normal; vertical-align:middle" ng-click="sort('NombreEmpresa')">
+                    Nombre empresa 
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='NombreEmpresa'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th style="text-align:center; font-weight:normal; vertical-align:middle" ng-click="sort('Direccion')">
+                    Dirección 
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='Direccion'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th style="text-align:center; font-weight:normal; vertical-align:middle" ng-click="sort('Email')">
+                    Email 
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='Email'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th style="text-align:center; font-weight:normal; vertical-align:middle" ng-click="sort('Telefono')">
+                    Teléfono 
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='Telefono'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th style="text-align:center; font-weight:normal; vertical-align:middle" ng-click="sort('NumeroEmpleados')">
+                    Nº Empleados 
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='NumeroEmpleados'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th style="text-align:center; font-weight:normal; vertical-align:middle" ng-click="sort('TipoIndustriaNombre')">
+                    Tipo Industria 
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='TipoIndustriaNombre'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
                 <th style="text-align:center; font-weight:normal; vertical-align:middle">&equiv;</th>
             </tr>
         </thead>
 
+
         <tbody>
-            <tr ng-repeat="x in listEmpleadores">
-                    <td style="vertical-align:middle">{{x.IdUsuario}}</td>
-                    <td style="vertical-align:middle">{{x.Id}}</td>
-                    <td style="vertical-align:middle">{{x.NombreEmpresa}}</td>
-                    <td style="vertical-align:middle">{{x.Direccion}}</td>
-                    <td style="vertical-align:middle">{{x.Email}}</td>
-                    <td style="vertical-align:middle">{{x.Telefono}}</td>
-                    <td style="vertical-align:middle">{{x.NumeroEmpleados}}</td>
-                    <td style="vertical-align:middle">{{x.TipoIndustriaNombre}}</td>
-                    <td style="vertical-align:middle"><button class="btn btn-warning" data-toggle="modal" ng-click="ModalEmpleadores(x.Id)">Ver detalles</button></td>
-                </tr>
+            <tr ng-repeat="x in listEmpleadores | orderBy:sortKey:reverse | filter:filtro">
+                <td style="vertical-align:middle">{{x.IdUsuario}}</td>
+                <td style="vertical-align:middle">{{x.Id}}</td>
+                <td style="vertical-align:middle">{{x.NombreEmpresa}}</td>
+                <td style="vertical-align:middle">{{x.Direccion}}</td>
+                <td style="vertical-align:middle">{{x.Email}}</td>
+                <td style="vertical-align:middle">{{x.Telefono}}</td>
+                <td style="vertical-align:middle">{{x.NumeroEmpleados}}</td>
+                <td style="vertical-align:middle">{{x.TipoIndustriaNombre}}</td>
+                <td style="vertical-align:middle"><button class="btn btn-warning" data-toggle="modal" ng-click="ModalEmpleadores(x.Id)">Ver detalles</button></td>
+            </tr>
         </tbody>
     </table>
 </div>

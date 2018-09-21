@@ -7,11 +7,22 @@ using Core.Administracion;
 using Administracion.AccesoDatos;
 using Core.Demandante;
 using Core.Empleador;
+using Core.Usuario;
 
 namespace Administracion.CapaNegocio
 {
     public class NGAdministracion
     {
+
+
+        public bool EliminarUsuario(int idUsuario, int tipoUsuario)
+        {
+            UTAdministracion utAdministracion = new UTAdministracion();
+            bool result = utAdministracion.EliminarUsuario(idUsuario, tipoUsuario);
+
+            return result;
+        }
+
 
 
 
@@ -34,6 +45,19 @@ namespace Administracion.CapaNegocio
 
             return result;
         }
+
+
+
+        public List<Usuario> GetUsuarios()
+        {
+            List<Usuario> result = new List<Usuario>();
+
+            UTAdministracion utAdministracion = new UTAdministracion();
+            result = utAdministracion.GetUsuarios();
+
+            return result;
+        }
+
 
 
 

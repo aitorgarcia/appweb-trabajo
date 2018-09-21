@@ -12,6 +12,7 @@ using System.Data;
 using Core.Demandante;
 using Core.Empleador;
 using System.Data.SqlClient;
+using Core.Usuario;
 
 namespace Administracion.AccesoDatos
 {
@@ -48,6 +49,22 @@ namespace Administracion.AccesoDatos
 
 
 
+        public bool EliminarUsuario(int idUsuario, int tipoUsuario)
+        {
+            SqlParameter param = new SqlParameter("@idUsuario", idUsuario);
+
+            if(tipoUsuario == 0)
+                Repo.EjecutarProcedimiento("pEliminarUsuarioE", param);
+            else
+                Repo.EjecutarProcedimiento("pEliminarUsuarioD", param);
+
+            return true;
+        }
+
+
+
+
+
 
         public List<OfertaEmpleo> GetAllOfertas()
         {
@@ -67,6 +84,32 @@ namespace Administracion.AccesoDatos
             }
             return result;
         }
+
+
+
+
+        public List<Usuario> GetUsuarios()
+        {
+            List<Usuario> result = new List<Usuario>();
+            dtsUsuarios dts = new dtsUsuarios();
+
+
+            dtsUsuarios.UsuariosDataTable dt = (dtsUsuarios.UsuariosDataTable)Repo.Leer(dts.Usuarios);
+
+
+            int i = 0;
+            foreach (DataRow dtRow in dt)
+            {
+                Usuario usuario = new Usuario();
+                usuario = MappingUsuario.ToUsuario(dt, i);
+                result.Add(usuario);
+                i++;
+            }
+            return result;
+        }
+
+
+
 
 
 

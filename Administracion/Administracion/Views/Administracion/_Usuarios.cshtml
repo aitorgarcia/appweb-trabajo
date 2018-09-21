@@ -1,0 +1,55 @@
+﻿@model List<Core.Usuario.Usuario>
+
+
+<h4>Listado de usuarios:</h4>
+<div data-ng-init="listUsuarios = @Json.Encode(Model)">
+
+
+    <div class="form-group">
+        <input type="text" ng-model="filtro" class="form-control pull-right" placeholder="Escribe para filtrar...">
+        <br />
+    </div>
+
+    <br />
+
+    <table class="table table-striped table-bordered" style="text-align:center">
+        <thead style="background-color:#565656; overflow:hidden">
+            <tr style="color:white">
+                <th style="text-align:center; font-weight:normal; vertical-align:middle" ng-click="sort('Id')">
+                    Id 
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='Id'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th style="text-align:center; font-weight:normal; vertical-align:middle" ng-click="sort('User')">
+                    Usuario 
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='User'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th style="text-align:center; font-weight:normal; vertical-align:middle" ng-click="sort('Contrasena')">
+                    Contraseña 
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='Contrasena'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th style="text-align:center; font-weight:normal; vertical-align:middle" ng-click="sort('Nombre')">
+                    Nombre completo 
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='Nombre'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th style="text-align:center; font-weight:normal; vertical-align:middle" ng-click="sort('TipoUsuario')">
+                    Tipo Usuario 
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='TipoUsuario'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th style="text-align:center; font-weight:normal; vertical-align:middle">&equiv;</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="x in listUsuarios | orderBy:sortKey:reverse | filter:filtro">
+                <td style="vertical-align:middle">{{x.Id}}</td>
+                <td style="vertical-align:middle">{{x.User}}</td>
+                <td style="vertical-align:middle">{{x.Contrasena}}</td>
+                <td style="vertical-align:middle">{{x.Nombre}} {{x.Apellido1}} {{x.Apellido2}}</td>
+                <td style="vertical-align:middle" ng-if="x.TipoUsuario == 0">Empleador</td>
+                <td style="vertical-align:middle" ng-if="x.TipoUsuario == 1">Demandante</td>
+                <td style="vertical-align:middle"><button class="btn btn-danger" data-toggle="modal" ng-click="ModalEliminarUsuario(x)"><i class="glyphicon glyphicon-trash"></i></button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<ar

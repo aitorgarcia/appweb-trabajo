@@ -51,7 +51,21 @@ WriteLiteral(" data-ng-init=\"listDemandantes = ");
             #line hidden
 WriteLiteral("\"");
 
-WriteLiteral(">\r\n    <table");
+WriteLiteral(">\r\n\r\n\r\n    <div");
+
+WriteLiteral(" class=\"form-group\"");
+
+WriteLiteral(">\r\n        <input");
+
+WriteLiteral(" type=\"text\"");
+
+WriteLiteral(" ng-model=\"filtro\"");
+
+WriteLiteral(" class=\"form-control pull-right\"");
+
+WriteLiteral(" placeholder=\"Escribe para filtrar...\"");
+
+WriteLiteral(">\r\n        <br />\r\n    </div>\r\n\r\n    <br />\r\n\r\n    <table");
 
 WriteLiteral(" class=\"table table-striped table-bordered\"");
 
@@ -69,65 +83,135 @@ WriteLiteral(">\r\n                <th");
 
 WriteLiteral(" style=\"text-align:center; font-weight:normal; vertical-align:middle\"");
 
-WriteLiteral(">Id Usuario</th>\r\n                <th");
+WriteLiteral(" ng-click=\"sort(\'IdUsuario\')\"");
+
+WriteLiteral(">\r\n                    Id Usuario \r\n                    <span");
+
+WriteLiteral(" class=\"glyphicon sort-icon\"");
+
+WriteLiteral(" ng-show=\"sortKey==\'IdUsuario\'\"");
+
+WriteLiteral(" ng-class=\"{\'glyphicon-chevron-up\':reverse,\'glyphicon-chevron-down\':!reverse}\"");
+
+WriteLiteral("></span>\r\n                </th>\r\n                <th");
 
 WriteLiteral(" style=\"text-align:center; font-weight:normal; vertical-align:middle\"");
 
-WriteLiteral(">Id Empleador</th>\r\n                <th");
+WriteLiteral(" ng-click=\"sort(\'Id\')\"");
+
+WriteLiteral(">\r\n                    Id Empleador \r\n                    <span");
+
+WriteLiteral(" class=\"glyphicon sort-icon\"");
+
+WriteLiteral(" ng-show=\"sortKey==\'Id\'\"");
+
+WriteLiteral(" ng-class=\"{\'glyphicon-chevron-up\':reverse,\'glyphicon-chevron-down\':!reverse}\"");
+
+WriteLiteral("></span>\r\n                </th>\r\n                <th");
 
 WriteLiteral(" style=\"text-align:center; font-weight:normal; vertical-align:middle\"");
 
-WriteLiteral(">Nombre completo</th>\r\n                <th");
+WriteLiteral(" ng-click=\"sort(\'Nombre\')\"");
+
+WriteLiteral(">\r\n                    Nombre completo \r\n                    <span");
+
+WriteLiteral(" class=\"glyphicon sort-icon\"");
+
+WriteLiteral(" ng-show=\"sortKey==\'Nombre\'\"");
+
+WriteLiteral(" ng-class=\"{\'glyphicon-chevron-up\':reverse,\'glyphicon-chevron-down\':!reverse}\"");
+
+WriteLiteral("></span>\r\n                </th>\r\n                <th");
 
 WriteLiteral(" style=\"text-align:center; font-weight:normal; vertical-align:middle\"");
 
-WriteLiteral(">Edad</th>\r\n                <th");
+WriteLiteral(" ng-click=\"sort(\'Edad\')\"");
+
+WriteLiteral(">\r\n                    Edad \r\n                    <span");
+
+WriteLiteral(" class=\"glyphicon sort-icon\"");
+
+WriteLiteral(" ng-show=\"sortKey==\'Edad\'\"");
+
+WriteLiteral(" ng-class=\"{\'glyphicon-chevron-up\':reverse,\'glyphicon-chevron-down\':!reverse}\"");
+
+WriteLiteral("></span>\r\n                </th>\r\n                <th");
 
 WriteLiteral(" style=\"text-align:center; font-weight:normal; vertical-align:middle\"");
 
-WriteLiteral(">Email</th>\r\n                <th");
+WriteLiteral(" ng-click=\"sort(\'Email\')\"");
+
+WriteLiteral(">\r\n                    Email \r\n                    <span");
+
+WriteLiteral(" class=\"glyphicon sort-icon\"");
+
+WriteLiteral(" ng-show=\"sortKey==\'Email\'\"");
+
+WriteLiteral(" ng-class=\"{\'glyphicon-chevron-up\':reverse,\'glyphicon-chevron-down\':!reverse}\"");
+
+WriteLiteral("></span>\r\n                </th>\r\n                <th");
 
 WriteLiteral(" style=\"text-align:center; font-weight:normal; vertical-align:middle\"");
 
-WriteLiteral(">Nivel estudios</th>\r\n                <th");
+WriteLiteral(" ng-click=\"sort(\'NivelEstudiosNombre\')\"");
+
+WriteLiteral(">\r\n                    Nivel estudios \r\n                    <span");
+
+WriteLiteral(" class=\"glyphicon sort-icon\"");
+
+WriteLiteral(" ng-show=\"sortKey==\'NivelEstudiosNombre\'\"");
+
+WriteLiteral(" ng-class=\"{\'glyphicon-chevron-up\':reverse,\'glyphicon-chevron-down\':!reverse}\"");
+
+WriteLiteral("></span>\r\n                </th>\r\n                <th");
 
 WriteLiteral(" style=\"text-align:center; font-weight:normal; vertical-align:middle\"");
 
-WriteLiteral(">Experiencia laboral</th>\r\n            </tr>\r\n        </thead>\r\n\r\n        <tbody>" +
-"\r\n            <tr");
+WriteLiteral(" ng-click=\"sort(\'ExperienciaLaboral\')\"");
 
-WriteLiteral(" ng-repeat=\"x in listDemandantes\"");
+WriteLiteral(">\r\n                    Experiencia laboral \r\n                    <span");
 
-WriteLiteral(">\r\n                    <td");
+WriteLiteral(" class=\"glyphicon sort-icon\"");
 
-WriteLiteral(" style=\"vertical-align:middle\"");
+WriteLiteral(" ng-show=\"sortKey==\'ExperienciaLaboral\'\"");
 
-WriteLiteral(">{{x.IdUsuario}}</td>\r\n                    <td");
+WriteLiteral(" ng-class=\"{\'glyphicon-chevron-up\':reverse,\'glyphicon-chevron-down\':!reverse}\"");
 
-WriteLiteral(" style=\"vertical-align:middle\"");
+WriteLiteral("></span>\r\n                </th>\r\n            </tr>\r\n        </thead>\r\n\r\n        <" +
+"tbody>\r\n            <tr");
 
-WriteLiteral(">{{x.Id}}</td>\r\n                    <td");
+WriteLiteral(" ng-repeat=\"x in listDemandantes | orderBy:sortKey:reverse | filter:filtro\"");
 
-WriteLiteral(" style=\"vertical-align:middle\"");
-
-WriteLiteral(">{{x.Nombre}} {{x.Apellido1}} {{x.Apellido2}}</td>\r\n                    <td");
+WriteLiteral(">\r\n                <td");
 
 WriteLiteral(" style=\"vertical-align:middle\"");
 
-WriteLiteral(">{{x.Edad}}</td>\r\n                    <td");
+WriteLiteral(">{{x.IdUsuario}}</td>\r\n                <td");
 
 WriteLiteral(" style=\"vertical-align:middle\"");
 
-WriteLiteral(">{{x.Email}}</td>\r\n                    <td");
+WriteLiteral(">{{x.Id}}</td>\r\n                <td");
 
 WriteLiteral(" style=\"vertical-align:middle\"");
 
-WriteLiteral(">{{x.NivelEstudiosNombre}}</td>\r\n                    <td");
+WriteLiteral(">{{x.Nombre}} {{x.Apellido1}} {{x.Apellido2}}</td>\r\n                <td");
 
 WriteLiteral(" style=\"vertical-align:middle\"");
 
-WriteLiteral(">{{x.ExperienciaLaboral}}</td>\r\n             </tr>\r\n        </tbody>\r\n    </table" +
-">\r\n</div>");
+WriteLiteral(">{{x.Edad}}</td>\r\n                <td");
+
+WriteLiteral(" style=\"vertical-align:middle\"");
+
+WriteLiteral(">{{x.Email}}</td>\r\n                <td");
+
+WriteLiteral(" style=\"vertical-align:middle\"");
+
+WriteLiteral(">{{x.NivelEstudiosNombre}}</td>\r\n                <td");
+
+WriteLiteral(" style=\"vertical-align:middle\"");
+
+WriteLiteral(">{{x.ExperienciaLaboral}}</td>\r\n            </tr>\r\n        </tbody>\r\n    </table>" +
+"\r\n</div>");
 
         }
     }

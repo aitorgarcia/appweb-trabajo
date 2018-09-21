@@ -3,23 +3,54 @@
 
 <h4>Listado de ofertas:</h4><br />
 <div data-ng-init="listOfertas = @Json.Encode(Model)">
+
+    <div class="form-group">
+        <input type="text" ng-model="filtro" class="form-control pull-right" placeholder="Escribe para filtrar...">
+        <br />
+    </div>
+
+    <br />
+
+
+
     <table class="table table-striped table-bordered" style="text-align:center">
         <thead style="background-color:#565656; overflow:hidden">
             <tr style="color:white">
-                <th style="text-align:center; font-weight:normal; vertical-align:middle">Id Oferta</th>
-                <th style="text-align:center; font-weight:normal; vertical-align:middle">Id Empleador</th>
-                <th style="text-align:center; font-weight:normal; vertical-align:middle">Título</th>
-                <th style="text-align:center; font-weight:normal; vertical-align:middle">Nº Vacantes</th>
-                <th style="text-align:center; font-weight:normal; vertical-align:middle">Sueldo</th>
-                <th style="text-align:center; font-weight:normal; vertical-align:middle">Fecha inicio</th>
-                <th style="text-align:center; font-weight:normal; vertical-align:middle">Fecha fin</th>
+                <th style="text-align:center; font-weight:normal; vertical-align:middle" ng-click="sort('Id')">
+                    Id Oferta 
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='Id'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th style="text-align:center; font-weight:normal; vertical-align:middle" ng-click="sort('IdEmpleador')">
+                    Id Empleador 
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='IdEmpleador'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th style="text-align:center; font-weight:normal; vertical-align:middle" ng-click="sort('Titulo')">
+                    Título 
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='Titulo'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th style="text-align:center; font-weight:normal; vertical-align:middle" ng-click="sort('NumeroVacantes')">
+                    Nº Vacantes 
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='NumeroVacantes'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th style="text-align:center; font-weight:normal; vertical-align:middle" ng-click="sort('Sueldo')">
+                    Sueldo 
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='Sueldo'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th style="text-align:center; font-weight:normal; vertical-align:middle" ng-click="sort('FechaLanzamientoString')">
+                    Fecha inicio 
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='FechaLanzamientoString'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th style="text-align:center; font-weight:normal; vertical-align:middle" ng-click="sort('FechaFinString')">
+                    Fecha fin 
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='FechaFinString'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
                 <th style="text-align:center; font-weight:normal; vertical-align:middle">&equiv;</th>
             </tr>
         </thead>
 
         <tbody>
             @*| limitTo : 3*@
-            <tr ng-repeat="x in listOfertas">
+            <tr ng-repeat="x in listOfertas | orderBy:sortKey:reverse | filter:filtro">
                 <td style="vertical-align:middle">{{x.Id}}</td>
                 <td style="vertical-align:middle">{{x.IdEmpleador}}</td>
                 <td style="vertical-align:middle">{{x.Titulo}}</td>

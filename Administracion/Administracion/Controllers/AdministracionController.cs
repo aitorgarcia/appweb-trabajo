@@ -7,6 +7,7 @@ using Core.Administracion;
 using Administracion.CapaNegocio;
 using Core.Demandante;
 using Core.Empleador;
+using Core.Usuario;
 
 namespace Administracion.Controllers
 {
@@ -14,7 +15,11 @@ namespace Administracion.Controllers
     {
 
 
-
+        /// <summary>
+        /// Método que llama la capa de negocios para obtener los demandantes de la BD.
+        /// </summary>
+        /// <returns>Devuelve un result con la lista de objetos DemandanteModel y
+        ///          muestra la vista parcial _Demandantes.</returns>
         [HttpPost]
         public ActionResult ObtenerDemandantes()
         {
@@ -24,6 +29,12 @@ namespace Administracion.Controllers
         }
 
 
+
+        /// <summary>
+        /// Método que llama la capa de negocios para obtener los empleadores de la BD.
+        /// </summary>
+        /// <returns>Devuelve un result con la lista de objetos EmpleadorModel y
+        ///          muestra la vista parcial _Empleadores.</returns>
         [HttpPost]
         public ActionResult ObtenerEmpleadores()
         {
@@ -35,9 +46,49 @@ namespace Administracion.Controllers
 
 
 
+        /// <summary>
+        /// Método que llama la capa de negocios para obtener los usuarios de la BD.
+        /// </summary>
+        /// <returns>Devuelve un result con la lista de objetos Usuario y
+        ///          muestra la vista parcial _Usuarios.</returns>
+        [HttpPost]
+        public ActionResult ObtenerUsuarios()
+        {
+            NGAdministracion ngAdmin = new NGAdministracion();
+            List<Usuario> result = ngAdmin.GetUsuarios();
+            return PartialView("~/Views/Administracion/_Usuarios.cshtml", result);
+        }
 
 
 
+        /// <summary>
+        /// Método que llama la capa de negocios para obtener las ofertas de la BD.
+        /// </summary>
+        /// <returns>Devuelve un result con la lista de objetos OfertaEmpleo y
+        ///          muestra la vista parcial _Ofertas.</returns>
+        [HttpPost]
+        public ActionResult GetAllOfertas()
+        {
+            NGAdministracion ngAdmin = new NGAdministracion();
+
+            List<OfertaEmpleo> result = ngAdmin.GetAllOfertas();
+            return PartialView("~/Views/Administracion/_Ofertas.cshtml", result);
+        }
+
+
+
+
+        // #################################################################################################
+
+
+
+
+        /// <summary>
+        /// Método que llama la capa de negocios para obtener los demandantes inscritos en una oferta de empleo pasado por parámetro.
+        /// </summary>
+        /// <param name="idOferta"></param>
+        /// <returns>Devuelve un result con la lista de objetos DemandanteModel y
+        ///          muestra la vista parcial _Demandantes.</returns>
         [HttpPost]
         public ActionResult GetDemandantesInscritosOferta(int idOferta)
         {
@@ -50,7 +101,12 @@ namespace Administracion.Controllers
 
 
 
-
+        /// <summary>
+        /// Método que llama la capa de negocios para obtener las ofertas de un empleador pasado por parámetro.
+        /// </summary>
+        /// <param name="idEmpleador"></param>
+        /// <returns>Devuelve un result con la lista de objetos OfertaEmpleo y
+        ///          muestra la vista parcial _Ofertas.</returns>
         [HttpPost]
         public ActionResult GetOfertasDeEmpleador(int idEmpleador)
         {
@@ -63,13 +119,14 @@ namespace Administracion.Controllers
 
 
 
+
         [HttpPost]
-        public ActionResult GetAllOfertas()
+        public JsonResult EliminarUsuario(int idUsuario, int tipoUsuario)
         {
             NGAdministracion ngAdmin = new NGAdministracion();
-
-            var result = ngAdmin.GetAllOfertas();
-            return PartialView("~/Views/Administracion/_Ofertas.cshtml", result);
+            bool result = ngAdmin.EliminarUsuario(idUsuario, tipoUsuario);
+            
+            return Json(result);
         }
 
 
@@ -77,11 +134,13 @@ namespace Administracion.Controllers
 
 
 
+
         /// <summary>
-        /// 
+        /// Método que comprueba que valida el inicio de sesión del Administrador, para ello llama a la BD.
         /// </summary>
         /// <param name="admin"></param>
-        /// <returns></returns>
+        /// <returns>Devuelve un JSON con el objeto Adminsitrador recibido de la capa de negocios
+        ///          o un JSON(false) si es nulo.</returns>
         [HttpPost]
         public JsonResult IniciarSesion(Administrador admin)
         {
@@ -94,10 +153,12 @@ namespace Administracion.Controllers
 
 
 
+
+
         /// <summary>
-        /// 
+        /// Método que carga la vista correspondiente a su nombre.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Devuelve la vista IndexAdminsitracion (pagina principal del panel de administración).</returns>
         public ActionResult IndexAdministracion()
         {
             return View();
@@ -107,9 +168,9 @@ namespace Administracion.Controllers
 
 
         /// <summary>
-        /// 
+        /// Método que carga la vista correspondiente a su nombre.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Devuelve la vista Login (inicio de sesion para el panel de administración).</returns>
         public ActionResult Login()
         {
             return View();

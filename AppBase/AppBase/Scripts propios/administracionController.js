@@ -4,9 +4,11 @@ app.controller('AdministracionController', ['$scope', '$http', '$element', '$int
 
     //Variables
     $scope.admin = {};
+    $scope.usuarioParaEliminar = {};
     $scope.listDemandantes = {};
     $scope.listOfertas = {};
     $scope.listEmpleadores = {};
+    $scope.listUsuarios = {};
 
 
 
@@ -34,21 +36,56 @@ app.controller('AdministracionController', ['$scope', '$http', '$element', '$int
 
 
 
+    $scope.sort = function (keyname) {
+        $scope.sortKey = keyname;   //set the sortKey to the param passed
+        $scope.reverse = !$scope.reverse; //if true make it false and vice versa
+    }
+
+
+
+
+
+    $scope.EliminarUsuario = function (IdUsuario, TipoUsuario) {
+        myHttp.post("/Administracion/EliminarUsuario", { IdUsuario: IdUsuario, TipoUsuario: TipoUsuario })
+          .then(function (result) {
+              if (result === true) {
+                  alert("Usuario eliminado correctamente");
+                  window.location.href = "/Administracion/IndexAdministracion";
+              } else {
+                  alert("Error al eliminar el usuario.");
+              }
+
+          })
+          .catch(function (err) {
+              alert("Error de la promesa");
+          })
+    };
+
+
+
+
+    //Método que muestra una modal con la tabla de Demandantes inscritos en una Oferta.
     $scope.ModalOfertas = function (oferta) {
         $scope.CargarDemandantesInscritos(oferta);
         $('#modalDemandantesInscritos').modal('show');
     };
 
 
-
+    //Método que muestra una modal con la tabla de Ofertas que tiene un Empleador
     $scope.ModalEmpleadores = function (idEmpleador) {
         $scope.CargarOfertasDeEmpleador(idEmpleador);
         $('#modalOfertasPorEmpleador').modal('show');
     };
 
 
+    //Método que muestra una modal con la tabla de Ofertas que tiene un Empleador
+    $scope.ModalEliminarUsuario = function (usuarioPurgado) {
+        $scope.usuarioParaEliminar = usuarioPurgado;
+        $('#modalEliminarUsuario').modal('show');
+    };
 
-    //Método para obtener los demandantes de la base de datos.
+
+    //Método para obtener las ofertas de un empleador.
     $scope.CargarOfertasDeEmpleador = function (idEmpleador) {
         myHttp.post("/Administracion/GetOfertasDeEmpleador", { idEmpleador: idEmpleador })
           .then(function (result) {
@@ -62,7 +99,7 @@ app.controller('AdministracionController', ['$scope', '$http', '$element', '$int
 
 
 
-    //Método para obtener los demandantes de la base de datos.
+    //Método para obtener los demandantes inscritos a una oferta concreta.
     $scope.CargarDemandantesInscritos = function (idOferta) {
         myHttp.post("/Administracion/GetDemandantesInscritosOferta", { idOferta: idOferta })
           .then(function (result) {
@@ -83,6 +120,7 @@ app.controller('AdministracionController', ['$scope', '$http', '$element', '$int
           .then(function (result) {
               $('#Ofertas').empty();
               $('#Empleadores').empty();
+              $('#Usuarios').empty();
               addElementCompileAngularToSelector($('#Demandantes'), result, true, false);
           })
           .catch(function () {
@@ -92,12 +130,33 @@ app.controller('AdministracionController', ['$scope', '$http', '$element', '$int
 
 
 
+
+
+    //Método para obtener los usuarios de la base de datos.
+    $scope.GetUsuarios = function () {
+        myHttp.post("/Administracion/ObtenerUsuarios")
+          .then(function (result) {
+              $('#Demandantes').empty();
+              $('#Ofertas').empty();
+              $('#Empleadores').empty();
+              addElementCompileAngularToSelector($('#Usuarios'), result, true, false);
+          })
+          .catch(function () {
+              alert("Error de la promesa");
+          })
+    };
+
+
+
+
+
     //Método para obtener los empleadores de la base de datos.
     $scope.GetEmpleadores = function () {
         myHttp.post("/Administracion/ObtenerEmpleadores")
           .then(function (result) {
               $('#Ofertas').empty();
               $('#Demandantes').empty();
+              $('#Usuarios').empty();
               addElementCompileAngularToSelector($('#Empleadores'), result, true, false);
           })
           .catch(function () {
@@ -114,6 +173,7 @@ app.controller('AdministracionController', ['$scope', '$http', '$element', '$int
           .then(function (result) {
               $('#Demandantes').empty();
               $('#Empleadores').empty();
+              $('#Usuarios').empty();
               addElementCompileAngularToSelector($('#Ofertas'), result, true, false);
           })
           .catch(function () {

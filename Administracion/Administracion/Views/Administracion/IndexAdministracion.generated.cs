@@ -77,6 +77,8 @@ WriteLiteral(" class=\"row\"");
 
 WriteLiteral(" ng-controller=\"AdministracionController\"");
 
+WriteLiteral(" ng-init=\"GetAllOfertas()\"");
+
 WriteLiteral(">\r\n\r\n\r\n        <br />\r\n        <div");
 
 WriteLiteral(" class=\"col-sm-2\"");
@@ -93,8 +95,11 @@ WriteLiteral(">2. Ver demandantes</a><br />\r\n                <a");
 
 WriteLiteral(" ng-click=\"GetEmpleadores()\"");
 
-WriteLiteral(">3. Ver empleadores</a><br />\r\n            </div>\r\n        </div>\r\n\r\n        <div" +
-"");
+WriteLiteral(">3. Ver empleadores</a><br />\r\n                <a");
+
+WriteLiteral(" ng-click=\"GetUsuarios()\"");
+
+WriteLiteral(">4. Ver usuarios</a><br />\r\n            </div>\r\n        </div>\r\n\r\n        <div");
 
 WriteLiteral(" class=\"col-sm-10 well well-lg\"");
 
@@ -109,6 +114,10 @@ WriteLiteral(" id=\"Demandantes\"");
 WriteLiteral("></div>\r\n            <div");
 
 WriteLiteral(" id=\"Empleadores\"");
+
+WriteLiteral("></div>\r\n            <div");
+
+WriteLiteral(" id=\"Usuarios\"");
 
 WriteLiteral("></div>\r\n        </div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n        <!--  MODAL VER DETALLE MI OFERT" +
 "A  ###############################  -->\r\n        <div");
@@ -161,7 +170,7 @@ WriteLiteral(" class=\"modal-body\"");
 WriteLiteral(" style=\"max-height: calc(100vh - 200px) !important; overflow-y: auto !important;\"" +
 "");
 
-WriteLiteral(">\r\n                        \r\n\r\n                        <div");
+WriteLiteral(">\r\n\r\n\r\n                        <div");
 
 WriteLiteral(" id=\"OfertasPorEmpleador\"");
 
@@ -177,18 +186,10 @@ WriteLiteral(" class=\"btn btn-\"");
 
 WriteLiteral(" data-dismiss=\"modal\"");
 
-WriteLiteral(@">Atrás</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- ################################ -->
-
-
-
-
-        <!--  MODAL VER DETALLE MI OFERTA  ###############################  -->
-        <div");
+WriteLiteral(">Atrás</button>\r\n                    </div>\r\n                </div>\r\n            " +
+"</div>\r\n        </div>\r\n        <!-- ################################ -->\r\n     " +
+"   <!--  MODAL VER DETALLE MI OFERTA  ###############################  -->\r\n    " +
+"    <div");
 
 WriteLiteral(" class=\"modal fade\"");
 
@@ -255,8 +256,93 @@ WriteLiteral(" class=\"btn btn-\"");
 WriteLiteral(" data-dismiss=\"modal\"");
 
 WriteLiteral(">Atrás</button>\r\n                    </div>\r\n                </div>\r\n            " +
-"</div>\r\n        </div>\r\n        <!-- ################################ -->\r\n\r\n\r\n\r" +
-"\n\r\n\r\n\r\n\r\n    </div>\r\n    <br /><br /><br /><br />\r\n</div>");
+"</div>\r\n        </div>\r\n        <!-- ################################ -->\r\n\r\n\r\n " +
+"       <!--  MODAL ELIMINAR USUARIO  ###############################  -->\r\n     " +
+"   <div");
+
+WriteLiteral(" class=\"modal fade\"");
+
+WriteLiteral(" id=\"modalEliminarUsuario\"");
+
+WriteLiteral(" tabindex=\"-1\"");
+
+WriteLiteral(" role=\"dialog\"");
+
+WriteLiteral(" aria-labelledby=\"modalTitle\"");
+
+WriteLiteral(" aria-hidden=\"true\"");
+
+WriteLiteral(">\r\n            <div");
+
+WriteLiteral(" class=\"modal-dialog\"");
+
+WriteLiteral(" role=\"document\"");
+
+WriteLiteral(" style=\"overflow-y: initial !important; padding-top:350px; width:450px\"");
+
+WriteLiteral(">\r\n                <div");
+
+WriteLiteral(" class=\"modal-content\"");
+
+WriteLiteral(" style=\"overflow: hidden\"");
+
+WriteLiteral(">\r\n\r\n                    <div");
+
+WriteLiteral(" class=\"modal-header\"");
+
+WriteLiteral(" style=\"background-color:#565656; padding-bottom:0\"");
+
+WriteLiteral(">\r\n                        <h5");
+
+WriteLiteral(" class=\" modal-title\"");
+
+WriteLiteral(" id=\"modalTitle\"");
+
+WriteLiteral(" style=\"color:white; margin-bottom:10px\"");
+
+WriteLiteral("><i");
+
+WriteLiteral(" class=\"glyphicon glyphicon-trash\"");
+
+WriteLiteral("></i></h5>\r\n                    </div>\r\n                    <div");
+
+WriteLiteral(" class=\"modal-body\"");
+
+WriteLiteral(" style=\"max-height: calc(100vh - 200px) !important; overflow-y: auto !important;\"" +
+"");
+
+WriteLiteral(">\r\n\r\n                        <p");
+
+WriteLiteral(" style=\"text-align: center\"");
+
+WriteLiteral(">¿Estás seguro de que deseas eliminar el usuario <span><b>{{usuarioParaEliminar.U" +
+"ser}}</b></span>?</p>\r\n                        <p");
+
+WriteLiteral(" style=\"text-align: center\"");
+
+WriteLiteral(">El usuario se borrará permanentemente</p>\r\n                    </div>\r\n\r\n\r\n     " +
+"               <div");
+
+WriteLiteral(" class=\"modal-footer\"");
+
+WriteLiteral(">\r\n                        <button");
+
+WriteLiteral(" type=\"button\"");
+
+WriteLiteral(" class=\"btn btn-\"");
+
+WriteLiteral(" data-dismiss=\"modal\"");
+
+WriteLiteral(">Cancelar</button>\r\n                        <button");
+
+WriteLiteral(" class=\"btn btn-danger\"");
+
+WriteLiteral(" ng-click=\"EliminarUsuario(usuarioParaEliminar.Id, usuarioParaEliminar.TipoUsuari" +
+"o)\"");
+
+WriteLiteral(">Eliminar</button>\r\n                    </div>\r\n                </div>\r\n         " +
+"   </div>\r\n        </div>\r\n        <!-- ################################ -->\r\n\r\n" +
+"\r\n\r\n\r\n    </div>\r\n    <br /><br /><br /><br />\r\n</div>");
 
         }
     }
