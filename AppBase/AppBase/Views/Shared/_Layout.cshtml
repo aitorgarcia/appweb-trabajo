@@ -18,7 +18,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Buscateuntrabajo.com", "Index", "", new { area = "" }, new { @class = "navbar-brand" })
+                @*@Html.ActionLink("Buscateuntrabajo.com", "Index", "", new { area = "" }, new { @class = "navbar-brand" })*@
+
+                <a href="/Login/Index" class="navbar-brand" style="color:white"><i class="glyphicon glyphicon-briefcase" style="margin-right:5px"></i> Be an employ</a>
+
             </div>
              <div class="navbar-collapse collapse">
                 @*<ul class="nav navbar-nav">
@@ -32,8 +35,9 @@
     </div>
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
+        
+        <footer style="bottom: 30px; color:gray">
+            <hr />
             <p>&copy; @DateTime.Now.Year - Aitor García Luiz</p>
         </footer>
     </div>

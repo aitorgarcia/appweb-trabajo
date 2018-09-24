@@ -59,7 +59,7 @@ WriteLiteral(">\r\n        <input");
 
 WriteLiteral(" type=\"text\"");
 
-WriteLiteral(" ng-model=\"filtro\"");
+WriteLiteral(" ng-model=\"filtroEmpleadores\"");
 
 WriteLiteral(" class=\"form-control pull-right\"");
 
@@ -195,10 +195,11 @@ WriteLiteral("></span>\r\n                </th>\r\n                <th");
 
 WriteLiteral(" style=\"text-align:center; font-weight:normal; vertical-align:middle\"");
 
-WriteLiteral(">&equiv;</th>\r\n            </tr>\r\n        </thead>\r\n\r\n\r\n        <tbody>\r\n        " +
-"    <tr");
+WriteLiteral("></th>\r\n            </tr>\r\n        </thead>\r\n\r\n\r\n        <tbody>\r\n            <tr" +
+"");
 
-WriteLiteral(" ng-repeat=\"x in listEmpleadores | orderBy:sortKey:reverse | filter:filtro\"");
+WriteLiteral(" ng-repeat=\"x in listEmpleadores | orderBy:sortKey:reverse | filter:filtroEmplead" +
+"ores\"");
 
 WriteLiteral(">\r\n                <td");
 
@@ -238,14 +239,17 @@ WriteLiteral(" style=\"vertical-align:middle\"");
 
 WriteLiteral("><button");
 
-WriteLiteral(" class=\"btn btn-warning\"");
+WriteLiteral(" class=\"btn btn-info\"");
 
 WriteLiteral(" data-toggle=\"modal\"");
 
 WriteLiteral(" ng-click=\"ModalEmpleadores(x.Id)\"");
 
-WriteLiteral(">Ver detalles</button></td>\r\n            </tr>\r\n        </tbody>\r\n    </table>\r\n<" +
-"/div>");
+WriteLiteral("><i");
+
+WriteLiteral(" class=\"glyphicon glyphicon-th-list\"");
+
+WriteLiteral("></i></button></td>\r\n            </tr>\r\n        </tbody>\r\n    </table>\r\n</div>");
 
         }
     }

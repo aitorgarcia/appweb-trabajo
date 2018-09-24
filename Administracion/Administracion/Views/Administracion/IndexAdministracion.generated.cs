@@ -83,23 +83,54 @@ WriteLiteral(">\r\n\r\n\r\n        <br />\r\n        <div");
 
 WriteLiteral(" class=\"col-sm-2\"");
 
-WriteLiteral(">\r\n            <div>\r\n                <a");
+WriteLiteral(">\r\n            <div>\r\n                ");
+
+WriteLiteral("\r\n\r\n                <div");
+
+WriteLiteral(" class=\"btn-group-vertical\"");
+
+WriteLiteral(">\r\n                    <button");
+
+WriteLiteral(" class=\"btn btn-info\"");
+
+WriteLiteral(" style=\"padding-right:90px; text-align:left\"");
 
 WriteLiteral(" ng-click=\"GetAllOfertas()\"");
 
-WriteLiteral(">1. Ver ofertas</a><br />\r\n                <a");
+WriteLiteral(">");
+
+WriteLiteral(" Ver ofertas</button>\r\n                    <button");
+
+WriteLiteral(" class=\"btn btn-info\"");
+
+WriteLiteral(" style=\"text-align:left\"");
 
 WriteLiteral(" ng-click=\"GetDemandantes()\"");
 
-WriteLiteral(">2. Ver demandantes</a><br />\r\n                <a");
+WriteLiteral(">");
+
+WriteLiteral(" Ver demandantes</button>\r\n                    <button");
+
+WriteLiteral(" class=\"btn btn-info\"");
+
+WriteLiteral(" style=\"text-align:left\"");
 
 WriteLiteral(" ng-click=\"GetEmpleadores()\"");
 
-WriteLiteral(">3. Ver empleadores</a><br />\r\n                <a");
+WriteLiteral(">");
+
+WriteLiteral(" Ver empleadores</button>\r\n                    <button");
+
+WriteLiteral(" class=\"btn btn-info\"");
+
+WriteLiteral(" style=\"text-align:left\"");
 
 WriteLiteral(" ng-click=\"GetUsuarios()\"");
 
-WriteLiteral(">4. Ver usuarios</a><br />\r\n            </div>\r\n        </div>\r\n\r\n        <div");
+WriteLiteral(">");
+
+WriteLiteral(" Ver usuarios</button>\r\n                </div>\r\n\r\n            </div>\r\n        </d" +
+"iv>\r\n\r\n        <div");
 
 WriteLiteral(" class=\"col-sm-10 well well-lg\"");
 
@@ -152,7 +183,7 @@ WriteLiteral(">\r\n\r\n                    <div");
 
 WriteLiteral(" class=\"modal-header\"");
 
-WriteLiteral(" style=\"text-align:center; background-color:#f0ad4e; padding-bottom:0\"");
+WriteLiteral(" style=\"text-align:center; background-color:#5bc0de; padding-bottom:10px\"");
 
 WriteLiteral(">\r\n                        <h4");
 
@@ -221,7 +252,7 @@ WriteLiteral(">\r\n\r\n                    <div");
 
 WriteLiteral(" class=\"modal-header\"");
 
-WriteLiteral(" style=\"text-align:center; background-color:#f0ad4e; padding-bottom:0\"");
+WriteLiteral(" style=\"text-align:center; background-color:#5bc0de; padding-bottom:10px\"");
 
 WriteLiteral(">\r\n                        <h4");
 

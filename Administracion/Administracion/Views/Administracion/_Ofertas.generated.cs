@@ -59,13 +59,13 @@ WriteLiteral(">\r\n        <input");
 
 WriteLiteral(" type=\"text\"");
 
-WriteLiteral(" ng-model=\"filtro\"");
+WriteLiteral(" ng-model=\"filtroOfertas\"");
 
 WriteLiteral(" class=\"form-control pull-right\"");
 
 WriteLiteral(" placeholder=\"Escribe para filtrar...\"");
 
-WriteLiteral(">\r\n        <br />\r\n    </div>\r\n\r\n    <br />\r\n\r\n\r\n\r\n    <table");
+WriteLiteral(">\r\n        <br />\r\n    </div>\r\n\r\n    <br />\r\n\r\n\r\n    <table");
 
 WriteLiteral(" class=\"table table-striped table-bordered\"");
 
@@ -85,7 +85,7 @@ WriteLiteral(" style=\"text-align:center; font-weight:normal; vertical-align:mid
 
 WriteLiteral(" ng-click=\"sort(\'Id\')\"");
 
-WriteLiteral(">\r\n                    Id Oferta \r\n                    <span");
+WriteLiteral(">\r\n                    Id Oferta\r\n                    <span");
 
 WriteLiteral(" class=\"glyphicon sort-icon\"");
 
@@ -99,7 +99,7 @@ WriteLiteral(" style=\"text-align:center; font-weight:normal; vertical-align:mid
 
 WriteLiteral(" ng-click=\"sort(\'IdEmpleador\')\"");
 
-WriteLiteral(">\r\n                    Id Empleador \r\n                    <span");
+WriteLiteral(">\r\n                    Id Empleador\r\n                    <span");
 
 WriteLiteral(" class=\"glyphicon sort-icon\"");
 
@@ -113,7 +113,7 @@ WriteLiteral(" style=\"text-align:center; font-weight:normal; vertical-align:mid
 
 WriteLiteral(" ng-click=\"sort(\'Titulo\')\"");
 
-WriteLiteral(">\r\n                    Título \r\n                    <span");
+WriteLiteral(">\r\n                    Título\r\n                    <span");
 
 WriteLiteral(" class=\"glyphicon sort-icon\"");
 
@@ -127,7 +127,7 @@ WriteLiteral(" style=\"text-align:center; font-weight:normal; vertical-align:mid
 
 WriteLiteral(" ng-click=\"sort(\'NumeroVacantes\')\"");
 
-WriteLiteral(">\r\n                    Nº Vacantes \r\n                    <span");
+WriteLiteral(">\r\n                    Nº Vacantes\r\n                    <span");
 
 WriteLiteral(" class=\"glyphicon sort-icon\"");
 
@@ -141,7 +141,7 @@ WriteLiteral(" style=\"text-align:center; font-weight:normal; vertical-align:mid
 
 WriteLiteral(" ng-click=\"sort(\'Sueldo\')\"");
 
-WriteLiteral(">\r\n                    Sueldo \r\n                    <span");
+WriteLiteral(">\r\n                    Sueldo\r\n                    <span");
 
 WriteLiteral(" class=\"glyphicon sort-icon\"");
 
@@ -155,7 +155,7 @@ WriteLiteral(" style=\"text-align:center; font-weight:normal; vertical-align:mid
 
 WriteLiteral(" ng-click=\"sort(\'FechaLanzamientoString\')\"");
 
-WriteLiteral(">\r\n                    Fecha inicio \r\n                    <span");
+WriteLiteral(">\r\n                    Fecha inicio\r\n                    <span");
 
 WriteLiteral(" class=\"glyphicon sort-icon\"");
 
@@ -169,7 +169,7 @@ WriteLiteral(" style=\"text-align:center; font-weight:normal; vertical-align:mid
 
 WriteLiteral(" ng-click=\"sort(\'FechaFinString\')\"");
 
-WriteLiteral(">\r\n                    Fecha fin \r\n                    <span");
+WriteLiteral(">\r\n                    Fecha fin\r\n                    <span");
 
 WriteLiteral(" class=\"glyphicon sort-icon\"");
 
@@ -181,12 +181,9 @@ WriteLiteral("></span>\r\n                </th>\r\n                <th");
 
 WriteLiteral(" style=\"text-align:center; font-weight:normal; vertical-align:middle\"");
 
-WriteLiteral(">&equiv;</th>\r\n            </tr>\r\n        </thead>\r\n\r\n        <tbody>\r\n          " +
-"  ");
+WriteLiteral("></th>\r\n            </tr>\r\n        </thead>\r\n\r\n        <tbody>\r\n            <tr");
 
-WriteLiteral("\r\n            <tr");
-
-WriteLiteral(" ng-repeat=\"x in listOfertas | orderBy:sortKey:reverse | filter:filtro\"");
+WriteLiteral(" ng-repeat=\"x in listOfertas | orderBy:sortKey:reverse | filter:filtroOfertas\"");
 
 WriteLiteral(">\r\n                <td");
 
@@ -222,14 +219,17 @@ WriteLiteral(" style=\"vertical-align:middle\"");
 
 WriteLiteral("><button");
 
-WriteLiteral(" class=\"btn btn-warning\"");
+WriteLiteral(" class=\"btn btn-info\"");
 
 WriteLiteral(" data-toggle=\"modal\"");
 
 WriteLiteral(" ng-click=\"ModalOfertas(x.Id)\"");
 
-WriteLiteral(">Ver detalles</button></td>\r\n            </tr>\r\n        </tbody>\r\n    </table>\r\n " +
-"   <br />\r\n    <br />\r\n    <br />\r\n    <br />\r\n</div>\r\n");
+WriteLiteral("><i");
+
+WriteLiteral(" class=\"glyphicon glyphicon-user\"");
+
+WriteLiteral("></i></button></td>\r\n            </tr>\r\n        </tbody>\r\n    </table>\r\n</div>\r\n");
 
         }
     }

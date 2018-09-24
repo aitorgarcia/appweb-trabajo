@@ -75,6 +75,8 @@ WriteLiteral("></div>\r\n        <div");
 
 WriteLiteral(" class=\"col-sm-4\"");
 
+WriteLiteral(" style=\"height:780px\"");
+
 WriteLiteral(">\r\n            <br><br><br>\r\n            <div");
 
 WriteLiteral(" class=\"well\"");

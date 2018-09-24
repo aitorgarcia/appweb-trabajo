@@ -59,7 +59,7 @@ WriteLiteral(">\r\n        <input");
 
 WriteLiteral(" type=\"text\"");
 
-WriteLiteral(" ng-model=\"filtro\"");
+WriteLiteral(" ng-model=\"filtroDemandantes\"");
 
 WriteLiteral(" class=\"form-control pull-right\"");
 
@@ -180,7 +180,8 @@ WriteLiteral(" ng-class=\"{\'glyphicon-chevron-up\':reverse,\'glyphicon-chevron-
 WriteLiteral("></span>\r\n                </th>\r\n            </tr>\r\n        </thead>\r\n\r\n        <" +
 "tbody>\r\n            <tr");
 
-WriteLiteral(" ng-repeat=\"x in listDemandantes | orderBy:sortKey:reverse | filter:filtro\"");
+WriteLiteral(" ng-repeat=\"x in listDemandantes | orderBy:sortKey:reverse | filter:filtroDemanda" +
+"ntes\"");
 
 WriteLiteral(">\r\n                <td");
 

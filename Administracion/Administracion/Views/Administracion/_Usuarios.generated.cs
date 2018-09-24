@@ -59,7 +59,7 @@ WriteLiteral(">\r\n        <input");
 
 WriteLiteral(" type=\"text\"");
 
-WriteLiteral(" ng-model=\"filtro\"");
+WriteLiteral(" ng-model=\"filtroUsuarios\"");
 
 WriteLiteral(" class=\"form-control pull-right\"");
 
@@ -153,10 +153,9 @@ WriteLiteral("></span>\r\n                </th>\r\n                <th");
 
 WriteLiteral(" style=\"text-align:center; font-weight:normal; vertical-align:middle\"");
 
-WriteLiteral(">&equiv;</th>\r\n            </tr>\r\n        </thead>\r\n        <tbody>\r\n            " +
-"<tr");
+WriteLiteral("></th>\r\n            </tr>\r\n        </thead>\r\n        <tbody>\r\n            <tr");
 
-WriteLiteral(" ng-repeat=\"x in listUsuarios | orderBy:sortKey:reverse | filter:filtro\"");
+WriteLiteral(" ng-repeat=\"x in listUsuarios | orderBy:sortKey:reverse | filter:filtroUsuarios\"");
 
 WriteLiteral(">\r\n                <td");
 

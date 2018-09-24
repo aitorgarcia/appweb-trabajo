@@ -11,35 +11,37 @@
 <div ng-app="app">
     <div class="row">
         <div class="col-sm-4"></div>
-        <div class="col-sm-4">
-            <br>
-            <h3>Inicio de sesión:</h3><br>
 
 
-            <div ng-controller="LoginController" data-ng-init="init()" class="demo" style="width:auto">
-                <form id="userForm" method="post" name="userForm" ng-show="!signUp.submitted" ng-submit="userForm.$valid">
-                    <div class="form-group">
-                        <b>Usuario:</b><br />
-                        <i class="fa fa-user icon"></i>
-                        <input type="text" ng-model="user.User" class="form-control" name="users" id="user" required/>
-                        <span class="text-danger" ng-show="userForm.users.$error.required && (userForm.users.$dirty && userForm.users.$touched)"></span>
-                    </div>
+        <div class="col-sm-4" style="height:780px">
+            <br><br><br>
+            <div class="well" style="border-radius:0; background-color:#428bca; padding:0; margin:0;">
+                <h5 style="text-align:center; color:white; font-variant:small-caps">Inicio de sesión</h5>
+            </div>
+            <div class="well" style="border-radius:0; background-color:#f9f9f9;">
+                <div ng-controller="LoginController" data-ng-init="init()" class="demo" style="width:auto">
+                    <form id="userForm" method="post" name="userForm" ng-show="!signUp.submitted" ng-submit="userForm.$valid">
+                        <div class="form-group">
+                            <i class="glyphicon glyphicon-user" style="color:#428bca"></i><span style="color:#428bca"> Usuario:</span><br />
+                            <input type="text" ng-model="user.User" class="form-control" name="user" id="user" style="border-radius:0; max-width:500px; border-color:#dedede;" required />
+                            <span class="text-danger" ng-show="userForm.users.$error.required && (userForm.users.$dirty && userForm.users.$touched)"></span>
+                        </div>
 
-                    <div class="form-group">
-                        <b>Contraseña:</b><br />
-                        <input type="password" ng-model="user.Password" class="form-control" name="password" id="password" required /> <br />
-                        <input type="submit" class="btn btn-info" value=" Acceder" id="btn-submit" ng-click="ValidarDatos()">
-                    </div>
-
-                    <div>
-                        <br /><br /><br />
-                        <input type="button" class="btn btn-primary btn-block" value="Registrarse" id="btn-registro" onclick="location.href='/Registro/Index';" />
-                        <br /><br />
-                    </div>
-                </form>
+                        <div class="form-group clearfix" style="margin-bottom:0;">
+                            <i class="glyphicon glyphicon-lock" style="color:#428bca"></i><span style="color:#428bca"> Contraseña:</span><br />
+                            <input type="password" ng-model="user.Password" class="form-control" name="password" id="password" style="border-radius:0; max-width:500px; border-color:#dedede;" required /> <br />
+                            <input type="submit" class="btn btn-primary pull-right" value=" Acceder" id="btn-submit" ng-click="ValidarDatos()" style="border-radius:0; border:none;">
+                        </div>
+                    </form>
+                </div>
             </div>
 
+            <div class="form-inline" style="display:flex">
+                <h5>¿Aún no tienes tu cuenta? </h5>
+                <button class="btn btn-link" value="Registrarse" id="btn-registro" onclick="location.href='/Registro/Index';" style="padding-left:5px; padding-top:4px"/>Regístrate aquí</button>
+            </div>
         </div>
+
         <div class="col-sm-4"></div>
     </div>
 </div>

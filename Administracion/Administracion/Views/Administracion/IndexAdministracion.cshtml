@@ -14,10 +14,26 @@
         <br />
         <div class="col-sm-2">
             <div>
-                <a ng-click="GetAllOfertas()">1. Ver ofertas</a><br />
-                <a ng-click="GetDemandantes()">2. Ver demandantes</a><br />
-                <a ng-click="GetEmpleadores()">3. Ver empleadores</a><br />
-                <a ng-click="GetUsuarios()">4. Ver usuarios</a><br />
+                @*<div class="well well-sm" style="margin-bottom:0">
+                    <a ng-click="GetAllOfertas()">1. Ver ofertas</a><br />
+                </div>
+                <div class="well well-sm" style="margin-bottom:0">
+                    <a ng-click="GetDemandantes()">2. Ver demandantes</a><br />
+                </div>
+                <div class="well well-sm" style="margin-bottom:0">
+                    <a ng-click="GetEmpleadores()">3. Ver empleadores</a><br />
+                </div>
+                <div class="well well-sm" style="margin-bottom:0">
+                    <a ng-click="GetUsuarios()">4. Ver usuarios</a><br />
+                </div>*@
+
+                <div class="btn-group-vertical">
+                    <button class="btn btn-info" style="padding-right:90px; text-align:left" ng-click="GetAllOfertas()">@*<i class="glyphicon glyphicon-th-list"></i>*@ Ver ofertas</button>
+                    <button class="btn btn-info" style="text-align:left" ng-click="GetDemandantes()">@*<i class="glyphicon glyphicon-user"></i>*@ Ver demandantes</button>
+                    <button class="btn btn-info" style="text-align:left" ng-click="GetEmpleadores()">@*<i class="glyphicon glyphicon-user"></i>*@ Ver empleadores</button>
+                    <button class="btn btn-info" style="text-align:left" ng-click="GetUsuarios()">@*<i class="glyphicon glyphicon-user"></i>*@ Ver usuarios</button>
+                </div>
+
             </div>
         </div>
 
@@ -40,7 +56,7 @@
             <div class="modal-dialog" role="document" style="overflow-y: initial !important; width:1000px">
                 <div class="modal-content" style="overflow: hidden">
 
-                    <div class="modal-header" style="text-align:center; background-color:#f0ad4e; padding-bottom:0">
+                    <div class="modal-header" style="text-align:center; background-color:#5bc0de; padding-bottom:10px">
                         <h4 class=" modal-title" id="modalTitle" style="color:white">Detalles del empleador:</h4>
                     </div>
                     <div class="modal-body" style="max-height: calc(100vh - 200px) !important; overflow-y: auto !important;">
@@ -61,7 +77,7 @@
             <div class="modal-dialog" role="document" style="overflow-y: initial !important; width:1000px">
                 <div class="modal-content" style="overflow: hidden">
 
-                    <div class="modal-header" style="text-align:center; background-color:#f0ad4e; padding-bottom:0">
+                    <div class="modal-header" style="text-align:center; background-color:#5bc0de; padding-bottom:10px">
                         <h4 class=" modal-title" id="modalTitle" style="color:white">Detalles de la oferta:</h4>
                     </div>
                     <div class="modal-body" style="max-height: calc(100vh - 200px) !important; overflow-y: auto !important;">

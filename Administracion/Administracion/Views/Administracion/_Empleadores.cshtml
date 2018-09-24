@@ -5,7 +5,7 @@
 <div data-ng-init="listEmpleadores = @Json.Encode(Model)">
 
     <div class="form-group">
-        <input type="text" ng-model="filtro" class="form-control pull-right" placeholder="Escribe para filtrar...">
+        <input type="text" ng-model="filtroEmpleadores" class="form-control pull-right" placeholder="Escribe para filtrar...">
         <br />
     </div>
 
@@ -47,13 +47,13 @@
                     Tipo Industria 
                     <span class="glyphicon sort-icon" ng-show="sortKey=='TipoIndustriaNombre'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
                 </th>
-                <th style="text-align:center; font-weight:normal; vertical-align:middle">&equiv;</th>
+                <th style="text-align:center; font-weight:normal; vertical-align:middle"></th>
             </tr>
         </thead>
 
 
         <tbody>
-            <tr ng-repeat="x in listEmpleadores | orderBy:sortKey:reverse | filter:filtro">
+            <tr ng-repeat="x in listEmpleadores | orderBy:sortKey:reverse | filter:filtroEmpleadores">
                 <td style="vertical-align:middle">{{x.IdUsuario}}</td>
                 <td style="vertical-align:middle">{{x.Id}}</td>
                 <td style="vertical-align:middle">{{x.NombreEmpresa}}</td>
@@ -62,7 +62,7 @@
                 <td style="vertical-align:middle">{{x.Telefono}}</td>
                 <td style="vertical-align:middle">{{x.NumeroEmpleados}}</td>
                 <td style="vertical-align:middle">{{x.TipoIndustriaNombre}}</td>
-                <td style="vertical-align:middle"><button class="btn btn-warning" data-toggle="modal" ng-click="ModalEmpleadores(x.Id)">Ver detalles</button></td>
+                <td style="vertical-align:middle"><button class="btn btn-info" data-toggle="modal" ng-click="ModalEmpleadores(x.Id)"><i class="glyphicon glyphicon-th-list"></i></button></td>
             </tr>
         </tbody>
     </table>
