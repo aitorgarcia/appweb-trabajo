@@ -1,0 +1,57 @@
+﻿@model Core.Demandante.DemandanteModel
+
+
+<h4>Datos de demandante:</h4><br />
+<div data-ng-init="dataDemModel = @Json.Encode(Model)">
+    
+    <div id="misdatos" class="tab-pane fade in active">
+        <br />
+        <div class="panel" style="border-color: #428bca;">
+            <div class="panel-heading clearfix" style="background-color:#428bca">
+                <b style="color:white">Datos de usuario:</b>
+                <button class="btn btn-info pull-right" style="padding-top:0" data-toggle="modal" ng-click="ModalEditarUsuario(dataDemModel)"><i class="glyphicon glyphicon-pencil" style="text-align:center; vertical-align:middle"></i></button>
+            </div>
+            <div class="panel-body" style="padding-top:0; padding-bottom:0">
+                <ul class="list-group row" style="margin-bottom:0;">
+                    <li class="list-group-item col-xs-4" style="height:45px;">Usuario:</li>
+                    <li class="list-group-item col-xs-8" style="height:45px;">{{dataDemModel.Usuario}}</li>
+                    <li class="list-group-item col-xs-4" style="height:45px;">Nombre:</li>
+                    <li class="list-group-item col-xs-8" style="height:45px;">{{dataDemModel.Nombre}}</li>
+                    <li class="list-group-item col-xs-4" style="height:45px;">Primer apellido:</li>
+                    <li class="list-group-item col-xs-8" style="height:45px;">{{dataDemModel.Apellido1}}</li>
+                    <li class="list-group-item col-xs-4" style="height:45px;">Segundo apellido:</li>
+                    <li class="list-group-item col-xs-8" style="height:45px;">{{dataDemModel.Apellido2}}</li>
+                    <li class="list-group-item col-xs-4" style="height:45px;">Tipo de usuario:</li>
+                    <li class="list-group-item col-xs-8" ng-if="dataDemModel.TipoUsuario == 0" style="height:45px;">Empleador</li>
+                    <li class="list-group-item col-xs-8" ng-if="dataDemModel.TipoUsuario == 1" style="height:45px;">Demandante</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="panel" style="border-color: #428bca;">
+            <div class="panel-heading clearfix" style="background-color:#428bca">
+                <b style="color:white">Datos de demandante:</b>
+                <button class="btn btn-info pull-right" style="padding-top:0" data-toggle="modal" ng-click="ModalEditarDemandante(dataDemModel)"><i class="glyphicon glyphicon-pencil" style="text-align:center; vertical-align:middle"></i></button>
+            </div>
+            <div class="panel-body" style="padding-top:0; padding-bottom:0">
+
+                <ul class="list-group row" style="margin-bottom:0">
+                    <li class="list-group-item col-xs-4" style="height:45px;">Foto de perfil:</li>
+                    <li class="list-group-item col-xs-8" style="min-height:45px;"><img data-ng-src="data:image/jpg;base64,{{dataDemModel.ImagenB64}}" class="img-responsive" /></li>
+                    <li class="list-group-item col-xs-4" style="height:45px;">Edad:</li>
+                    <li class="list-group-item col-xs-8" style="height:45px;">{{dataDemModel.Edad}}</li>
+                    <li class="list-group-item col-xs-4" style="height:45px;">Teléfono:</li>
+                    <li class="list-group-item col-xs-8" style="height:45px;">{{dataDemModel.Telefono}}</li>
+                    <li class="list-group-item col-xs-4" style="height:45px;">Email:</li>
+                    <li class="list-group-item col-xs-8" style="height:45px;">{{dataDemModel.Email}}</li>
+                    <li class="list-group-item col-xs-4" style="height:45px;">Perfil de Linkedin:</li>
+                    <li class="list-group-item col-xs-8" style="height:45px;">{{dataDemModel.PerfilLinkedin}}</li>
+                    <li class="list-group-item col-xs-4" style="height:45px;">Nivel de estudios:</li>
+                    <li class="list-group-item col-xs-8" style="height:45px;">{{dataDemModel.NivelEstudiosNombre}}</li>
+                    <li class="list-group-item col-xs-4" style="height:45px;">Experiencia laboral:</li>
+                    <li class="list-group-item col-xs-8" style="height:45px;">{{dataDemModel.ExperienciaLaboral}}</li>
+                </ul>
+            </div>
+        </div> <!-- cierre panel -->
+    </div>
+</div>

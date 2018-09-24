@@ -209,16 +209,14 @@ namespace Demandante.Controllers
         /// <returns>Un archivo JSON con los datos del DemandanteModel que se desea mostrar
         ///          o un JSON con el valor false si no se ha cargado correctamente.</returns>
         [HttpPost]
-        public JsonResult ObtenerDatosDemandanteModel()
+        public ActionResult ObtenerDatosDemandanteModel()
         {
             NGDemandante ngDemandante = new NGDemandante();
             int id = Convert.ToInt32(Cookies.GetCookie("Id"));
 
             Core.Demandante.DemandanteModel demModel = ngDemandante.GetDemandanteModelByUserId(id);
 
-            if (demModel == null)
-                return Json(false);
-            return Json(demModel);
+            return PartialView("~/Views/Demandante/_DatosDemandante.cshtml", demModel);
         }
 
 

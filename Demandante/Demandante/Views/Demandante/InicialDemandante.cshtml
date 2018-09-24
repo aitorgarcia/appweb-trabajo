@@ -6,392 +6,396 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.5.0/angular-locale_es-es.min.js"></script>
 
 <script src="~/Scripts propios/demandanteController.js"></script>
+<script src="~/Scripts propios/scriptCompile.js"></script>
 
 <div ng-app="app">
+    <img src='~/Imagenes/pexels-photo-884454.jpeg' style='position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;opacity:0.25'>
 
-    <div ng-controller="DemandanteController" data-ng-init="ObtenerDatosDemandanteModel(@*@Model.Id*@); ObtenerEstudios()" class="demo" style="width:auto">
-        <form id="myForm" method="post">
 
-            <div class="titulo">
-                <br><br><br>
-                <h3>Hola <span style="color:#b94a48"><b>{{dataDemModel.Usuario}}</b></span> esta es tu página de <b>demandante</b>.</h3><br><br>
+    <div ng-controller="DemandanteController" ng-init="GetDatos()" class="row" style="width:auto">
+
+        <div class="titulo">
+            <br><br><br>
+            <h3>Hola <span style="color:#b94a48"><b>{{dataDemModel.Usuario}}</b></span> esta es tu página de <b>demandante</b>.</h3><br><br>
+        </div>
+
+        <div class="col-sm-2" style="height:690px">
+            <div class="btn-group-vertical container">
+                <button class="btn btn-info" style="padding-right:80px; text-align:left; border-radius:0; opacity:0.9" ng-click="GetDatos()"> Mis datos</button>
+                <button class="btn btn-info" style="text-align:left; border-radius:0; opacity:0.9"> Ofertas disponibles</button>
+                <button class="btn btn-info" style="text-align:left; border-radius:0; opacity:0.9"> Ofertas inscritas</button>
             </div>
+        </div>
 
-            <div class="row">
-                <div class="container">
-                    <ul class="nav nav-pills nav-justified well well-sm">
-                        <li class="active" style=""><a data-toggle="pill" href="#misdatos">Mis datos</a></li>
-                        <li><a data-toggle="pill" href="#ofertasDisponibles">Ofertas disponibles</a></li>
-                        <li><a data-toggle="pill" href="#misOfertasInscritas">Mis ofertas inscritas</a></li>
-                    </ul>
-                </div>
+        <div class="col-sm-10 well well-lg" style="border-radius: 0;">
+            <div id="MisDatos"></div>
+            <div id="OfertasDisponibles"></div>
+            <div id="OfertasInscritas"></div>
+        </div>
 
-
-                <div class="tab-content well well-sm">
-                    <div id="misdatos" class="tab-pane fade in active">
-                        <br />
-                        <div class="panel" style="border-color: #428bca;">
-                            <div class="panel-heading clearfix" style="background-color:#428bca">
-                                <b style="color:white">Datos de usuario:</b>
-                                <button class="btn btn-info pull-right" style="padding-top:0" data-toggle="modal" ng-click="ModalEditarUsuario(dataDemModel)"><i class="glyphicon glyphicon-pencil" style="text-align:center; vertical-align:middle"></i></button>
+        @*<div class="row">
+                <div class="col-sm-10" style="height:690px">
+                    <div class="tab-content well well-sm">
+                        <div id="misdatos" class="tab-pane fade in active">
+                            <br />
+                            <div class="panel" style="border-color: #428bca;">
+                                <div class="panel-heading clearfix" style="background-color:#428bca">
+                                    <b style="color:white">Datos de usuario:</b>
+                                    <button class="btn btn-info pull-right" style="padding-top:0" data-toggle="modal" ng-click="ModalEditarUsuario(dataDemModel)"><i class="glyphicon glyphicon-pencil" style="text-align:center; vertical-align:middle"></i></button>
+                                </div>
+                                <div class="panel-body" style="padding-top:0; padding-bottom:0">
+                                    <ul class="list-group row" style="margin-bottom:0;">
+                                        <li class="list-group-item col-xs-4" style="height:45px;">Usuario:</li>
+                                        <li class="list-group-item col-xs-8" style="height:45px;">{{dataDemModel.Usuario}}</li>
+                                        <li class="list-group-item col-xs-4" style="height:45px;">Nombre:</li>
+                                        <li class="list-group-item col-xs-8" style="height:45px;">{{dataDemModel.Nombre}}</li>
+                                        <li class="list-group-item col-xs-4" style="height:45px;">Primer apellido:</li>
+                                        <li class="list-group-item col-xs-8" style="height:45px;">{{dataDemModel.Apellido1}}</li>
+                                        <li class="list-group-item col-xs-4" style="height:45px;">Segundo apellido:</li>
+                                        <li class="list-group-item col-xs-8" style="height:45px;">{{dataDemModel.Apellido2}}</li>
+                                        <li class="list-group-item col-xs-4" style="height:45px;">Tipo de usuario:</li>
+                                        <li class="list-group-item col-xs-8" ng-if="dataDemModel.TipoUsuario == 0" style="height:45px;">Empleador</li>
+                                        <li class="list-group-item col-xs-8" ng-if="dataDemModel.TipoUsuario == 1" style="height:45px;">Demandante</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="panel-body" style="padding-top:0; padding-bottom:0">
-                                <ul class="list-group row" style="margin-bottom:0;">
-                                    <li class="list-group-item col-xs-4" style="height:45px;">Usuario:</li>
-                                    @*<li class="list-group-item col-xs-8" style="height:45px;">@Model.Usuario</li>*@
-                                    <li class="list-group-item col-xs-8" style="height:45px;">{{dataDemModel.Usuario}}</li>
-                                    <li class="list-group-item col-xs-4" style="height:45px;">Nombre:</li>
-                                    <li class="list-group-item col-xs-8" style="height:45px;">{{dataDemModel.Nombre}}</li>
-                                    <li class="list-group-item col-xs-4" style="height:45px;">Primer apellido:</li>
-                                    <li class="list-group-item col-xs-8" style="height:45px;">{{dataDemModel.Apellido1}}</li>
-                                    <li class="list-group-item col-xs-4" style="height:45px;">Segundo apellido:</li>
-                                    <li class="list-group-item col-xs-8" style="height:45px;">{{dataDemModel.Apellido2}}</li>
-                                    <li class="list-group-item col-xs-4" style="height:45px;">Tipo de usuario:</li>
-                                    <li class="list-group-item col-xs-8" ng-if="dataDemModel.TipoUsuario == 0" style="height:45px;">Empleador</li>
-                                    <li class="list-group-item col-xs-8" ng-if="dataDemModel.TipoUsuario == 1" style="height:45px;">Demandante</li>
-                                    @*@if (Model.TipoUsuario == (int) Core.Enumerados.TipoUsuario.Demandante)
-                                    {
-                                        <li class="list-group-item col-xs-8" style="height:45px;">Demandante</li>
-                                    }*@
 
+                            <div class="panel" style="border-color: #428bca;">
+                                <div class="panel-heading clearfix" style="background-color:#428bca">
+                                    <b style="color:white">Datos de demandante:</b>
+                                    <button class="btn btn-info pull-right" style="padding-top:0" data-toggle="modal" ng-click="ModalEditarDemandante(dataDemModel)"><i class="glyphicon glyphicon-pencil" style="text-align:center; vertical-align:middle"></i></button>
+                                </div>
+                                <div class="panel-body" style="padding-top:0; padding-bottom:0">
 
-                                </ul>
+                                    <ul class="list-group row" style="margin-bottom:0">
+                                        <li class="list-group-item col-xs-4" style="height:45px;">Foto de perfil:</li>
+                                        <li class="list-group-item col-xs-8" style="min-height:45px;"><img data-ng-src="data:image/jpg;base64,{{dataDemModel.ImagenB64}}" class="img-responsive" /></li>
+                                        <li class="list-group-item col-xs-4" style="height:45px;">Edad:</li>
+                                        <li class="list-group-item col-xs-8" style="height:45px;">{{dataDemModel.Edad}}</li>
+                                        <li class="list-group-item col-xs-4" style="height:45px;">Teléfono:</li>
+                                        <li class="list-group-item col-xs-8" style="height:45px;">{{dataDemModel.Telefono}}</li>
+                                        <li class="list-group-item col-xs-4" style="height:45px;">Email:</li>
+                                        <li class="list-group-item col-xs-8" style="height:45px;">{{dataDemModel.Email}}</li>
+                                        <li class="list-group-item col-xs-4" style="height:45px;">Perfil de Linkedin:</li>
+                                        <li class="list-group-item col-xs-8" style="height:45px;">{{dataDemModel.PerfilLinkedin}}</li>
+                                        <li class="list-group-item col-xs-4" style="height:45px;">Nivel de estudios:</li>
+                                        <li class="list-group-item col-xs-8" style="height:45px;">{{dataDemModel.NivelEstudiosNombre}}</li>
+                                        <li class="list-group-item col-xs-4" style="height:45px;">Experiencia laboral:</li>
+                                        <li class="list-group-item col-xs-8" style="height:45px;">{{dataDemModel.ExperienciaLaboral}}</li>
+                                    </ul>
+                                </div>
+                            </div> <!-- cierre panel -->
+                        </div>
+
+                        <div id="ofertasDisponibles" class="tab-pane fade">
+                            <div class="tab-content well well-sm" style="background-color:white; padding:0">
+                                <div class="container" style="padding:0">
+                                    <table class="table table-striped table-bordered" style="text-align:center">
+                                        <thead style="background-color:#565656; overflow:hidden">
+                                            <tr style="color:white">
+                                                <th style="text-align:center">Título</th>
+                                                <th style="text-align:center">Num. Vacantes</th>
+                                                <th style="text-align:center">Sueldo</th>
+                                                <th style="text-align:center">Fecha de creación</th>
+                                                <th style="text-align:center">Fecha de finalización</th>
+                                                <th style="text-align:center">&equiv;</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="x in listOfertasDisponibles">
+                                                <td style="vertical-align:middle; margin-left:10px !important">{{x.Titulo}}</td>
+                                                <td style="vertical-align:middle">{{x.NumeroVacantes}}</td>
+                                                <td style="vertical-align:middle">{{x.Sueldo}}</td>
+                                                <td style="vertical-align:middle">{{x.FechaLanzamientoString}}</td>
+                                                <td style="vertical-align:middle">{{x.FechaFinString}}</td>
+                                                <td style="vertical-align:middle"><button class="btn btn-warning" data-toggle="modal" ng-click="ModalVerOfertaDisponible(x)">Ver detalles</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div> <!-- cierre table -->
                             </div>
                         </div>
 
-                        <div class="panel" style="border-color: #428bca;">
-                            <div class="panel-heading clearfix" style="background-color:#428bca">
-                                <b style="color:white">Datos de demandante:</b>
-                                <button class="btn btn-info pull-right" style="padding-top:0" data-toggle="modal" ng-click="ModalEditarDemandante(dataDemModel)"><i class="glyphicon glyphicon-pencil" style="text-align:center; vertical-align:middle"></i></button>
+                        <div id="misOfertasInscritas" class="tab-pane fade ">
+                            <div class="tab-content well well-sm" style="background-color:white; padding:0">
+                                <div class="container" style="padding:0">
+                                    <table class="table table-striped table-bordered" style="text-align:center">
+                                        <thead style="background-color:#565656; overflow:hidden">
+                                            <tr style="color:white">
+                                                <th style="text-align:center">Título</th>
+                                                <th style="text-align:center">Num. Vacantes</th>
+                                                <th style="text-align:center">Sueldo</th>
+                                                <th style="text-align:center">Fecha de creación</th>
+                                                <th style="text-align:center">Fecha de finalización</th>
+                                                <th style="text-align:center">Estado inscripción</th>
+                                                <th style="text-align:center">&equiv;</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="x in listOfertasInscritas">
+                                                <td class="sc" style="vertical-align:middle; margin-left:10px !important">{{x.Titulo}}</td>
+                                                <td style="vertical-align:middle">{{x.NumeroVacantes}}</td>
+                                                <td style="vertical-align:middle">{{x.Sueldo}}</td>
+                                                <td style="vertical-align:middle">{{x.FechaLanzamientoString}}</td>
+                                                <td style="vertical-align:middle">{{x.FechaFinString}}</td>
+                                                <td style="vertical-align:middle">{{x.Nombre}}</td>
+                                                <td style="vertical-align:middle"><button class="btn btn-warning" data-toggle="modal" ng-click="ModalVerOfertaInscrita(x)">Ver detalles</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div> <!-- cierre table -->
                             </div>
-                            <div class="panel-body" style="padding-top:0; padding-bottom:0">
-
-                                <ul class="list-group row" style="margin-bottom:0">
-                                    <li class="list-group-item col-xs-4" style="height:45px;">Foto de perfil:</li>
-                                    <li class="list-group-item col-xs-8" style="min-height:45px;"><img data-ng-src="data:image/jpg;base64,{{dataDemModel.ImagenB64}}" class="img-responsive" /></li>
-                                    <li class="list-group-item col-xs-4" style="height:45px;">Edad:</li>
-                                    <li class="list-group-item col-xs-8" style="height:45px;">{{dataDemModel.Edad}}</li>
-                                    <li class="list-group-item col-xs-4" style="height:45px;">Teléfono:</li>
-                                    <li class="list-group-item col-xs-8" style="height:45px;">{{dataDemModel.Telefono}}</li>
-                                    <li class="list-group-item col-xs-4" style="height:45px;">Email:</li>
-                                    <li class="list-group-item col-xs-8" style="height:45px;">{{dataDemModel.Email}}</li>
-                                    <li class="list-group-item col-xs-4" style="height:45px;">Perfil de Linkedin:</li>
-                                    <li class="list-group-item col-xs-8" style="height:45px;">{{dataDemModel.PerfilLinkedin}}</li>
-                                    <li class="list-group-item col-xs-4" style="height:45px;">Nivel de estudios:</li>
-                                    <li class="list-group-item col-xs-8" style="height:45px;">{{dataDemModel.NivelEstudiosNombre}}</li>
-                                    <li class="list-group-item col-xs-4" style="height:45px;">Experiencia laboral:</li>
-                                    <li class="list-group-item col-xs-8" style="height:45px;">{{dataDemModel.ExperienciaLaboral}}</li>
-                                </ul>
-                            </div>
-                        </div> <!-- cierre panel -->
-                    </div>
-
-                    <div id="ofertasDisponibles" class="tab-pane fade">
-                        <div class="tab-content well well-sm" style="background-color:white; padding:0">
-                            <div class="container" style="padding:0">
-                                <table class="table table-striped table-bordered" style="text-align:center">
-                                    <thead style="background-color:#565656; overflow:hidden">
-                                        <tr style="color:white">
-                                            <th style="text-align:center">Título</th>
-                                            <th style="text-align:center">Num. Vacantes</th>
-                                            <th style="text-align:center">Sueldo</th>
-                                            <th style="text-align:center">Fecha de creación</th>
-                                            <th style="text-align:center">Fecha de finalización</th>
-                                            <th style="text-align:center">&equiv;</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr ng-repeat="x in listOfertasDisponibles">
-                                            <td style="vertical-align:middle; margin-left:10px !important">{{x.Titulo}}</td>
-                                            <td style="vertical-align:middle">{{x.NumeroVacantes}}</td>
-                                            <td style="vertical-align:middle">{{x.Sueldo}}</td>
-                                            <td style="vertical-align:middle">{{x.FechaLanzamientoString}}</td>
-                                            <td style="vertical-align:middle">{{x.FechaFinString}}</td>
-                                            <td style="vertical-align:middle"><button class="btn btn-warning" data-toggle="modal" ng-click="ModalVerOfertaDisponible(x)">Ver detalles</button></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div> <!-- cierre table -->
-                        </div>
-                    </div>
-
-                    <div id="misOfertasInscritas" class="tab-pane fade ">
-                        <div class="tab-content well well-sm" style="background-color:white; padding:0">
-                            <div class="container" style="padding:0">
-                                <table class="table table-striped table-bordered" style="text-align:center">
-                                    <thead style="background-color:#565656; overflow:hidden">
-                                        <tr style="color:white">
-                                            <th style="text-align:center">Título</th>
-                                            <th style="text-align:center">Num. Vacantes</th>
-                                            <th style="text-align:center">Sueldo</th>
-                                            <th style="text-align:center">Fecha de creación</th>
-                                            <th style="text-align:center">Fecha de finalización</th>
-                                            <th style="text-align:center">Estado inscripción</th>
-                                            <th style="text-align:center">&equiv;</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr ng-repeat="x in listOfertasInscritas">
-                                            <td class="sc" style="vertical-align:middle; margin-left:10px !important">{{x.Titulo}}</td>
-                                            <td style="vertical-align:middle">{{x.NumeroVacantes}}</td>
-                                            <td style="vertical-align:middle">{{x.Sueldo}}</td>
-                                            <td style="vertical-align:middle">{{x.FechaLanzamientoString}}</td>
-                                            <td style="vertical-align:middle">{{x.FechaFinString}}</td>
-                                            <td style="vertical-align:middle">{{x.Nombre}}</td>
-                                            <td style="vertical-align:middle"><button class="btn btn-warning" data-toggle="modal" ng-click="ModalVerOfertaInscrita(x)">Ver detalles</button></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div> <!-- cierre table -->
                         </div>
                     </div>
                 </div>
-            </div><!-- div class row-->
-            <!--  MODAL VER DETALLE OFERTA DISPONIBLE  ###############################  -->
-            <div class="modal fade" id="modalVerOfertaDisponible" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
-                <div class="modal-dialog" role="document" style="overflow-y: initial !important">
-                    <div class="modal-content" style="overflow: hidden">
+            </div><!-- div class row-->*@
 
-                        <div class="modal-header" style="text-align:center; background-color:#f0ad4e; padding-bottom:0">
-                            <h4 class=" modal-title" id="modalTitle" style="color:white">Detalles de la oferta de empleo:</h4>
-                        </div>
 
-                        <div class="modal-body" style="max-height: calc(100vh - 200px) !important; overflow-y: auto !important;">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="form-group">
-                                        <h3><b>{{ofertaDetalleModal.Titulo}}</b></h3>
-                                        <p style="text-align:justify">{{ofertaDetalleModal.Descripcion}}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="form-group">
-                                        <br />
-                                        <b>Observaciones:</b><br />
-                                        <p style="text-align:justify">{{ofertaDetalleModal.Observaciones}}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row" style="margin:auto">
-                                <hr />
+
+        <!--  MODAL VER DETALLE OFERTA DISPONIBLE  ###############################  -->
+        <div class="modal fade" id="modalVerOfertaDisponible" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document" style="overflow-y: initial !important">
+                <div class="modal-content" style="overflow: hidden">
+
+                    <div class="modal-header" style="text-align:center; background-color:#f0ad4e; padding-bottom:0">
+                        <h4 class=" modal-title" id="modalTitle" style="color:white">Detalles de la oferta de empleo:</h4>
+                    </div>
+
+                    <div class="modal-body" style="max-height: calc(100vh - 200px) !important; overflow-y: auto !important;">
+                        <div class="row">
+                            <div class="col-sm-12">
                                 <div class="form-group">
-                                    <p style="text-align:center">Disponibilidad:</p>
-                                    <p style="text-align:center"><span><b>{{ofertaDetalleModal.FechaLanzamientoString}}</b></span> - <span><b>{{ofertaDetalleModal.FechaFinString}}</b></span></p><br />
-                                </div>
-                                <div class="form-group" style="text-align:center">
-                                    <b style="text-align:center">{{ofertaDetalleModal.NumeroVacantes}}   </b>   <i class="glyphicon glyphicon-user" style="text-align:center"></i><br />
-                                </div>
-                                <div class="form-group" style="text-align:center">
-                                    <b style="text-align:center">  {{ofertaDetalleModal.Sueldo}} €</b><br />
-                                </div>
-                            </div>
-                            <hr /><br />
-
-                            <div class="row well well-lg" style="margin:auto; background-color:#fdf5ee">
-                                <div class="col-sm-12">
-                                    <div class="form-group">
-                                        <p style="text-align:center"><b>¿Te interesa la oferta?</b></p>
-                                        <p style="text-align:center">Rellena los siguientes datos e inscríbete</p><br />
-                                        <input type="text" ng-model="inscripcion.Notas" class="form-control" name="notas" id="notas" placeholder="Añade algún comentario..." style="max-width:500px;" /><br />
-                                        <input type="text" ng-model="inscripcion.CV" class="form-control" name="cv" id="cv" placeholder="Introduce tu currículum..." style="max-width:500px;" /><br />
-
-                                        <input type="button" class="btn btn-warning btn-block" value="Inscribirse" id="btnInscribir" ng-click="InscribirDemandante()" style="margin:auto" />
-                                    </div>
+                                    <h3><b>{{ofertaDetalleModal.Titulo}}</b></h3>
+                                    <p style="text-align:justify">{{ofertaDetalleModal.Descripcion}}</p>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-" data-dismiss="modal">Atrás</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ################################ -->
-            <!--  MODAL VER DETALLE OFERTA INSCRITA  ###############################  -->
-            <div class="modal fade" id="modalVerOfertaInscrita" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
-                <div class="modal-dialog" role="document" style="overflow-y: initial !important">
-                    <div class="modal-content" style="overflow: hidden">
-
-                        <div class="modal-header" style="text-align:center; background-color:#f0ad4e; padding-bottom:0">
-                            <h4 class=" modal-title" id="modalTitle" style="color:white">Detalles de la oferta de empleo:</h4>
-                        </div>
-
-                        <div class="modal-body" style="max-height: calc(100vh - 200px) !important; overflow-y: auto !important;">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="form-group">
-                                        <h3><b>{{ofertaDetalleModal.Titulo}}</b></h3>
-                                        <p style="text-align:justify">{{ofertaDetalleModal.Descripcion}}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="form-group">
-                                        <br />
-                                        <b>Observaciones:</b><br />
-                                        <p style="text-align:justify">{{ofertaDetalleModal.Observaciones}}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row" style="margin:auto">
-                                <hr />
+                        <div class="row">
+                            <div class="col-sm-12">
                                 <div class="form-group">
-                                    <p style="text-align:center">Disponibilidad:</p>
-                                    <p style="text-align:center"><span><b>{{ofertaDetalleModal.FechaLanzamientoString}}</b></span> - <span><b>{{ofertaDetalleModal.FechaFinString}}</b></span></p><br />
-                                </div>
-                                <div class="form-group" style="text-align:center">
-                                    <b style="text-align:center">{{ofertaDetalleModal.NumeroVacantes}}   </b>   <i class="glyphicon glyphicon-user" style="text-align:center"></i><br />
-                                </div>
-                                <div class="form-group" style="text-align:center">
-                                    <b style="text-align:center">  {{ofertaDetalleModal.Sueldo}} €</b><br />
-                                </div>
-                            </div>
-                            <hr /><br />
-
-                            <div class="row well well-lg" style="margin:auto">
-                                <div class="col-sm-12">
-                                    <div class="form-group">
-                                        <p style="text-align:center"><b>¡Ya estás inscrito en esta oferta de empleo!</b></p>
-                                        <p style="text-align:center">Estos son tus datos de la inscripción:</p><br />
-                                        <label for="notas">Notas:</label>
-                                        <input type="text" ng-model="inscripcion.Notas" class="form-control" name="notas" id="notas" placeholder="{{ofertaDetalleModal.Notas}}" style="max-width:500px;" disabled /><br />
-                                        <label for="cv">Currículum vitae:</label>
-                                        <input type="text" ng-model="inscripcion.CV" class="form-control" name="cv" id="cv" placeholder="{{ofertaDetalleModal.CV}}" style="max-width:500px;" disabled /><br /><br />
-                                        <label for="cv">Estado de la inscripción:</label>
-                                        <input type="text" ng-model="inscripcion.Nombre" class="form-control" name="cv" id="cv" placeholder="{{ofertaDetalleModal.Nombre}}" style="max-width:500px;" disabled /><br />
-
-                                        <input type="button" class="btn btn btn-block" value="Desinscribirse" id="btnDesinscribir" ng-click="DesinscribirDemandante()" @*ng-disabled="ofertaDetalleModal.Estado < 1"*@ style="margin:auto; background-color: dimgray; color: white;" />
-                                    </div>
+                                    <br />
+                                    <b>Observaciones:</b><br />
+                                    <p style="text-align:justify">{{ofertaDetalleModal.Observaciones}}</p>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-" data-dismiss="modal">Atrás</button>
+                        <div class="row" style="margin:auto">
+                            <hr />
+                            <div class="form-group">
+                                <p style="text-align:center">Disponibilidad:</p>
+                                <p style="text-align:center"><span><b>{{ofertaDetalleModal.FechaLanzamientoString}}</b></span> - <span><b>{{ofertaDetalleModal.FechaFinString}}</b></span></p><br />
+                            </div>
+                            <div class="form-group" style="text-align:center">
+                                <b style="text-align:center">{{ofertaDetalleModal.NumeroVacantes}}   </b>   <i class="glyphicon glyphicon-user" style="text-align:center"></i><br />
+                            </div>
+                            <div class="form-group" style="text-align:center">
+                                <b style="text-align:center">  {{ofertaDetalleModal.Sueldo}} €</b><br />
+                            </div>
                         </div>
+                        <hr /><br />
+
+                        <div class="row well well-lg" style="margin:auto; background-color:#fdf5ee">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <p style="text-align:center"><b>¿Te interesa la oferta?</b></p>
+                                    <p style="text-align:center">Rellena los siguientes datos e inscríbete</p><br />
+                                    <input type="text" ng-model="inscripcion.Notas" class="form-control" name="notas" id="notas" placeholder="Añade algún comentario..." style="max-width:500px;" /><br />
+                                    <input type="text" ng-model="inscripcion.CV" class="form-control" name="cv" id="cv" placeholder="Introduce tu currículum..." style="max-width:500px;" /><br />
+
+                                    <input type="button" class="btn btn-warning btn-block" value="Inscribirse" id="btnInscribir" ng-click="InscribirDemandante()" style="margin:auto" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-" data-dismiss="modal">Atrás</button>
                     </div>
                 </div>
             </div>
-            <!-- ################################ -->
-            <!--  MODAL EDITAR DATOS USUARIO  ###############################  -->
-            <div class="modal fade" id="modalEditarUsuario" tabindex="-1" role="dialog" aria-labelledby="modalEditarUsuario" aria-hidden="true">
-                <div class="modal-dialog" role="document" style="overflow-y: initial !important; margin-top:160px">
-                    <div class="modal-content" style="overflow: hidden">
+        </div>
+        <!-- ################################ -->
+        <!--  MODAL VER DETALLE OFERTA INSCRITA  ###############################  -->
+        <div class="modal fade" id="modalVerOfertaInscrita" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document" style="overflow-y: initial !important">
+                <div class="modal-content" style="overflow: hidden">
 
-                        <div class="modal-header" style="text-align:center; background-color: #5bc0de; padding-bottom:0">
-                            <h4 class=" modal-title" id="modalTitle" style="color:white"><p>Editar datos de usuario:</p></h4>
-                        </div>
+                    <div class="modal-header" style="text-align:center; background-color:#f0ad4e; padding-bottom:0">
+                        <h4 class=" modal-title" id="modalTitle" style="color:white">Detalles de la oferta de empleo:</h4>
+                    </div>
 
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <b>Nombre:</b><br />
-                                        <input type="text" class="form-control" ng-model="dataDemModelEditarUsuario.Nombre" name="nombre" id="nombre" value="{{dataDemModel.Nombre}}" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <b>Primer apellido:</b><br />
-                                        <input type="text" class="form-control" ng-model="dataDemModelEditarUsuario.Apellido1" name="apellido1" id="apellido1" value="{{dataDemModel.Apellido1}}" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <b>Segundo apellido:</b><br />
-                                        <input type="text" class="form-control" ng-model="dataDemModelEditarUsuario.Apellido2" name="apellido2" id="apellido2" value="{{dataDemModel.Apellido2}}" required>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <b>Usuario:</b><br />
-                                        <input type="text" class="form-control" ng-model="dataDemModelEditarUsuario.Usuario" name="usuario" id="usuario" placeholder="{{dataDemModel.Usuario}}" disabled>
-                                    </div>
-                                    <div class="form-group">
-                                        <b>Contraseña:</b><br />
-                                        <input type="text" class="form-control" ng-model="dataDemModelEditarUsuario.Contrasena" name="contrasena" id="contrasena" value="{{dataDemModel.Contrasena}}" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <b>Tipo de usuario:</b><br />
-                                        <input type="text" class="form-control" name="tipoUsuario" id="tipoUsuario" placeholder="Demandante" disabled>
-                                    </div>
+                    <div class="modal-body" style="max-height: calc(100vh - 200px) !important; overflow-y: auto !important;">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <h3><b>{{ofertaDetalleModal.Titulo}}</b></h3>
+                                    <p style="text-align:justify">{{ofertaDetalleModal.Descripcion}}</p>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-" data-dismiss="modal">Cancelar</button>
-                            <button type="button" class="btn btn-info" ng-click="ModificarDatosUsuario()">Guardar datos</button>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <br />
+                                    <b>Observaciones:</b><br />
+                                    <p style="text-align:justify">{{ofertaDetalleModal.Observaciones}}</p>
+                                </div>
+                            </div>
                         </div>
+                        <div class="row" style="margin:auto">
+                            <hr />
+                            <div class="form-group">
+                                <p style="text-align:center">Disponibilidad:</p>
+                                <p style="text-align:center"><span><b>{{ofertaDetalleModal.FechaLanzamientoString}}</b></span> - <span><b>{{ofertaDetalleModal.FechaFinString}}</b></span></p><br />
+                            </div>
+                            <div class="form-group" style="text-align:center">
+                                <b style="text-align:center">{{ofertaDetalleModal.NumeroVacantes}}   </b>   <i class="glyphicon glyphicon-user" style="text-align:center"></i><br />
+                            </div>
+                            <div class="form-group" style="text-align:center">
+                                <b style="text-align:center">  {{ofertaDetalleModal.Sueldo}} €</b><br />
+                            </div>
+                        </div>
+                        <hr /><br />
 
+                        <div class="row well well-lg" style="margin:auto">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <p style="text-align:center"><b>¡Ya estás inscrito en esta oferta de empleo!</b></p>
+                                    <p style="text-align:center">Estos son tus datos de la inscripción:</p><br />
+                                    <label for="notas">Notas:</label>
+                                    <input type="text" ng-model="inscripcion.Notas" class="form-control" name="notas" id="notas" placeholder="{{ofertaDetalleModal.Notas}}" style="max-width:500px;" disabled /><br />
+                                    <label for="cv">Currículum vitae:</label>
+                                    <input type="text" ng-model="inscripcion.CV" class="form-control" name="cv" id="cv" placeholder="{{ofertaDetalleModal.CV}}" style="max-width:500px;" disabled /><br /><br />
+                                    <label for="cv">Estado de la inscripción:</label>
+                                    <input type="text" ng-model="inscripcion.Nombre" class="form-control" name="cv" id="cv" placeholder="{{ofertaDetalleModal.Nombre}}" style="max-width:500px;" disabled /><br />
+
+                                    <input type="button" class="btn btn btn-block" value="Desinscribirse" id="btnDesinscribir" ng-click="DesinscribirDemandante()" @*ng-disabled="ofertaDetalleModal.Estado < 1"*@ style="margin:auto; background-color: dimgray; color: white;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-" data-dismiss="modal">Atrás</button>
                     </div>
                 </div>
             </div>
-            <!-- ################################ -->
-            <!--  MODAL EDITAR DATOS EMPLEADOR  ###############################  -->
-            <div class="modal fade" id="modalEditarDemandante" tabindex="-1" role="dialog" aria-labelledby="modalEditarDemandante" aria-hidden="true">
-                <div class="modal-dialog" role="document" style="overflow-y: initial !important; margin-top:160px">
-                    <div class="modal-content" style="overflow: hidden">
+        </div>
+        <!-- ################################ -->
+        <!--  MODAL EDITAR DATOS USUARIO  ###############################  -->
+        <div class="modal fade" id="modalEditarUsuario" tabindex="-1" role="dialog" aria-labelledby="modalEditarUsuario" aria-hidden="true">
+            <div class="modal-dialog" role="document" style="overflow-y: initial !important; margin-top:160px">
+                <div class="modal-content" style="overflow: hidden">
 
-                        <div class="modal-header" style="text-align:center; background-color: #5bc0de; padding-bottom:0">
-                            <h4 class=" modal-title" id="modalTitle" style="color:white"><p>Editar datos de empleador:</p></h4>
-                        </div>
-
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <b>Experiencia laboral:</b><br />
-                                        <input type="text" class="form-control" ng-model="dataDemModelEditarDemandante.ExperienciaLaboral" name="experienciaLaboral" id="experienciaLaboral" value="{{dataDemModel.ExperienciaLaboral}}" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <b>Perfil de LinkedIn:</b><br />
-                                        <input type="text" class="form-control" ng-model="dataDemModelEditarDemandante.PerfilLinkedin" name="perfilLinkedin" id="perfilLinkedin" value="{{dataDemModel.PerfilLinkedin}}" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <b>Teléfono:</b><br />
-                                        <input type="text" class="form-control" ng-model="dataDemModelEditarDemandante.Telefono" name="telefono" id="telefono" value="{{dataDemModel.Telefono}}" required>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <b>Email:</b><br />
-                                        <input type="text" class="form-control" ng-model="dataDemModelEditarDemandante.Email" name="email" id="email" value="{{dataDemModel.Email}}" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <b>Edad:</b><br />
-                                        <input type="number" class="form-control" ng-model="dataDemModelEditarDemandante.Edad" name="edad" id="edad" value="{{dataDemModel.Edad}}" required>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <b>Nivel de estudios:</b><br />
-                                        <select class="form-control" ng-model="dataDemModelEditarDemandante.NivelEstudios" ng-options="estudio.NivelEstudios as estudio.Nombre for estudio in estudios" required></select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="form-group">
-                                        <br />
-                                        <b>Foto de perfil:</b><br />
-                                        <input type="file" class="form-control" fileread="dataDemModelEditarDemandante.ImagenB64"  name="fotoPerfil" id="fotoPerfil" style="max-width:700px" required>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-" data-dismiss="modal">Cancelar</button>
-                            <button type="button" class="btn btn-info" ng-click="ModificarDatosDemandante()">Guardar datos</button>
-                        </div>
-
+                    <div class="modal-header" style="text-align:center; background-color: #5bc0de; padding-bottom:0">
+                        <h4 class=" modal-title" id="modalTitle" style="color:white"><p>Editar datos de usuario:</p></h4>
                     </div>
+
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <b>Nombre:</b><br />
+                                    <input type="text" class="form-control" ng-model="dataDemModelEditarUsuario.Nombre" name="nombre" id="nombre" value="{{dataDemModel.Nombre}}" required>
+                                </div>
+                                <div class="form-group">
+                                    <b>Primer apellido:</b><br />
+                                    <input type="text" class="form-control" ng-model="dataDemModelEditarUsuario.Apellido1" name="apellido1" id="apellido1" value="{{dataDemModel.Apellido1}}" required>
+                                </div>
+                                <div class="form-group">
+                                    <b>Segundo apellido:</b><br />
+                                    <input type="text" class="form-control" ng-model="dataDemModelEditarUsuario.Apellido2" name="apellido2" id="apellido2" value="{{dataDemModel.Apellido2}}" required>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <b>Usuario:</b><br />
+                                    <input type="text" class="form-control" ng-model="dataDemModelEditarUsuario.Usuario" name="usuario" id="usuario" placeholder="{{dataDemModel.Usuario}}" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <b>Contraseña:</b><br />
+                                    <input type="text" class="form-control" ng-model="dataDemModelEditarUsuario.Contrasena" name="contrasena" id="contrasena" value="{{dataDemModel.Contrasena}}" required>
+                                </div>
+                                <div class="form-group">
+                                    <b>Tipo de usuario:</b><br />
+                                    <input type="text" class="form-control" name="tipoUsuario" id="tipoUsuario" placeholder="Demandante" disabled>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-info" ng-click="ModificarDatosUsuario()">Guardar datos</button>
+                    </div>
+
                 </div>
             </div>
-            <!-- ################################ -->
+        </div>
+        <!-- ################################ -->
+        <!--  MODAL EDITAR DATOS EMPLEADOR  ###############################  -->
+        <div class="modal fade" id="modalEditarDemandante" tabindex="-1" role="dialog" aria-labelledby="modalEditarDemandante" aria-hidden="true">
+            <div class="modal-dialog" role="document" style="overflow-y: initial !important; margin-top:160px">
+                <div class="modal-content" style="overflow: hidden">
 
-        </form>
+                    <div class="modal-header" style="text-align:center; background-color: #5bc0de; padding-bottom:0">
+                        <h4 class=" modal-title" id="modalTitle" style="color:white"><p>Editar datos de empleador:</p></h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <b>Experiencia laboral:</b><br />
+                                    <input type="text" class="form-control" ng-model="dataDemModelEditarDemandante.ExperienciaLaboral" name="experienciaLaboral" id="experienciaLaboral" value="{{dataDemModel.ExperienciaLaboral}}" required>
+                                </div>
+                                <div class="form-group">
+                                    <b>Perfil de LinkedIn:</b><br />
+                                    <input type="text" class="form-control" ng-model="dataDemModelEditarDemandante.PerfilLinkedin" name="perfilLinkedin" id="perfilLinkedin" value="{{dataDemModel.PerfilLinkedin}}" required>
+                                </div>
+                                <div class="form-group">
+                                    <b>Teléfono:</b><br />
+                                    <input type="text" class="form-control" ng-model="dataDemModelEditarDemandante.Telefono" name="telefono" id="telefono" value="{{dataDemModel.Telefono}}" required>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <b>Email:</b><br />
+                                    <input type="text" class="form-control" ng-model="dataDemModelEditarDemandante.Email" name="email" id="email" value="{{dataDemModel.Email}}" required>
+                                </div>
+                                <div class="form-group">
+                                    <b>Edad:</b><br />
+                                    <input type="number" class="form-control" ng-model="dataDemModelEditarDemandante.Edad" name="edad" id="edad" value="{{dataDemModel.Edad}}" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <b>Nivel de estudios:</b><br />
+                                    <select class="form-control" ng-model="dataDemModelEditarDemandante.NivelEstudios" ng-options="estudio.NivelEstudios as estudio.Nombre for estudio in estudios" required></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <br />
+                                    <b>Foto de perfil:</b><br />
+                                    <input type="file" class="form-control" fileread="dataDemModelEditarDemandante.ImagenB64" name="fotoPerfil" id="fotoPerfil" style="max-width:700px" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-info" ng-click="ModificarDatosDemandante()">Guardar datos</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- ################################ -->
+
     </div> 
 </div>

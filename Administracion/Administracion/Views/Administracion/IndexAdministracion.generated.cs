@@ -97,11 +97,11 @@ WriteLiteral(" class=\"col-sm-2\"");
 
 WriteLiteral(" style=\"height:690px\"");
 
-WriteLiteral(">\r\n            <div>\r\n                <div");
+WriteLiteral(">\r\n            <div");
 
 WriteLiteral(" class=\"btn-group-vertical\"");
 
-WriteLiteral(">\r\n                    <button");
+WriteLiteral(">\r\n                <button");
 
 WriteLiteral(" class=\"btn btn-info\"");
 
@@ -109,9 +109,7 @@ WriteLiteral(" style=\"padding-right:90px; text-align:left; border-radius:0; opa
 
 WriteLiteral(" ng-click=\"GetAllOfertas()\"");
 
-WriteLiteral(">");
-
-WriteLiteral(" Ver ofertas</button>\r\n                    <button");
+WriteLiteral("> Ver ofertas</button>\r\n                <button");
 
 WriteLiteral(" class=\"btn btn-info\"");
 
@@ -119,9 +117,7 @@ WriteLiteral(" style=\"text-align:left; border-radius:0; opacity:0.9\"");
 
 WriteLiteral(" ng-click=\"GetDemandantes()\"");
 
-WriteLiteral(">");
-
-WriteLiteral(" Ver demandantes</button>\r\n                    <button");
+WriteLiteral("> Ver demandantes</button>\r\n                <button");
 
 WriteLiteral(" class=\"btn btn-info\"");
 
@@ -129,9 +125,7 @@ WriteLiteral(" style=\"text-align:left; border-radius:0; opacity:0.9\"");
 
 WriteLiteral(" ng-click=\"GetEmpleadores()\"");
 
-WriteLiteral(">");
-
-WriteLiteral(" Ver empleadores</button>\r\n                    <button");
+WriteLiteral("> Ver empleadores</button>\r\n                <button");
 
 WriteLiteral(" class=\"btn btn-info\"");
 
@@ -139,10 +133,7 @@ WriteLiteral(" style=\"text-align:left; border-radius:0; opacity:0.9\"");
 
 WriteLiteral(" ng-click=\"GetUsuarios()\"");
 
-WriteLiteral(">");
-
-WriteLiteral(" Ver usuarios</button>\r\n                </div>\r\n\r\n            </div>\r\n        </d" +
-"iv>\r\n\r\n        <div");
+WriteLiteral("> Ver usuarios</button>\r\n            </div>\r\n        </div>\r\n\r\n        <div");
 
 WriteLiteral(" class=\"col-sm-10 well well-lg\"");
 
@@ -164,8 +155,8 @@ WriteLiteral("></div>\r\n            <div");
 
 WriteLiteral(" id=\"Usuarios\"");
 
-WriteLiteral("></div>\r\n        </div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n        <!--  MODAL VER DETALLE MI OFERT" +
-"A  ###############################  -->\r\n        <div");
+WriteLiteral("></div>\r\n        </div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n        <!--  MODAL OFERTAS DE UN EMPLEA" +
+"DOR  ###############################  -->\r\n        <div");
 
 WriteLiteral(" class=\"modal fade\"");
 
@@ -185,21 +176,21 @@ WriteLiteral(" class=\"modal-dialog\"");
 
 WriteLiteral(" role=\"document\"");
 
-WriteLiteral(" style=\"overflow-y: initial !important; width:1000px\"");
+WriteLiteral(" style=\"overflow-y: initial !important; width:1000px; padding-top:120px\"");
 
 WriteLiteral(">\r\n                <div");
 
 WriteLiteral(" class=\"modal-content\"");
 
-WriteLiteral(" style=\"overflow: hidden\"");
+WriteLiteral(" style=\"overflow:hidden; border-radius:0\"");
 
 WriteLiteral(">\r\n\r\n                    <div");
 
 WriteLiteral(" class=\"modal-header\"");
 
-WriteLiteral(" style=\"text-align:center; background-color:#5bc0de; padding-bottom:10px\"");
+WriteLiteral(" style=\"text-align:center; background-color:#54a4b5; padding-bottom:10px\"");
 
-WriteLiteral(">\r\n                        <h4");
+WriteLiteral(">\r\n                        <h5");
 
 WriteLiteral(" class=\" modal-title\"");
 
@@ -207,7 +198,7 @@ WriteLiteral(" id=\"modalTitle\"");
 
 WriteLiteral(" style=\"color:white\"");
 
-WriteLiteral(">Detalles del empleador:</h4>\r\n                    </div>\r\n                    <d" +
+WriteLiteral(">Detalles del empleador:</h5>\r\n                    </div>\r\n                    <d" +
 "iv");
 
 WriteLiteral(" class=\"modal-body\"");
@@ -231,10 +222,17 @@ WriteLiteral(" class=\"btn btn-\"");
 
 WriteLiteral(" data-dismiss=\"modal\"");
 
-WriteLiteral(">Atrás</button>\r\n                    </div>\r\n                </div>\r\n            " +
-"</div>\r\n        </div>\r\n        <!-- ################################ -->\r\n     " +
-"   <!--  MODAL VER DETALLE MI OFERTA  ###############################  -->\r\n    " +
-"    <div");
+WriteLiteral(" style=\"border-radius:0\"");
+
+WriteLiteral(@">Atrás</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ################################ -->
+
+        <!--  MODAL DEMANDANTES INSCRITOS EN OFERTAS  ###############################  -->
+        <div");
 
 WriteLiteral(" class=\"modal fade\"");
 
@@ -254,21 +252,21 @@ WriteLiteral(" class=\"modal-dialog\"");
 
 WriteLiteral(" role=\"document\"");
 
-WriteLiteral(" style=\"overflow-y: initial !important; width:1000px\"");
+WriteLiteral(" style=\"overflow-y: initial !important; width:1000px; padding-top:120px\"");
 
 WriteLiteral(">\r\n                <div");
 
 WriteLiteral(" class=\"modal-content\"");
 
-WriteLiteral(" style=\"overflow: hidden\"");
+WriteLiteral(" style=\"overflow: hidden; border-radius:0\"");
 
 WriteLiteral(">\r\n\r\n                    <div");
 
 WriteLiteral(" class=\"modal-header\"");
 
-WriteLiteral(" style=\"text-align:center; background-color:#5bc0de; padding-bottom:10px\"");
+WriteLiteral(" style=\"text-align:center; background-color:#54a4b5; padding-bottom:10px\"");
 
-WriteLiteral(">\r\n                        <h4");
+WriteLiteral(">\r\n                        <h5");
 
 WriteLiteral(" class=\" modal-title\"");
 
@@ -276,7 +274,7 @@ WriteLiteral(" id=\"modalTitle\"");
 
 WriteLiteral(" style=\"color:white\"");
 
-WriteLiteral(">Detalles de la oferta:</h4>\r\n                    </div>\r\n                    <di" +
+WriteLiteral(">Detalles de la oferta:</h5>\r\n                    </div>\r\n                    <di" +
 "v");
 
 WriteLiteral(" class=\"modal-body\"");
@@ -299,6 +297,8 @@ WriteLiteral(" type=\"button\"");
 WriteLiteral(" class=\"btn btn-\"");
 
 WriteLiteral(" data-dismiss=\"modal\"");
+
+WriteLiteral(" style=\"border-radius:0\"");
 
 WriteLiteral(">Atrás</button>\r\n                    </div>\r\n                </div>\r\n            " +
 "</div>\r\n        </div>\r\n        <!-- ################################ -->\r\n\r\n\r\n " +
@@ -329,13 +329,13 @@ WriteLiteral(">\r\n                <div");
 
 WriteLiteral(" class=\"modal-content\"");
 
-WriteLiteral(" style=\"overflow: hidden\"");
+WriteLiteral(" style=\"overflow: hidden; border-radius:0\"");
 
 WriteLiteral(">\r\n\r\n                    <div");
 
 WriteLiteral(" class=\"modal-header\"");
 
-WriteLiteral(" style=\"background-color:#565656; padding-bottom:0\"");
+WriteLiteral(" style=\"background-color:#b94a48; padding-bottom:0\"");
 
 WriteLiteral(">\r\n                        <h5");
 
@@ -378,12 +378,16 @@ WriteLiteral(" class=\"btn btn-\"");
 
 WriteLiteral(" data-dismiss=\"modal\"");
 
+WriteLiteral(" style=\"border-radius:0\"");
+
 WriteLiteral(">Cancelar</button>\r\n                        <button");
 
 WriteLiteral(" class=\"btn btn-danger\"");
 
 WriteLiteral(" ng-click=\"EliminarUsuario(usuarioParaEliminar.Id, usuarioParaEliminar.TipoUsuari" +
 "o)\"");
+
+WriteLiteral(" style=\"border-radius:0\"");
 
 WriteLiteral(">Eliminar</button>\r\n                    </div>\r\n                </div>\r\n         " +
 "   </div>\r\n        </div>\r\n        <!-- ################################ -->\r\n\r\n" +

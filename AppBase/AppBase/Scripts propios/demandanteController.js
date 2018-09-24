@@ -3,7 +3,7 @@
 
 
 
-app.controller('DemandanteController', ['$scope', '$http', '$element', '$interval', function ($scope, $http, $element, $interval) {
+app.controller('DemandanteController', ['$scope', '$http', '$element', '$interval', 'myHttp', function ($scope, $http, $element, $interval, myHttp) {
 
     $scope.dem = {};
     $scope.estudios = [];
@@ -15,8 +15,6 @@ app.controller('DemandanteController', ['$scope', '$http', '$element', '$interva
 
     $scope.dataDemModelEditarUsuario = {};
     $scope.dataDemModelEditarDemandante = {};
-
-
 
 
 
@@ -93,26 +91,41 @@ app.controller('DemandanteController', ['$scope', '$http', '$element', '$interva
 
 
 
-
-    //Método que obtiene los datos del Demandante para cargar la vista
-    $scope.ObtenerDatosDemandanteModel = function (idDemandante) {
-        var url = "/Demandante/ObtenerDatosDemandanteModel";
-        $http({
-            method: 'POST',
-            url: url,
-            contentType: "application/json; charset=utf-8",
-        }).success(function (result) {
-            if (result === false) {
-                alert("Los datos de demandante no se han cargado correctamente")
-            } else {
-                $scope.dataDemModel = result;
-                $scope.CargarOfertasDisponibles();
-                $scope.CargarOfertasInscritas();
-            }
-        }).error(function () {
-            alert("Error en la función.")
-        });
+    //Método para obtener los demandantes de la base de datos.
+    $scope.GetDatos = function () {
+        myHttp.post("/Demandante/ObtenerDatosDemandanteModel")
+          .then(function (result) {
+              $('#OfertasDisponibles').empty();
+              $('#OfertasInscritas').empty();
+              addElementCompileAngularToSelector($('#MisDatos'), result, true, false);
+          })
+          .catch(function () {
+              alert("Error de la promesa");
+          })
     };
+
+
+
+
+    ////Método que obtiene los datos del Demandante para cargar la vista
+    //$scope.ObtenerDatosDemandanteModel = function (idDemandante) {
+    //    var url = "/Demandante/ObtenerDatosDemandanteModel";
+    //    $http({
+    //        method: 'POST',
+    //        url: url,
+    //        contentType: "application/json; charset=utf-8",
+    //    }).success(function (result) {
+    //        if (result === false) {
+    //            alert("Los datos de demandante no se han cargado correctamente")
+    //        } else {
+    //            $scope.dataDemModel = result;
+    //            $scope.CargarOfertasDisponibles();
+    //            $scope.CargarOfertasInscritas();
+    //        }
+    //    }).error(function () {
+    //        alert("Error en la función.")
+    //    });
+    //};
 
 
 
@@ -265,4 +278,56 @@ app.directive("fileread", [function () {
             });
         }
     }
+}]);
+
+
+
+/*
+* ############################################################################
+* #                                 SERVICIOS                                #
+* ############################################################################
+*/
+
+app.factory('myHttp', ['$http', '$q', function ($http, $q) {
+
+    var httpFactory = {
+
+        get: function (baseUrl) {
+            var defered = $q.defer();
+            var promise = defered.promise;
+
+            $http({
+                method: 'GET',
+                url: baseUrl + '/datos.json'
+            }).success(function (data, status, headers, config) {
+                defered.resolve(data);
+            }).error(function (data, status, headers, config) {
+                defered.reject(status);
+            });
+
+            return promise;
+        },
+
+
+
+
+        post: function (baseUrl, dataIn) {
+            var defered = $q.defer();
+            var promise = defered.promise;
+
+            $http({
+                method: 'POST',
+                url: baseUrl,
+                data: dataIn,
+                contentType: "application/json; charset=utf-8",
+            }).success(function (data, status, headers, config) {
+                defered.resolve(data)
+            }).error(function (data, status, headers, config) {
+                defered.reject(status);
+            });
+            return promise;
+        }
+
+    }
+    return httpFactory;
 }]);

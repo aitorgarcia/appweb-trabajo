@@ -63,7 +63,17 @@ WriteLiteral("></script>\r\n\r\n<div");
 
 WriteLiteral(" ng-app=\"app\"");
 
-WriteLiteral(">\r\n    \r\n    <div");
+WriteLiteral(">\r\n    <img");
+
+WriteAttribute("src", Tuple.Create(" src=\'", 450), Tuple.Create("\'", 491)
+, Tuple.Create(Tuple.Create("", 456), Tuple.Create<System.Object, System.Int32>(Href("~/Imagenes/pexels-photo-884454.jpeg")
+, 456), false)
+);
+
+WriteLiteral(" style=\'position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;opacity:0.2" +
+"5\'");
+
+WriteLiteral(">\r\n\r\n    \r\n    <div");
 
 WriteLiteral(" ng-controller=\"EmpleadorController\"");
 
@@ -85,24 +95,25 @@ WriteLiteral(" class=\"row\"");
 
 WriteLiteral(">\r\n                <div");
 
-WriteLiteral(" class=\"col-sm-3\"");
+WriteLiteral(" class=\"col-sm-4\"");
 
 WriteLiteral("></div>\r\n                <div");
 
-WriteLiteral(" class=\"col-lg-6\"");
+WriteLiteral(" class=\"col-sm-4\"");
 
 WriteLiteral(">\r\n                    <div");
 
 WriteLiteral(" class=\"titulo\"");
 
-WriteLiteral(@">
-                        <br><br>
-                        <h4>Esta es la <b>primera vez que accedes</b>, por favor rellena los datos siguientes para registrarte como nuevo <b>empleador</b>.</h4><br><br>
-                    </div>
-                </div>
-                <div");
+WriteLiteral(">\r\n                        <br>\r\n                        <h4");
 
-WriteLiteral(" class=\"col-sm-3\"");
+WriteLiteral(" style=\"text-align:justify\"");
+
+WriteLiteral(">Esta es la <b>primera vez que accedes</b>, por favor rellena los datos siguiente" +
+"s para registrarte como nuevo <b>empleador</b>.</h4><br>\r\n                    </" +
+"div>\r\n                </div>\r\n                <div");
+
+WriteLiteral(" class=\"col-sm-4\"");
 
 WriteLiteral("></div>\r\n            </div>\r\n\r\n            <div");
 
@@ -110,18 +121,38 @@ WriteLiteral(" class=\"row\"");
 
 WriteLiteral(">\r\n                <div");
 
-WriteLiteral(" class=\"col-sm-3\"");
+WriteLiteral(" class=\"col-sm-4\"");
 
 WriteLiteral("></div>\r\n\r\n                <div");
 
-WriteLiteral(" class=\"col-sm-6\"");
+WriteLiteral(" class=\"col-sm-4\"");
+
+WriteLiteral(" style=\"height:680px\"");
 
 WriteLiteral(">\r\n\r\n                    <div");
 
+WriteLiteral(" class=\"well\"");
+
+WriteLiteral(" style=\"border-radius:0; background-color:#383838; padding:0; margin:0; border:1p" +
+"x solid #383838\"");
+
+WriteLiteral(">\r\n                        <h5");
+
+WriteLiteral(" style=\"text-align:center; color:white\"");
+
+WriteLiteral(">Registro de nuevo empleador</h5>\r\n                    </div>\r\n                  " +
+"  <div");
+
+WriteLiteral(" class=\"well\"");
+
+WriteLiteral(" style=\"border-radius:0; background-color:#f9f9f9;\"");
+
+WriteLiteral(">\r\n\r\n                        <div");
+
 WriteLiteral(" class=\"form-group\"");
 
-WriteLiteral(">\r\n                        <b>Logo de la empresa</b> <i><small>(opcional):</small" +
-"></i><br />\r\n                        <input");
+WriteLiteral(">\r\n                            <span>Logo de la empresa</span> <i><small>(opciona" +
+"l):</small></i><br />\r\n                            <input");
 
 WriteLiteral(" type=\"file\"");
 
@@ -133,11 +164,14 @@ WriteLiteral(" name=\"logoEmpresa\"");
 
 WriteLiteral(" id=\"logoEmpresa\"");
 
-WriteLiteral(" />\r\n                    </div>\r\n\r\n                    <div");
+WriteLiteral(" style=\"border-radius:0; max-width:500px; border-color:#dedede;\"");
+
+WriteLiteral(" />\r\n                        </div>\r\n\r\n                        <div");
 
 WriteLiteral(" class=\"form-group\"");
 
-WriteLiteral(">\r\n                        <b>Empresa:</b><br />\r\n                        <input");
+WriteLiteral(">\r\n                            <span>Empresa:</span><br />\r\n                     " +
+"       <input");
 
 WriteLiteral(" type=\"text\"");
 
@@ -151,12 +185,16 @@ WriteLiteral(" id=\"nombreEmpresa\"");
 
 WriteLiteral(" ng-model=\"nombreEmpresa\"");
 
-WriteLiteral(" required>\r\n                    </div>\r\n\r\n                    <div");
+WriteLiteral(" required");
+
+WriteLiteral(" style=\"border-radius:0; max-width:500px; border-color:#dedede;\"");
+
+WriteLiteral(">\r\n                        </div>\r\n\r\n                        <div");
 
 WriteLiteral(" class=\"form-group\"");
 
-WriteLiteral(">\r\n                        <b>Dirección:</b><br />\r\n                        <inpu" +
-"t");
+WriteLiteral(">\r\n                            <span>Dirección:</span><br />\r\n                   " +
+"         <input");
 
 WriteLiteral(" type=\"text\"");
 
@@ -168,12 +206,16 @@ WriteLiteral(" name=\"direccion\"");
 
 WriteLiteral(" id=\"direccion\"");
 
-WriteLiteral(" required />\r\n                    </div>\r\n\r\n                    <div");
+WriteLiteral(" required");
+
+WriteLiteral(" style=\"border-radius:0; max-width:500px; border-color:#dedede;\"");
+
+WriteLiteral(" />\r\n                        </div>\r\n\r\n                        <div");
 
 WriteLiteral(" class=\"form-group\"");
 
-WriteLiteral(">\r\n                        <b>Teléfono</b> <i><small>(opcional):</small></i><br /" +
-">\r\n                        <input");
+WriteLiteral(">\r\n                            <span>Teléfono</span> <i><small>(opcional):</small" +
+"></i><br />\r\n                            <input");
 
 WriteLiteral(" type=\"text\"");
 
@@ -185,12 +227,14 @@ WriteLiteral(" name=\"telefono\"");
 
 WriteLiteral(" id=\"telefono\"");
 
-WriteLiteral(" />\r\n                    </div>\r\n\r\n                    <div");
+WriteLiteral(" style=\"border-radius:0; max-width:500px; border-color:#dedede;\"");
+
+WriteLiteral(" />\r\n                        </div>\r\n\r\n                        <div");
 
 WriteLiteral(" class=\"form-group\"");
 
-WriteLiteral(">\r\n                        <b>Email</b> <i><small>(opcional):</small></i><br />\r\n" +
-"                        <input");
+WriteLiteral(">\r\n                            <span>Email</span> <i><small>(opcional):</small></" +
+"i><br />\r\n                            <input");
 
 WriteLiteral(" type=\"email\"");
 
@@ -202,12 +246,14 @@ WriteLiteral(" name=\"email\"");
 
 WriteLiteral(" id=\"email\"");
 
-WriteLiteral(" />\r\n                    </div>\r\n\r\n                    <div");
+WriteLiteral(" style=\"border-radius:0; max-width:500px; border-color:#dedede;\"");
+
+WriteLiteral(" />\r\n                        </div>\r\n\r\n                        <div");
 
 WriteLiteral(" class=\"form-group\"");
 
-WriteLiteral(">\r\n                        <b>Número de empleados:</b><br />\r\n                   " +
-"     <input");
+WriteLiteral(">\r\n                            <span>Número de empleados:</span><br />\r\n         " +
+"                   <input");
 
 WriteLiteral(" type=\"number\"");
 
@@ -221,12 +267,14 @@ WriteLiteral(" id=\"numeroEmpleados\"");
 
 WriteLiteral(" placeholder=\"Mínimo 1 empleado\"");
 
-WriteLiteral("/>\r\n                    </div>\r\n\r\n                    <div");
+WriteLiteral(" style=\"border-radius:0; max-width:500px; border-color:#dedede;\"");
+
+WriteLiteral(" />\r\n                        </div>\r\n\r\n                        <div");
 
 WriteLiteral(" class=\"form-group\"");
 
-WriteLiteral(">\r\n                        <b>Tipo de industria:</b><br />\r\n                     " +
-"   <select");
+WriteLiteral(">\r\n                            <span>Tipo de industria:</span><br />\r\n           " +
+"                 <select");
 
 WriteLiteral(" class=\"form-control\"");
 
@@ -235,20 +283,25 @@ WriteLiteral(" ng-model=\"emp.TipoIndustria\"");
 WriteLiteral(" ng-options=\"industria.TipoIndustria as industria.Nombre for industria in industr" +
 "ias\"");
 
-WriteLiteral(" required>\r\n                            <option");
+WriteLiteral(" required");
+
+WriteLiteral(" style=\"border-radius:0; max-width:500px; border-color:#dedede;\"");
+
+WriteLiteral(">\r\n                                <option");
 
 WriteLiteral(" value=\"\"");
 
 WriteLiteral(" selected disabled hidden>Selecciona uno de la lista</option>\r\n                  " +
-"      </select>\r\n                    </div>\r\n\r\n                    <div");
+"          </select>\r\n                        </div>\r\n\r\n                        <" +
+"div");
 
-WriteLiteral(" class=\"form-group\"");
+WriteLiteral(" class=\"form-group text-center\"");
 
-WriteLiteral(">\r\n                        <br /><br /><br />\r\n                        <input");
+WriteLiteral(">\r\n                            <br /><br />\r\n                            <input");
 
 WriteLiteral(" type=\"submit\"");
 
-WriteLiteral(" class=\"btn btn-block btn-success\"");
+WriteLiteral(" class=\"btn btn-success\"");
 
 WriteLiteral(" value=\" Registrar empleador\"");
 
@@ -256,10 +309,12 @@ WriteLiteral(" id=\"btn-submit\"");
 
 WriteLiteral(" ng-click=\"GuardarDatosEmpleador()\"");
 
-WriteLiteral(">\r\n                        <br /><br /><br />\r\n                    </div>\r\n\r\n    " +
-"            </div>\r\n\r\n                <div");
+WriteLiteral(" style=\"border-radius:0; border:none; max-width:none;\"");
 
-WriteLiteral(" class=\"col-sm-3\"");
+WriteLiteral(">\r\n                        </div>\r\n                    </div>\r\n                </" +
+"div>\r\n                <div");
+
+WriteLiteral(" class=\"col-sm-4\"");
 
 WriteLiteral("></div>\r\n\r\n            </div>\r\n        </form>\r\n    </div>\r\n</div>");
 

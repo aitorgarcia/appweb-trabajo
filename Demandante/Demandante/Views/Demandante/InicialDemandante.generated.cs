@@ -59,561 +59,99 @@ WriteAttribute("src", Tuple.Create(" src=\"", 372), Tuple.Create("\"", 419)
 , Tuple.Create(Tuple.Create(" ", 387), Tuple.Create("propios/demandanteController.js", 388), true)
 );
 
+WriteLiteral("></script>\r\n<script");
+
+WriteAttribute("src", Tuple.Create(" src=\"", 439), Tuple.Create("\"", 479)
+, Tuple.Create(Tuple.Create("", 445), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts")
+, 445), false)
+, Tuple.Create(Tuple.Create(" ", 454), Tuple.Create("propios/scriptCompile.js", 455), true)
+);
+
 WriteLiteral("></script>\r\n\r\n<div");
 
 WriteLiteral(" ng-app=\"app\"");
 
-WriteLiteral(">\r\n\r\n    <div");
+WriteLiteral(">\r\n    <img");
+
+WriteAttribute("src", Tuple.Create(" src=\'", 522), Tuple.Create("\'", 563)
+, Tuple.Create(Tuple.Create("", 528), Tuple.Create<System.Object, System.Int32>(Href("~/Imagenes/pexels-photo-884454.jpeg")
+, 528), false)
+);
+
+WriteLiteral(" style=\'position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;opacity:0.2" +
+"5\'");
+
+WriteLiteral(">\r\n\r\n\r\n    <div");
 
 WriteLiteral(" ng-controller=\"DemandanteController\"");
 
-WriteLiteral(" data-ng-init=\"ObtenerDatosDemandanteModel(");
+WriteLiteral(" ng-init=\"GetDatos()\"");
 
-WriteLiteral("); ObtenerEstudios()\"");
-
-WriteLiteral(" class=\"demo\"");
+WriteLiteral(" class=\"row\"");
 
 WriteLiteral(" style=\"width:auto\"");
 
-WriteLiteral(">\r\n        <form");
-
-WriteLiteral(" id=\"myForm\"");
-
-WriteLiteral(" method=\"post\"");
-
-WriteLiteral(">\r\n\r\n            <div");
+WriteLiteral(">\r\n\r\n        <div");
 
 WriteLiteral(" class=\"titulo\"");
 
-WriteLiteral(">\r\n                <br><br><br>\r\n                <h3>Hola <span");
+WriteLiteral(">\r\n            <br><br><br>\r\n            <h3>Hola <span");
 
 WriteLiteral(" style=\"color:#b94a48\"");
 
 WriteLiteral("><b>{{dataDemModel.Usuario}}</b></span> esta es tu página de <b>demandante</b>.</" +
-"h3><br><br>\r\n            </div>\r\n\r\n            <div");
+"h3><br><br>\r\n        </div>\r\n\r\n        <div");
 
-WriteLiteral(" class=\"row\"");
+WriteLiteral(" class=\"col-sm-2\"");
 
-WriteLiteral(">\r\n                <div");
+WriteLiteral(" style=\"height:690px\"");
 
-WriteLiteral(" class=\"container\"");
+WriteLiteral(">\r\n            <div");
 
-WriteLiteral(">\r\n                    <ul");
+WriteLiteral(" class=\"btn-group-vertical container\"");
 
-WriteLiteral(" class=\"nav nav-pills nav-justified well well-sm\"");
+WriteLiteral(">\r\n                <button");
 
-WriteLiteral(">\r\n                        <li");
+WriteLiteral(" class=\"btn btn-info\"");
 
-WriteLiteral(" class=\"active\"");
+WriteLiteral(" style=\"padding-right:80px; text-align:left; border-radius:0; opacity:0.9\"");
 
-WriteLiteral(" style=\"\"");
+WriteLiteral(" ng-click=\"GetDatos()\"");
 
-WriteLiteral("><a");
+WriteLiteral("> Mis datos</button>\r\n                <button");
 
-WriteLiteral(" data-toggle=\"pill\"");
+WriteLiteral(" class=\"btn btn-info\"");
 
-WriteLiteral(" href=\"#misdatos\"");
+WriteLiteral(" style=\"text-align:left; border-radius:0; opacity:0.9\"");
 
-WriteLiteral(">Mis datos</a></li>\r\n                        <li><a");
+WriteLiteral("> Ofertas disponibles</button>\r\n                <button");
 
-WriteLiteral(" data-toggle=\"pill\"");
+WriteLiteral(" class=\"btn btn-info\"");
 
-WriteLiteral(" href=\"#ofertasDisponibles\"");
+WriteLiteral(" style=\"text-align:left; border-radius:0; opacity:0.9\"");
 
-WriteLiteral(">Ofertas disponibles</a></li>\r\n                        <li><a");
+WriteLiteral("> Ofertas inscritas</button>\r\n            </div>\r\n        </div>\r\n\r\n        <div");
 
-WriteLiteral(" data-toggle=\"pill\"");
+WriteLiteral(" class=\"col-sm-10 well well-lg\"");
 
-WriteLiteral(" href=\"#misOfertasInscritas\"");
+WriteLiteral(" style=\"border-radius: 0;\"");
 
-WriteLiteral(">Mis ofertas inscritas</a></li>\r\n                    </ul>\r\n                </div" +
-">\r\n\r\n\r\n                <div");
+WriteLiteral(">\r\n            <div");
 
-WriteLiteral(" class=\"tab-content well well-sm\"");
+WriteLiteral(" id=\"MisDatos\"");
 
-WriteLiteral(">\r\n                    <div");
+WriteLiteral("></div>\r\n            <div");
 
-WriteLiteral(" id=\"misdatos\"");
+WriteLiteral(" id=\"OfertasDisponibles\"");
 
-WriteLiteral(" class=\"tab-pane fade in active\"");
+WriteLiteral("></div>\r\n            <div");
 
-WriteLiteral(">\r\n                        <br />\r\n                        <div");
+WriteLiteral(" id=\"OfertasInscritas\"");
 
-WriteLiteral(" class=\"panel\"");
+WriteLiteral("></div>\r\n        </div>\r\n\r\n        ");
 
-WriteLiteral(" style=\"border-color: #428bca;\"");
-
-WriteLiteral(">\r\n                            <div");
-
-WriteLiteral(" class=\"panel-heading clearfix\"");
-
-WriteLiteral(" style=\"background-color:#428bca\"");
-
-WriteLiteral(">\r\n                                <b");
-
-WriteLiteral(" style=\"color:white\"");
-
-WriteLiteral(">Datos de usuario:</b>\r\n                                <button");
-
-WriteLiteral(" class=\"btn btn-info pull-right\"");
-
-WriteLiteral(" style=\"padding-top:0\"");
-
-WriteLiteral(" data-toggle=\"modal\"");
-
-WriteLiteral(" ng-click=\"ModalEditarUsuario(dataDemModel)\"");
-
-WriteLiteral("><i");
-
-WriteLiteral(" class=\"glyphicon glyphicon-pencil\"");
-
-WriteLiteral(" style=\"text-align:center; vertical-align:middle\"");
-
-WriteLiteral("></i></button>\r\n                            </div>\r\n                            <" +
-"div");
-
-WriteLiteral(" class=\"panel-body\"");
-
-WriteLiteral(" style=\"padding-top:0; padding-bottom:0\"");
-
-WriteLiteral(">\r\n                                <ul");
-
-WriteLiteral(" class=\"list-group row\"");
-
-WriteLiteral(" style=\"margin-bottom:0;\"");
-
-WriteLiteral(">\r\n                                    <li");
-
-WriteLiteral(" class=\"list-group-item col-xs-4\"");
-
-WriteLiteral(" style=\"height:45px;\"");
-
-WriteLiteral(">Usuario:</li>\r\n                                    ");
-
-WriteLiteral("\r\n                                    <li");
-
-WriteLiteral(" class=\"list-group-item col-xs-8\"");
-
-WriteLiteral(" style=\"height:45px;\"");
-
-WriteLiteral(">{{dataDemModel.Usuario}}</li>\r\n                                    <li");
-
-WriteLiteral(" class=\"list-group-item col-xs-4\"");
-
-WriteLiteral(" style=\"height:45px;\"");
-
-WriteLiteral(">Nombre:</li>\r\n                                    <li");
-
-WriteLiteral(" class=\"list-group-item col-xs-8\"");
-
-WriteLiteral(" style=\"height:45px;\"");
-
-WriteLiteral(">{{dataDemModel.Nombre}}</li>\r\n                                    <li");
-
-WriteLiteral(" class=\"list-group-item col-xs-4\"");
-
-WriteLiteral(" style=\"height:45px;\"");
-
-WriteLiteral(">Primer apellido:</li>\r\n                                    <li");
-
-WriteLiteral(" class=\"list-group-item col-xs-8\"");
-
-WriteLiteral(" style=\"height:45px;\"");
-
-WriteLiteral(">{{dataDemModel.Apellido1}}</li>\r\n                                    <li");
-
-WriteLiteral(" class=\"list-group-item col-xs-4\"");
-
-WriteLiteral(" style=\"height:45px;\"");
-
-WriteLiteral(">Segundo apellido:</li>\r\n                                    <li");
-
-WriteLiteral(" class=\"list-group-item col-xs-8\"");
-
-WriteLiteral(" style=\"height:45px;\"");
-
-WriteLiteral(">{{dataDemModel.Apellido2}}</li>\r\n                                    <li");
-
-WriteLiteral(" class=\"list-group-item col-xs-4\"");
-
-WriteLiteral(" style=\"height:45px;\"");
-
-WriteLiteral(">Tipo de usuario:</li>\r\n                                    <li");
-
-WriteLiteral(" class=\"list-group-item col-xs-8\"");
-
-WriteLiteral(" ng-if=\"dataDemModel.TipoUsuario == 0\"");
-
-WriteLiteral(" style=\"height:45px;\"");
-
-WriteLiteral(">Empleador</li>\r\n                                    <li");
-
-WriteLiteral(" class=\"list-group-item col-xs-8\"");
-
-WriteLiteral(" ng-if=\"dataDemModel.TipoUsuario == 1\"");
-
-WriteLiteral(" style=\"height:45px;\"");
-
-WriteLiteral(">Demandante</li>\r\n                                    ");
-
-WriteLiteral("\r\n\r\n\r\n                                </ul>\r\n                            </div>\r\n" +
-"                        </div>\r\n\r\n                        <div");
-
-WriteLiteral(" class=\"panel\"");
-
-WriteLiteral(" style=\"border-color: #428bca;\"");
-
-WriteLiteral(">\r\n                            <div");
-
-WriteLiteral(" class=\"panel-heading clearfix\"");
-
-WriteLiteral(" style=\"background-color:#428bca\"");
-
-WriteLiteral(">\r\n                                <b");
-
-WriteLiteral(" style=\"color:white\"");
-
-WriteLiteral(">Datos de demandante:</b>\r\n                                <button");
-
-WriteLiteral(" class=\"btn btn-info pull-right\"");
-
-WriteLiteral(" style=\"padding-top:0\"");
-
-WriteLiteral(" data-toggle=\"modal\"");
-
-WriteLiteral(" ng-click=\"ModalEditarDemandante(dataDemModel)\"");
-
-WriteLiteral("><i");
-
-WriteLiteral(" class=\"glyphicon glyphicon-pencil\"");
-
-WriteLiteral(" style=\"text-align:center; vertical-align:middle\"");
-
-WriteLiteral("></i></button>\r\n                            </div>\r\n                            <" +
-"div");
-
-WriteLiteral(" class=\"panel-body\"");
-
-WriteLiteral(" style=\"padding-top:0; padding-bottom:0\"");
-
-WriteLiteral(">\r\n\r\n                                <ul");
-
-WriteLiteral(" class=\"list-group row\"");
-
-WriteLiteral(" style=\"margin-bottom:0\"");
-
-WriteLiteral(">\r\n                                    <li");
-
-WriteLiteral(" class=\"list-group-item col-xs-4\"");
-
-WriteLiteral(" style=\"height:45px;\"");
-
-WriteLiteral(">Foto de perfil:</li>\r\n                                    <li");
-
-WriteLiteral(" class=\"list-group-item col-xs-8\"");
-
-WriteLiteral(" style=\"min-height:45px;\"");
-
-WriteLiteral("><img");
-
-WriteLiteral(" data-ng-src=\"data:image/jpg;base64,{{dataDemModel.ImagenB64}}\"");
-
-WriteLiteral(" class=\"img-responsive\"");
-
-WriteLiteral(" /></li>\r\n                                    <li");
-
-WriteLiteral(" class=\"list-group-item col-xs-4\"");
-
-WriteLiteral(" style=\"height:45px;\"");
-
-WriteLiteral(">Edad:</li>\r\n                                    <li");
-
-WriteLiteral(" class=\"list-group-item col-xs-8\"");
-
-WriteLiteral(" style=\"height:45px;\"");
-
-WriteLiteral(">{{dataDemModel.Edad}}</li>\r\n                                    <li");
-
-WriteLiteral(" class=\"list-group-item col-xs-4\"");
-
-WriteLiteral(" style=\"height:45px;\"");
-
-WriteLiteral(">Teléfono:</li>\r\n                                    <li");
-
-WriteLiteral(" class=\"list-group-item col-xs-8\"");
-
-WriteLiteral(" style=\"height:45px;\"");
-
-WriteLiteral(">{{dataDemModel.Telefono}}</li>\r\n                                    <li");
-
-WriteLiteral(" class=\"list-group-item col-xs-4\"");
-
-WriteLiteral(" style=\"height:45px;\"");
-
-WriteLiteral(">Email:</li>\r\n                                    <li");
-
-WriteLiteral(" class=\"list-group-item col-xs-8\"");
-
-WriteLiteral(" style=\"height:45px;\"");
-
-WriteLiteral(">{{dataDemModel.Email}}</li>\r\n                                    <li");
-
-WriteLiteral(" class=\"list-group-item col-xs-4\"");
-
-WriteLiteral(" style=\"height:45px;\"");
-
-WriteLiteral(">Perfil de Linkedin:</li>\r\n                                    <li");
-
-WriteLiteral(" class=\"list-group-item col-xs-8\"");
-
-WriteLiteral(" style=\"height:45px;\"");
-
-WriteLiteral(">{{dataDemModel.PerfilLinkedin}}</li>\r\n                                    <li");
-
-WriteLiteral(" class=\"list-group-item col-xs-4\"");
-
-WriteLiteral(" style=\"height:45px;\"");
-
-WriteLiteral(">Nivel de estudios:</li>\r\n                                    <li");
-
-WriteLiteral(" class=\"list-group-item col-xs-8\"");
-
-WriteLiteral(" style=\"height:45px;\"");
-
-WriteLiteral(">{{dataDemModel.NivelEstudiosNombre}}</li>\r\n                                    <" +
-"li");
-
-WriteLiteral(" class=\"list-group-item col-xs-4\"");
-
-WriteLiteral(" style=\"height:45px;\"");
-
-WriteLiteral(">Experiencia laboral:</li>\r\n                                    <li");
-
-WriteLiteral(" class=\"list-group-item col-xs-8\"");
-
-WriteLiteral(" style=\"height:45px;\"");
-
-WriteLiteral(">{{dataDemModel.ExperienciaLaboral}}</li>\r\n                                </ul>\r" +
-"\n                            </div>\r\n                        </div> <!-- cierre " +
-"panel -->\r\n                    </div>\r\n\r\n                    <div");
-
-WriteLiteral(" id=\"ofertasDisponibles\"");
-
-WriteLiteral(" class=\"tab-pane fade\"");
-
-WriteLiteral(">\r\n                        <div");
-
-WriteLiteral(" class=\"tab-content well well-sm\"");
-
-WriteLiteral(" style=\"background-color:white; padding:0\"");
-
-WriteLiteral(">\r\n                            <div");
-
-WriteLiteral(" class=\"container\"");
-
-WriteLiteral(" style=\"padding:0\"");
-
-WriteLiteral(">\r\n                                <table");
-
-WriteLiteral(" class=\"table table-striped table-bordered\"");
-
-WriteLiteral(" style=\"text-align:center\"");
-
-WriteLiteral(">\r\n                                    <thead");
-
-WriteLiteral(" style=\"background-color:#565656; overflow:hidden\"");
-
-WriteLiteral(">\r\n                                        <tr");
-
-WriteLiteral(" style=\"color:white\"");
-
-WriteLiteral(">\r\n                                            <th");
-
-WriteLiteral(" style=\"text-align:center\"");
-
-WriteLiteral(">Título</th>\r\n                                            <th");
-
-WriteLiteral(" style=\"text-align:center\"");
-
-WriteLiteral(">Num. Vacantes</th>\r\n                                            <th");
-
-WriteLiteral(" style=\"text-align:center\"");
-
-WriteLiteral(">Sueldo</th>\r\n                                            <th");
-
-WriteLiteral(" style=\"text-align:center\"");
-
-WriteLiteral(">Fecha de creación</th>\r\n                                            <th");
-
-WriteLiteral(" style=\"text-align:center\"");
-
-WriteLiteral(">Fecha de finalización</th>\r\n                                            <th");
-
-WriteLiteral(" style=\"text-align:center\"");
-
-WriteLiteral(">&equiv;</th>\r\n                                        </tr>\r\n                   " +
-"                 </thead>\r\n                                    <tbody>\r\n        " +
-"                                <tr");
-
-WriteLiteral(" ng-repeat=\"x in listOfertasDisponibles\"");
-
-WriteLiteral(">\r\n                                            <td");
-
-WriteLiteral(" style=\"vertical-align:middle; margin-left:10px !important\"");
-
-WriteLiteral(">{{x.Titulo}}</td>\r\n                                            <td");
-
-WriteLiteral(" style=\"vertical-align:middle\"");
-
-WriteLiteral(">{{x.NumeroVacantes}}</td>\r\n                                            <td");
-
-WriteLiteral(" style=\"vertical-align:middle\"");
-
-WriteLiteral(">{{x.Sueldo}}</td>\r\n                                            <td");
-
-WriteLiteral(" style=\"vertical-align:middle\"");
-
-WriteLiteral(">{{x.FechaLanzamientoString}}</td>\r\n                                            <" +
-"td");
-
-WriteLiteral(" style=\"vertical-align:middle\"");
-
-WriteLiteral(">{{x.FechaFinString}}</td>\r\n                                            <td");
-
-WriteLiteral(" style=\"vertical-align:middle\"");
-
-WriteLiteral("><button");
-
-WriteLiteral(" class=\"btn btn-warning\"");
-
-WriteLiteral(" data-toggle=\"modal\"");
-
-WriteLiteral(" ng-click=\"ModalVerOfertaDisponible(x)\"");
-
-WriteLiteral(@">Ver detalles</button></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div> <!-- cierre table -->
-                        </div>
-                    </div>
-
-                    <div");
-
-WriteLiteral(" id=\"misOfertasInscritas\"");
-
-WriteLiteral(" class=\"tab-pane fade \"");
-
-WriteLiteral(">\r\n                        <div");
-
-WriteLiteral(" class=\"tab-content well well-sm\"");
-
-WriteLiteral(" style=\"background-color:white; padding:0\"");
-
-WriteLiteral(">\r\n                            <div");
-
-WriteLiteral(" class=\"container\"");
-
-WriteLiteral(" style=\"padding:0\"");
-
-WriteLiteral(">\r\n                                <table");
-
-WriteLiteral(" class=\"table table-striped table-bordered\"");
-
-WriteLiteral(" style=\"text-align:center\"");
-
-WriteLiteral(">\r\n                                    <thead");
-
-WriteLiteral(" style=\"background-color:#565656; overflow:hidden\"");
-
-WriteLiteral(">\r\n                                        <tr");
-
-WriteLiteral(" style=\"color:white\"");
-
-WriteLiteral(">\r\n                                            <th");
-
-WriteLiteral(" style=\"text-align:center\"");
-
-WriteLiteral(">Título</th>\r\n                                            <th");
-
-WriteLiteral(" style=\"text-align:center\"");
-
-WriteLiteral(">Num. Vacantes</th>\r\n                                            <th");
-
-WriteLiteral(" style=\"text-align:center\"");
-
-WriteLiteral(">Sueldo</th>\r\n                                            <th");
-
-WriteLiteral(" style=\"text-align:center\"");
-
-WriteLiteral(">Fecha de creación</th>\r\n                                            <th");
-
-WriteLiteral(" style=\"text-align:center\"");
-
-WriteLiteral(">Fecha de finalización</th>\r\n                                            <th");
-
-WriteLiteral(" style=\"text-align:center\"");
-
-WriteLiteral(">Estado inscripción</th>\r\n                                            <th");
-
-WriteLiteral(" style=\"text-align:center\"");
-
-WriteLiteral(">&equiv;</th>\r\n                                        </tr>\r\n                   " +
-"                 </thead>\r\n                                    <tbody>\r\n        " +
-"                                <tr");
-
-WriteLiteral(" ng-repeat=\"x in listOfertasInscritas\"");
-
-WriteLiteral(">\r\n                                            <td");
-
-WriteLiteral(" class=\"sc\"");
-
-WriteLiteral(" style=\"vertical-align:middle; margin-left:10px !important\"");
-
-WriteLiteral(">{{x.Titulo}}</td>\r\n                                            <td");
-
-WriteLiteral(" style=\"vertical-align:middle\"");
-
-WriteLiteral(">{{x.NumeroVacantes}}</td>\r\n                                            <td");
-
-WriteLiteral(" style=\"vertical-align:middle\"");
-
-WriteLiteral(">{{x.Sueldo}}</td>\r\n                                            <td");
-
-WriteLiteral(" style=\"vertical-align:middle\"");
-
-WriteLiteral(">{{x.FechaLanzamientoString}}</td>\r\n                                            <" +
-"td");
-
-WriteLiteral(" style=\"vertical-align:middle\"");
-
-WriteLiteral(">{{x.FechaFinString}}</td>\r\n                                            <td");
-
-WriteLiteral(" style=\"vertical-align:middle\"");
-
-WriteLiteral(">{{x.Nombre}}</td>\r\n                                            <td");
-
-WriteLiteral(" style=\"vertical-align:middle\"");
-
-WriteLiteral("><button");
-
-WriteLiteral(" class=\"btn btn-warning\"");
-
-WriteLiteral(" data-toggle=\"modal\"");
-
-WriteLiteral(" ng-click=\"ModalVerOfertaInscrita(x)\"");
-
-WriteLiteral(@">Ver detalles</button></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div> <!-- cierre table -->
-                        </div>
-                    </div>
-                </div>
-            </div><!-- div class row-->
-            <!--  MODAL VER DETALLE OFERTA DISPONIBLE  ###############################  -->
-            <div");
+WriteLiteral("\r\n\r\n\r\n\r\n        <!--  MODAL VER DETALLE OFERTA DISPONIBLE  ######################" +
+"#########  -->\r\n        <div");
 
 WriteLiteral(" class=\"modal fade\"");
 
@@ -627,7 +165,7 @@ WriteLiteral(" aria-labelledby=\"modalTitle\"");
 
 WriteLiteral(" aria-hidden=\"true\"");
 
-WriteLiteral(">\r\n                <div");
+WriteLiteral(">\r\n            <div");
 
 WriteLiteral(" class=\"modal-dialog\"");
 
@@ -635,19 +173,19 @@ WriteLiteral(" role=\"document\"");
 
 WriteLiteral(" style=\"overflow-y: initial !important\"");
 
-WriteLiteral(">\r\n                    <div");
+WriteLiteral(">\r\n                <div");
 
 WriteLiteral(" class=\"modal-content\"");
 
 WriteLiteral(" style=\"overflow: hidden\"");
 
-WriteLiteral(">\r\n\r\n                        <div");
+WriteLiteral(">\r\n\r\n                    <div");
 
 WriteLiteral(" class=\"modal-header\"");
 
 WriteLiteral(" style=\"text-align:center; background-color:#f0ad4e; padding-bottom:0\"");
 
-WriteLiteral(">\r\n                            <h4");
+WriteLiteral(">\r\n                        <h4");
 
 WriteLiteral(" class=\" modal-title\"");
 
@@ -655,80 +193,79 @@ WriteLiteral(" id=\"modalTitle\"");
 
 WriteLiteral(" style=\"color:white\"");
 
-WriteLiteral(">Detalles de la oferta de empleo:</h4>\r\n                        </div>\r\n\r\n       " +
-"                 <div");
+WriteLiteral(">Detalles de la oferta de empleo:</h4>\r\n                    </div>\r\n\r\n           " +
+"         <div");
 
 WriteLiteral(" class=\"modal-body\"");
 
 WriteLiteral(" style=\"max-height: calc(100vh - 200px) !important; overflow-y: auto !important;\"" +
 "");
 
+WriteLiteral(">\r\n                        <div");
+
+WriteLiteral(" class=\"row\"");
+
 WriteLiteral(">\r\n                            <div");
 
-WriteLiteral(" class=\"row\"");
+WriteLiteral(" class=\"col-sm-12\"");
 
 WriteLiteral(">\r\n                                <div");
 
-WriteLiteral(" class=\"col-sm-12\"");
-
-WriteLiteral(">\r\n                                    <div");
-
 WriteLiteral(" class=\"form-group\"");
 
-WriteLiteral(">\r\n                                        <h3><b>{{ofertaDetalleModal.Titulo}}</" +
-"b></h3>\r\n                                        <p");
+WriteLiteral(">\r\n                                    <h3><b>{{ofertaDetalleModal.Titulo}}</b></" +
+"h3>\r\n                                    <p");
 
 WriteLiteral(" style=\"text-align:justify\"");
 
-WriteLiteral(">{{ofertaDetalleModal.Descripcion}}</p>\r\n                                    </di" +
-"v>\r\n                                </div>\r\n                            </div>\r\n" +
-"                            <div");
+WriteLiteral(">{{ofertaDetalleModal.Descripcion}}</p>\r\n                                </div>\r\n" +
+"                            </div>\r\n                        </div>\r\n            " +
+"            <div");
 
 WriteLiteral(" class=\"row\"");
 
-WriteLiteral(">\r\n                                <div");
+WriteLiteral(">\r\n                            <div");
 
 WriteLiteral(" class=\"col-sm-12\"");
 
-WriteLiteral(">\r\n                                    <div");
+WriteLiteral(">\r\n                                <div");
 
 WriteLiteral(" class=\"form-group\"");
 
-WriteLiteral(">\r\n                                        <br />\r\n                              " +
-"          <b>Observaciones:</b><br />\r\n                                        <" +
-"p");
+WriteLiteral(">\r\n                                    <br />\r\n                                  " +
+"  <b>Observaciones:</b><br />\r\n                                    <p");
 
 WriteLiteral(" style=\"text-align:justify\"");
 
-WriteLiteral(">{{ofertaDetalleModal.Observaciones}}</p>\r\n                                    </" +
-"div>\r\n                                </div>\r\n                            </div>" +
-"\r\n                            <div");
+WriteLiteral(">{{ofertaDetalleModal.Observaciones}}</p>\r\n                                </div>" +
+"\r\n                            </div>\r\n                        </div>\r\n          " +
+"              <div");
 
 WriteLiteral(" class=\"row\"");
 
 WriteLiteral(" style=\"margin:auto\"");
 
-WriteLiteral(">\r\n                                <hr />\r\n                                <div");
+WriteLiteral(">\r\n                            <hr />\r\n                            <div");
 
 WriteLiteral(" class=\"form-group\"");
 
-WriteLiteral(">\r\n                                    <p");
+WriteLiteral(">\r\n                                <p");
 
 WriteLiteral(" style=\"text-align:center\"");
 
-WriteLiteral(">Disponibilidad:</p>\r\n                                    <p");
+WriteLiteral(">Disponibilidad:</p>\r\n                                <p");
 
 WriteLiteral(" style=\"text-align:center\"");
 
 WriteLiteral("><span><b>{{ofertaDetalleModal.FechaLanzamientoString}}</b></span> - <span><b>{{o" +
 "fertaDetalleModal.FechaFinString}}</b></span></p><br />\r\n                       " +
-"         </div>\r\n                                <div");
+"     </div>\r\n                            <div");
 
 WriteLiteral(" class=\"form-group\"");
 
 WriteLiteral(" style=\"text-align:center\"");
 
-WriteLiteral(">\r\n                                    <b");
+WriteLiteral(">\r\n                                <b");
 
 WriteLiteral(" style=\"text-align:center\"");
 
@@ -738,43 +275,43 @@ WriteLiteral(" class=\"glyphicon glyphicon-user\"");
 
 WriteLiteral(" style=\"text-align:center\"");
 
-WriteLiteral("></i><br />\r\n                                </div>\r\n                            " +
-"    <div");
+WriteLiteral("></i><br />\r\n                            </div>\r\n                            <div" +
+"");
 
 WriteLiteral(" class=\"form-group\"");
 
 WriteLiteral(" style=\"text-align:center\"");
 
-WriteLiteral(">\r\n                                    <b");
+WriteLiteral(">\r\n                                <b");
 
 WriteLiteral(" style=\"text-align:center\"");
 
-WriteLiteral(">  {{ofertaDetalleModal.Sueldo}} €</b><br />\r\n                                </d" +
-"iv>\r\n                            </div>\r\n                            <hr /><br /" +
-">\r\n\r\n                            <div");
+WriteLiteral(">  {{ofertaDetalleModal.Sueldo}} €</b><br />\r\n                            </div>\r" +
+"\n                        </div>\r\n                        <hr /><br />\r\n\r\n       " +
+"                 <div");
 
 WriteLiteral(" class=\"row well well-lg\"");
 
 WriteLiteral(" style=\"margin:auto; background-color:#fdf5ee\"");
 
-WriteLiteral(">\r\n                                <div");
+WriteLiteral(">\r\n                            <div");
 
 WriteLiteral(" class=\"col-sm-12\"");
 
-WriteLiteral(">\r\n                                    <div");
+WriteLiteral(">\r\n                                <div");
 
 WriteLiteral(" class=\"form-group\"");
 
-WriteLiteral(">\r\n                                        <p");
+WriteLiteral(">\r\n                                    <p");
 
 WriteLiteral(" style=\"text-align:center\"");
 
-WriteLiteral("><b>¿Te interesa la oferta?</b></p>\r\n                                        <p");
+WriteLiteral("><b>¿Te interesa la oferta?</b></p>\r\n                                    <p");
 
 WriteLiteral(" style=\"text-align:center\"");
 
 WriteLiteral(">Rellena los siguientes datos e inscríbete</p><br />\r\n                           " +
-"             <input");
+"         <input");
 
 WriteLiteral(" type=\"text\"");
 
@@ -790,7 +327,7 @@ WriteLiteral(" placeholder=\"Añade algún comentario...\"");
 
 WriteLiteral(" style=\"max-width:500px;\"");
 
-WriteLiteral(" /><br />\r\n                                        <input");
+WriteLiteral(" /><br />\r\n                                    <input");
 
 WriteLiteral(" type=\"text\"");
 
@@ -806,7 +343,7 @@ WriteLiteral(" placeholder=\"Introduce tu currículum...\"");
 
 WriteLiteral(" style=\"max-width:500px;\"");
 
-WriteLiteral(" /><br />\r\n\r\n                                        <input");
+WriteLiteral(" /><br />\r\n\r\n                                    <input");
 
 WriteLiteral(" type=\"button\"");
 
@@ -820,13 +357,13 @@ WriteLiteral(" ng-click=\"InscribirDemandante()\"");
 
 WriteLiteral(" style=\"margin:auto\"");
 
-WriteLiteral(" />\r\n                                    </div>\r\n                                " +
-"</div>\r\n                            </div>\r\n                        </div>\r\n\r\n  " +
-"                      <div");
+WriteLiteral(" />\r\n                                </div>\r\n                            </div>\r\n" +
+"                        </div>\r\n                    </div>\r\n\r\n                  " +
+"  <div");
 
 WriteLiteral(" class=\"modal-footer\"");
 
-WriteLiteral(">\r\n                            <button");
+WriteLiteral(">\r\n                        <button");
 
 WriteLiteral(" type=\"button\"");
 
@@ -834,14 +371,10 @@ WriteLiteral(" class=\"btn btn-\"");
 
 WriteLiteral(" data-dismiss=\"modal\"");
 
-WriteLiteral(@">Atrás</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ################################ -->
-            <!--  MODAL VER DETALLE OFERTA INSCRITA  ###############################  -->
-            <div");
+WriteLiteral(">Atrás</button>\r\n                    </div>\r\n                </div>\r\n            " +
+"</div>\r\n        </div>\r\n        <!-- ################################ -->\r\n     " +
+"   <!--  MODAL VER DETALLE OFERTA INSCRITA  ###############################  -->" +
+"\r\n        <div");
 
 WriteLiteral(" class=\"modal fade\"");
 
@@ -855,7 +388,7 @@ WriteLiteral(" aria-labelledby=\"modalTitle\"");
 
 WriteLiteral(" aria-hidden=\"true\"");
 
-WriteLiteral(">\r\n                <div");
+WriteLiteral(">\r\n            <div");
 
 WriteLiteral(" class=\"modal-dialog\"");
 
@@ -863,19 +396,19 @@ WriteLiteral(" role=\"document\"");
 
 WriteLiteral(" style=\"overflow-y: initial !important\"");
 
-WriteLiteral(">\r\n                    <div");
+WriteLiteral(">\r\n                <div");
 
 WriteLiteral(" class=\"modal-content\"");
 
 WriteLiteral(" style=\"overflow: hidden\"");
 
-WriteLiteral(">\r\n\r\n                        <div");
+WriteLiteral(">\r\n\r\n                    <div");
 
 WriteLiteral(" class=\"modal-header\"");
 
 WriteLiteral(" style=\"text-align:center; background-color:#f0ad4e; padding-bottom:0\"");
 
-WriteLiteral(">\r\n                            <h4");
+WriteLiteral(">\r\n                        <h4");
 
 WriteLiteral(" class=\" modal-title\"");
 
@@ -883,80 +416,79 @@ WriteLiteral(" id=\"modalTitle\"");
 
 WriteLiteral(" style=\"color:white\"");
 
-WriteLiteral(">Detalles de la oferta de empleo:</h4>\r\n                        </div>\r\n\r\n       " +
-"                 <div");
+WriteLiteral(">Detalles de la oferta de empleo:</h4>\r\n                    </div>\r\n\r\n           " +
+"         <div");
 
 WriteLiteral(" class=\"modal-body\"");
 
 WriteLiteral(" style=\"max-height: calc(100vh - 200px) !important; overflow-y: auto !important;\"" +
 "");
 
+WriteLiteral(">\r\n                        <div");
+
+WriteLiteral(" class=\"row\"");
+
 WriteLiteral(">\r\n                            <div");
 
-WriteLiteral(" class=\"row\"");
+WriteLiteral(" class=\"col-sm-12\"");
 
 WriteLiteral(">\r\n                                <div");
 
-WriteLiteral(" class=\"col-sm-12\"");
-
-WriteLiteral(">\r\n                                    <div");
-
 WriteLiteral(" class=\"form-group\"");
 
-WriteLiteral(">\r\n                                        <h3><b>{{ofertaDetalleModal.Titulo}}</" +
-"b></h3>\r\n                                        <p");
+WriteLiteral(">\r\n                                    <h3><b>{{ofertaDetalleModal.Titulo}}</b></" +
+"h3>\r\n                                    <p");
 
 WriteLiteral(" style=\"text-align:justify\"");
 
-WriteLiteral(">{{ofertaDetalleModal.Descripcion}}</p>\r\n                                    </di" +
-"v>\r\n                                </div>\r\n                            </div>\r\n" +
-"                            <div");
+WriteLiteral(">{{ofertaDetalleModal.Descripcion}}</p>\r\n                                </div>\r\n" +
+"                            </div>\r\n                        </div>\r\n            " +
+"            <div");
 
 WriteLiteral(" class=\"row\"");
 
-WriteLiteral(">\r\n                                <div");
+WriteLiteral(">\r\n                            <div");
 
 WriteLiteral(" class=\"col-sm-12\"");
 
-WriteLiteral(">\r\n                                    <div");
+WriteLiteral(">\r\n                                <div");
 
 WriteLiteral(" class=\"form-group\"");
 
-WriteLiteral(">\r\n                                        <br />\r\n                              " +
-"          <b>Observaciones:</b><br />\r\n                                        <" +
-"p");
+WriteLiteral(">\r\n                                    <br />\r\n                                  " +
+"  <b>Observaciones:</b><br />\r\n                                    <p");
 
 WriteLiteral(" style=\"text-align:justify\"");
 
-WriteLiteral(">{{ofertaDetalleModal.Observaciones}}</p>\r\n                                    </" +
-"div>\r\n                                </div>\r\n                            </div>" +
-"\r\n                            <div");
+WriteLiteral(">{{ofertaDetalleModal.Observaciones}}</p>\r\n                                </div>" +
+"\r\n                            </div>\r\n                        </div>\r\n          " +
+"              <div");
 
 WriteLiteral(" class=\"row\"");
 
 WriteLiteral(" style=\"margin:auto\"");
 
-WriteLiteral(">\r\n                                <hr />\r\n                                <div");
+WriteLiteral(">\r\n                            <hr />\r\n                            <div");
 
 WriteLiteral(" class=\"form-group\"");
 
-WriteLiteral(">\r\n                                    <p");
+WriteLiteral(">\r\n                                <p");
 
 WriteLiteral(" style=\"text-align:center\"");
 
-WriteLiteral(">Disponibilidad:</p>\r\n                                    <p");
+WriteLiteral(">Disponibilidad:</p>\r\n                                <p");
 
 WriteLiteral(" style=\"text-align:center\"");
 
 WriteLiteral("><span><b>{{ofertaDetalleModal.FechaLanzamientoString}}</b></span> - <span><b>{{o" +
 "fertaDetalleModal.FechaFinString}}</b></span></p><br />\r\n                       " +
-"         </div>\r\n                                <div");
+"     </div>\r\n                            <div");
 
 WriteLiteral(" class=\"form-group\"");
 
 WriteLiteral(" style=\"text-align:center\"");
 
-WriteLiteral(">\r\n                                    <b");
+WriteLiteral(">\r\n                                <b");
 
 WriteLiteral(" style=\"text-align:center\"");
 
@@ -966,48 +498,48 @@ WriteLiteral(" class=\"glyphicon glyphicon-user\"");
 
 WriteLiteral(" style=\"text-align:center\"");
 
-WriteLiteral("></i><br />\r\n                                </div>\r\n                            " +
-"    <div");
+WriteLiteral("></i><br />\r\n                            </div>\r\n                            <div" +
+"");
 
 WriteLiteral(" class=\"form-group\"");
 
 WriteLiteral(" style=\"text-align:center\"");
 
-WriteLiteral(">\r\n                                    <b");
+WriteLiteral(">\r\n                                <b");
 
 WriteLiteral(" style=\"text-align:center\"");
 
-WriteLiteral(">  {{ofertaDetalleModal.Sueldo}} €</b><br />\r\n                                </d" +
-"iv>\r\n                            </div>\r\n                            <hr /><br /" +
-">\r\n\r\n                            <div");
+WriteLiteral(">  {{ofertaDetalleModal.Sueldo}} €</b><br />\r\n                            </div>\r" +
+"\n                        </div>\r\n                        <hr /><br />\r\n\r\n       " +
+"                 <div");
 
 WriteLiteral(" class=\"row well well-lg\"");
 
 WriteLiteral(" style=\"margin:auto\"");
 
-WriteLiteral(">\r\n                                <div");
+WriteLiteral(">\r\n                            <div");
 
 WriteLiteral(" class=\"col-sm-12\"");
 
-WriteLiteral(">\r\n                                    <div");
+WriteLiteral(">\r\n                                <div");
 
 WriteLiteral(" class=\"form-group\"");
 
-WriteLiteral(">\r\n                                        <p");
+WriteLiteral(">\r\n                                    <p");
 
 WriteLiteral(" style=\"text-align:center\"");
 
 WriteLiteral("><b>¡Ya estás inscrito en esta oferta de empleo!</b></p>\r\n                       " +
-"                 <p");
+"             <p");
 
 WriteLiteral(" style=\"text-align:center\"");
 
 WriteLiteral(">Estos son tus datos de la inscripción:</p><br />\r\n                              " +
-"          <label");
+"      <label");
 
 WriteLiteral(" for=\"notas\"");
 
-WriteLiteral(">Notas:</label>\r\n                                        <input");
+WriteLiteral(">Notas:</label>\r\n                                    <input");
 
 WriteLiteral(" type=\"text\"");
 
@@ -1023,11 +555,11 @@ WriteLiteral(" placeholder=\"{{ofertaDetalleModal.Notas}}\"");
 
 WriteLiteral(" style=\"max-width:500px;\"");
 
-WriteLiteral(" disabled /><br />\r\n                                        <label");
+WriteLiteral(" disabled /><br />\r\n                                    <label");
 
 WriteLiteral(" for=\"cv\"");
 
-WriteLiteral(">Currículum vitae:</label>\r\n                                        <input");
+WriteLiteral(">Currículum vitae:</label>\r\n                                    <input");
 
 WriteLiteral(" type=\"text\"");
 
@@ -1043,12 +575,11 @@ WriteLiteral(" placeholder=\"{{ofertaDetalleModal.CV}}\"");
 
 WriteLiteral(" style=\"max-width:500px;\"");
 
-WriteLiteral(" disabled /><br /><br />\r\n                                        <label");
+WriteLiteral(" disabled /><br /><br />\r\n                                    <label");
 
 WriteLiteral(" for=\"cv\"");
 
-WriteLiteral(">Estado de la inscripción:</label>\r\n                                        <inpu" +
-"t");
+WriteLiteral(">Estado de la inscripción:</label>\r\n                                    <input");
 
 WriteLiteral(" type=\"text\"");
 
@@ -1064,7 +595,7 @@ WriteLiteral(" placeholder=\"{{ofertaDetalleModal.Nombre}}\"");
 
 WriteLiteral(" style=\"max-width:500px;\"");
 
-WriteLiteral(" disabled /><br />\r\n\r\n                                        <input");
+WriteLiteral(" disabled /><br />\r\n\r\n                                    <input");
 
 WriteLiteral(" type=\"button\"");
 
@@ -1079,13 +610,12 @@ WriteLiteral(" ng-click=\"DesinscribirDemandante()\"");
 WriteLiteral(" ");
 
 WriteLiteral(" style=\"margin:auto; background-color: dimgray; color: white;\" />\r\n              " +
-"                      </div>\r\n                                </div>\r\n          " +
-"                  </div>\r\n                        </div>\r\n\r\n                    " +
-"    <div");
+"                  </div>\r\n                            </div>\r\n                  " +
+"      </div>\r\n                    </div>\r\n\r\n                    <div");
 
 WriteLiteral(" class=\"modal-footer\"");
 
-WriteLiteral(">\r\n                            <button");
+WriteLiteral(">\r\n                        <button");
 
 WriteLiteral(" type=\"button\"");
 
@@ -1093,14 +623,10 @@ WriteLiteral(" class=\"btn btn-\"");
 
 WriteLiteral(" data-dismiss=\"modal\"");
 
-WriteLiteral(@">Atrás</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ################################ -->
-            <!--  MODAL EDITAR DATOS USUARIO  ###############################  -->
-            <div");
+WriteLiteral(">Atrás</button>\r\n                    </div>\r\n                </div>\r\n            " +
+"</div>\r\n        </div>\r\n        <!-- ################################ -->\r\n     " +
+"   <!--  MODAL EDITAR DATOS USUARIO  ###############################  -->\r\n     " +
+"   <div");
 
 WriteLiteral(" class=\"modal fade\"");
 
@@ -1114,7 +640,7 @@ WriteLiteral(" aria-labelledby=\"modalEditarUsuario\"");
 
 WriteLiteral(" aria-hidden=\"true\"");
 
-WriteLiteral(">\r\n                <div");
+WriteLiteral(">\r\n            <div");
 
 WriteLiteral(" class=\"modal-dialog\"");
 
@@ -1122,19 +648,19 @@ WriteLiteral(" role=\"document\"");
 
 WriteLiteral(" style=\"overflow-y: initial !important; margin-top:160px\"");
 
-WriteLiteral(">\r\n                    <div");
+WriteLiteral(">\r\n                <div");
 
 WriteLiteral(" class=\"modal-content\"");
 
 WriteLiteral(" style=\"overflow: hidden\"");
 
-WriteLiteral(">\r\n\r\n                        <div");
+WriteLiteral(">\r\n\r\n                    <div");
 
 WriteLiteral(" class=\"modal-header\"");
 
 WriteLiteral(" style=\"text-align:center; background-color: #5bc0de; padding-bottom:0\"");
 
-WriteLiteral(">\r\n                            <h4");
+WriteLiteral(">\r\n                        <h4");
 
 WriteLiteral(" class=\" modal-title\"");
 
@@ -1142,25 +668,25 @@ WriteLiteral(" id=\"modalTitle\"");
 
 WriteLiteral(" style=\"color:white\"");
 
-WriteLiteral("><p>Editar datos de usuario:</p></h4>\r\n                        </div>\r\n\r\n        " +
-"                <div");
+WriteLiteral("><p>Editar datos de usuario:</p></h4>\r\n                    </div>\r\n\r\n            " +
+"        <div");
 
 WriteLiteral(" class=\"modal-body\"");
 
-WriteLiteral(">\r\n                            <div");
+WriteLiteral(">\r\n                        <div");
 
 WriteLiteral(" class=\"row\"");
 
-WriteLiteral(">\r\n                                <div");
+WriteLiteral(">\r\n                            <div");
 
 WriteLiteral(" class=\"col-sm-6\"");
 
-WriteLiteral(">\r\n                                    <div");
+WriteLiteral(">\r\n                                <div");
 
 WriteLiteral(" class=\"form-group\"");
 
-WriteLiteral(">\r\n                                        <b>Nombre:</b><br />\r\n                " +
-"                        <input");
+WriteLiteral(">\r\n                                    <b>Nombre:</b><br />\r\n                    " +
+"                <input");
 
 WriteLiteral(" type=\"text\"");
 
@@ -1174,13 +700,13 @@ WriteLiteral(" id=\"nombre\"");
 
 WriteLiteral(" value=\"{{dataDemModel.Nombre}}\"");
 
-WriteLiteral(" required>\r\n                                    </div>\r\n                         " +
-"           <div");
+WriteLiteral(" required>\r\n                                </div>\r\n                             " +
+"   <div");
 
 WriteLiteral(" class=\"form-group\"");
 
-WriteLiteral(">\r\n                                        <b>Primer apellido:</b><br />\r\n       " +
-"                                 <input");
+WriteLiteral(">\r\n                                    <b>Primer apellido:</b><br />\r\n           " +
+"                         <input");
 
 WriteLiteral(" type=\"text\"");
 
@@ -1194,13 +720,13 @@ WriteLiteral(" id=\"apellido1\"");
 
 WriteLiteral(" value=\"{{dataDemModel.Apellido1}}\"");
 
-WriteLiteral(" required>\r\n                                    </div>\r\n                         " +
-"           <div");
+WriteLiteral(" required>\r\n                                </div>\r\n                             " +
+"   <div");
 
 WriteLiteral(" class=\"form-group\"");
 
-WriteLiteral(">\r\n                                        <b>Segundo apellido:</b><br />\r\n      " +
-"                                  <input");
+WriteLiteral(">\r\n                                    <b>Segundo apellido:</b><br />\r\n          " +
+"                          <input");
 
 WriteLiteral(" type=\"text\"");
 
@@ -1214,17 +740,17 @@ WriteLiteral(" id=\"apellido2\"");
 
 WriteLiteral(" value=\"{{dataDemModel.Apellido2}}\"");
 
-WriteLiteral(" required>\r\n                                    </div>\r\n                         " +
-"       </div>\r\n\r\n                                <div");
+WriteLiteral(" required>\r\n                                </div>\r\n                            <" +
+"/div>\r\n\r\n                            <div");
 
 WriteLiteral(" class=\"col-sm-6\"");
 
-WriteLiteral(">\r\n                                    <div");
+WriteLiteral(">\r\n                                <div");
 
 WriteLiteral(" class=\"form-group\"");
 
-WriteLiteral(">\r\n                                        <b>Usuario:</b><br />\r\n               " +
-"                         <input");
+WriteLiteral(">\r\n                                    <b>Usuario:</b><br />\r\n                   " +
+"                 <input");
 
 WriteLiteral(" type=\"text\"");
 
@@ -1238,13 +764,13 @@ WriteLiteral(" id=\"usuario\"");
 
 WriteLiteral(" placeholder=\"{{dataDemModel.Usuario}}\"");
 
-WriteLiteral(" disabled>\r\n                                    </div>\r\n                         " +
-"           <div");
+WriteLiteral(" disabled>\r\n                                </div>\r\n                             " +
+"   <div");
 
 WriteLiteral(" class=\"form-group\"");
 
-WriteLiteral(">\r\n                                        <b>Contraseña:</b><br />\r\n            " +
-"                            <input");
+WriteLiteral(">\r\n                                    <b>Contraseña:</b><br />\r\n                " +
+"                    <input");
 
 WriteLiteral(" type=\"text\"");
 
@@ -1258,13 +784,13 @@ WriteLiteral(" id=\"contrasena\"");
 
 WriteLiteral(" value=\"{{dataDemModel.Contrasena}}\"");
 
-WriteLiteral(" required>\r\n                                    </div>\r\n                         " +
-"           <div");
+WriteLiteral(" required>\r\n                                </div>\r\n                             " +
+"   <div");
 
 WriteLiteral(" class=\"form-group\"");
 
-WriteLiteral(">\r\n                                        <b>Tipo de usuario:</b><br />\r\n       " +
-"                                 <input");
+WriteLiteral(">\r\n                                    <b>Tipo de usuario:</b><br />\r\n           " +
+"                         <input");
 
 WriteLiteral(" type=\"text\"");
 
@@ -1276,13 +802,13 @@ WriteLiteral(" id=\"tipoUsuario\"");
 
 WriteLiteral(" placeholder=\"Demandante\"");
 
-WriteLiteral(" disabled>\r\n                                    </div>\r\n                         " +
-"       </div>\r\n                            </div>\r\n                        </div" +
-">\r\n\r\n                        <div");
+WriteLiteral(" disabled>\r\n                                </div>\r\n                            <" +
+"/div>\r\n                        </div>\r\n                    </div>\r\n\r\n           " +
+"         <div");
 
 WriteLiteral(" class=\"modal-footer\"");
 
-WriteLiteral(">\r\n                            <button");
+WriteLiteral(">\r\n                        <button");
 
 WriteLiteral(" type=\"button\"");
 
@@ -1290,7 +816,7 @@ WriteLiteral(" class=\"btn btn-\"");
 
 WriteLiteral(" data-dismiss=\"modal\"");
 
-WriteLiteral(">Cancelar</button>\r\n                            <button");
+WriteLiteral(">Cancelar</button>\r\n                        <button");
 
 WriteLiteral(" type=\"button\"");
 
@@ -1299,14 +825,14 @@ WriteLiteral(" class=\"btn btn-info\"");
 WriteLiteral(" ng-click=\"ModificarDatosUsuario()\"");
 
 WriteLiteral(@">Guardar datos</button>
-                        </div>
-
                     </div>
+
                 </div>
             </div>
-            <!-- ################################ -->
-            <!--  MODAL EDITAR DATOS EMPLEADOR  ###############################  -->
-            <div");
+        </div>
+        <!-- ################################ -->
+        <!--  MODAL EDITAR DATOS EMPLEADOR  ###############################  -->
+        <div");
 
 WriteLiteral(" class=\"modal fade\"");
 
@@ -1320,7 +846,7 @@ WriteLiteral(" aria-labelledby=\"modalEditarDemandante\"");
 
 WriteLiteral(" aria-hidden=\"true\"");
 
-WriteLiteral(">\r\n                <div");
+WriteLiteral(">\r\n            <div");
 
 WriteLiteral(" class=\"modal-dialog\"");
 
@@ -1328,19 +854,19 @@ WriteLiteral(" role=\"document\"");
 
 WriteLiteral(" style=\"overflow-y: initial !important; margin-top:160px\"");
 
-WriteLiteral(">\r\n                    <div");
+WriteLiteral(">\r\n                <div");
 
 WriteLiteral(" class=\"modal-content\"");
 
 WriteLiteral(" style=\"overflow: hidden\"");
 
-WriteLiteral(">\r\n\r\n                        <div");
+WriteLiteral(">\r\n\r\n                    <div");
 
 WriteLiteral(" class=\"modal-header\"");
 
 WriteLiteral(" style=\"text-align:center; background-color: #5bc0de; padding-bottom:0\"");
 
-WriteLiteral(">\r\n                            <h4");
+WriteLiteral(">\r\n                        <h4");
 
 WriteLiteral(" class=\" modal-title\"");
 
@@ -1348,25 +874,25 @@ WriteLiteral(" id=\"modalTitle\"");
 
 WriteLiteral(" style=\"color:white\"");
 
-WriteLiteral("><p>Editar datos de empleador:</p></h4>\r\n                        </div>\r\n\r\n      " +
-"                  <div");
+WriteLiteral("><p>Editar datos de empleador:</p></h4>\r\n                    </div>\r\n\r\n          " +
+"          <div");
 
 WriteLiteral(" class=\"modal-body\"");
 
-WriteLiteral(">\r\n                            <div");
+WriteLiteral(">\r\n                        <div");
 
 WriteLiteral(" class=\"row\"");
 
-WriteLiteral(">\r\n                                <div");
+WriteLiteral(">\r\n                            <div");
 
 WriteLiteral(" class=\"col-sm-6\"");
 
-WriteLiteral(">\r\n                                    <div");
+WriteLiteral(">\r\n                                <div");
 
 WriteLiteral(" class=\"form-group\"");
 
-WriteLiteral(">\r\n                                        <b>Experiencia laboral:</b><br />\r\n   " +
-"                                     <input");
+WriteLiteral(">\r\n                                    <b>Experiencia laboral:</b><br />\r\n       " +
+"                             <input");
 
 WriteLiteral(" type=\"text\"");
 
@@ -1380,13 +906,13 @@ WriteLiteral(" id=\"experienciaLaboral\"");
 
 WriteLiteral(" value=\"{{dataDemModel.ExperienciaLaboral}}\"");
 
-WriteLiteral(" required>\r\n                                    </div>\r\n                         " +
-"           <div");
+WriteLiteral(" required>\r\n                                </div>\r\n                             " +
+"   <div");
 
 WriteLiteral(" class=\"form-group\"");
 
-WriteLiteral(">\r\n                                        <b>Perfil de LinkedIn:</b><br />\r\n    " +
-"                                    <input");
+WriteLiteral(">\r\n                                    <b>Perfil de LinkedIn:</b><br />\r\n        " +
+"                            <input");
 
 WriteLiteral(" type=\"text\"");
 
@@ -1400,13 +926,13 @@ WriteLiteral(" id=\"perfilLinkedin\"");
 
 WriteLiteral(" value=\"{{dataDemModel.PerfilLinkedin}}\"");
 
-WriteLiteral(" required>\r\n                                    </div>\r\n                         " +
-"           <div");
+WriteLiteral(" required>\r\n                                </div>\r\n                             " +
+"   <div");
 
 WriteLiteral(" class=\"form-group\"");
 
-WriteLiteral(">\r\n                                        <b>Teléfono:</b><br />\r\n              " +
-"                          <input");
+WriteLiteral(">\r\n                                    <b>Teléfono:</b><br />\r\n                  " +
+"                  <input");
 
 WriteLiteral(" type=\"text\"");
 
@@ -1420,17 +946,17 @@ WriteLiteral(" id=\"telefono\"");
 
 WriteLiteral(" value=\"{{dataDemModel.Telefono}}\"");
 
-WriteLiteral(" required>\r\n                                    </div>\r\n                         " +
-"       </div>\r\n\r\n                                <div");
+WriteLiteral(" required>\r\n                                </div>\r\n                            <" +
+"/div>\r\n\r\n                            <div");
 
 WriteLiteral(" class=\"col-sm-6\"");
 
-WriteLiteral(">\r\n                                    <div");
+WriteLiteral(">\r\n                                <div");
 
 WriteLiteral(" class=\"form-group\"");
 
-WriteLiteral(">\r\n                                        <b>Email:</b><br />\r\n                 " +
-"                       <input");
+WriteLiteral(">\r\n                                    <b>Email:</b><br />\r\n                     " +
+"               <input");
 
 WriteLiteral(" type=\"text\"");
 
@@ -1444,13 +970,13 @@ WriteLiteral(" id=\"email\"");
 
 WriteLiteral(" value=\"{{dataDemModel.Email}}\"");
 
-WriteLiteral(" required>\r\n                                    </div>\r\n                         " +
-"           <div");
+WriteLiteral(" required>\r\n                                </div>\r\n                             " +
+"   <div");
 
 WriteLiteral(" class=\"form-group\"");
 
-WriteLiteral(">\r\n                                        <b>Edad:</b><br />\r\n                  " +
-"                      <input");
+WriteLiteral(">\r\n                                    <b>Edad:</b><br />\r\n                      " +
+"              <input");
 
 WriteLiteral(" type=\"number\"");
 
@@ -1464,13 +990,13 @@ WriteLiteral(" id=\"edad\"");
 
 WriteLiteral(" value=\"{{dataDemModel.Edad}}\"");
 
-WriteLiteral(" required>\r\n                                    </div>\r\n\r\n                       " +
-"             <div");
+WriteLiteral(" required>\r\n                                </div>\r\n\r\n                           " +
+"     <div");
 
 WriteLiteral(" class=\"form-group\"");
 
-WriteLiteral(">\r\n                                        <b>Nivel de estudios:</b><br />\r\n     " +
-"                                   <select");
+WriteLiteral(">\r\n                                    <b>Nivel de estudios:</b><br />\r\n         " +
+"                           <select");
 
 WriteLiteral(" class=\"form-control\"");
 
@@ -1478,23 +1004,21 @@ WriteLiteral(" ng-model=\"dataDemModelEditarDemandante.NivelEstudios\"");
 
 WriteLiteral(" ng-options=\"estudio.NivelEstudios as estudio.Nombre for estudio in estudios\"");
 
-WriteLiteral(" required></select>\r\n                                    </div>\r\n                " +
-"                </div>\r\n                            </div>\r\n                    " +
-"        <div");
+WriteLiteral(" required></select>\r\n                                </div>\r\n                    " +
+"        </div>\r\n                        </div>\r\n                        <div");
 
 WriteLiteral(" class=\"row\"");
 
-WriteLiteral(">\r\n                                <div");
+WriteLiteral(">\r\n                            <div");
 
 WriteLiteral(" class=\"col-sm-12\"");
 
-WriteLiteral(">\r\n                                    <div");
+WriteLiteral(">\r\n                                <div");
 
 WriteLiteral(" class=\"form-group\"");
 
-WriteLiteral(">\r\n                                        <br />\r\n                              " +
-"          <b>Foto de perfil:</b><br />\r\n                                        " +
-"<input");
+WriteLiteral(">\r\n                                    <br />\r\n                                  " +
+"  <b>Foto de perfil:</b><br />\r\n                                    <input");
 
 WriteLiteral(" type=\"file\"");
 
@@ -1502,19 +1026,19 @@ WriteLiteral(" class=\"form-control\"");
 
 WriteLiteral(" fileread=\"dataDemModelEditarDemandante.ImagenB64\"");
 
-WriteLiteral("  name=\"fotoPerfil\"");
+WriteLiteral(" name=\"fotoPerfil\"");
 
 WriteLiteral(" id=\"fotoPerfil\"");
 
 WriteLiteral(" style=\"max-width:700px\"");
 
-WriteLiteral(" required>\r\n                                    </div>\r\n                         " +
-"       </div>\r\n                            </div>\r\n                        </div" +
-">\r\n\r\n                        <div");
+WriteLiteral(" required>\r\n                                </div>\r\n                            <" +
+"/div>\r\n                        </div>\r\n                    </div>\r\n\r\n           " +
+"         <div");
 
 WriteLiteral(" class=\"modal-footer\"");
 
-WriteLiteral(">\r\n                            <button");
+WriteLiteral(">\r\n                        <button");
 
 WriteLiteral(" type=\"button\"");
 
@@ -1522,7 +1046,7 @@ WriteLiteral(" class=\"btn btn-\"");
 
 WriteLiteral(" data-dismiss=\"modal\"");
 
-WriteLiteral(">Cancelar</button>\r\n                            <button");
+WriteLiteral(">Cancelar</button>\r\n                        <button");
 
 WriteLiteral(" type=\"button\"");
 
@@ -1530,9 +1054,9 @@ WriteLiteral(" class=\"btn btn-info\"");
 
 WriteLiteral(" ng-click=\"ModificarDatosDemandante()\"");
 
-WriteLiteral(">Guardar datos</button>\r\n                        </div>\r\n\r\n                    </" +
-"div>\r\n                </div>\r\n            </div>\r\n            <!-- #############" +
-"################### -->\r\n\r\n        </form>\r\n    </div> \r\n</div>");
+WriteLiteral(">Guardar datos</button>\r\n                    </div>\r\n\r\n                </div>\r\n  " +
+"          </div>\r\n        </div>\r\n        <!-- ################################ " +
+"-->\r\n\r\n    </div> \r\n</div>");
 
         }
     }

@@ -8,72 +8,77 @@
 <script src="~/Scripts propios/empleadorController.js"></script>
 
 <div ng-app="app">
+    <img src='~/Imagenes/pexels-photo-884454.jpeg' style='position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;opacity:0.25'>
+
     
     <div ng-controller="EmpleadorController" data-ng-init="ObtenerIndustrias()" class="demo" style="width:auto">
         <form id="myForm" method="post">
 
             <div class="row">
-                <div class="col-sm-3"></div>
-                <div class="col-lg-6">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
                     <div class="titulo">
-                        <br><br>
-                        <h4>Esta es la <b>primera vez que accedes</b>, por favor rellena los datos siguientes para registrarte como nuevo <b>empleador</b>.</h4><br><br>
+                        <br>
+                        <h4 style="text-align:justify">Esta es la <b>primera vez que accedes</b>, por favor rellena los datos siguientes para registrarte como nuevo <b>empleador</b>.</h4><br>
                     </div>
                 </div>
-                <div class="col-sm-3"></div>
+                <div class="col-sm-4"></div>
             </div>
 
             <div class="row">
-                <div class="col-sm-3"></div>
+                <div class="col-sm-4"></div>
 
-                <div class="col-sm-6">
+                <div class="col-sm-4" style="height:680px">
 
-                    <div class="form-group">
-                        <b>Logo de la empresa</b> <i><small>(opcional):</small></i><br />
-                        <input type="file" fileread="emp.ImagenB64" class="form-control" name="logoEmpresa" id="logoEmpresa" />
+                    <div class="well" style="border-radius:0; background-color:#383838; padding:0; margin:0; border:1px solid #383838">
+                        <h5 style="text-align:center; color:white">Registro de nuevo empleador</h5>
                     </div>
+                    <div class="well" style="border-radius:0; background-color:#f9f9f9;">
 
-                    <div class="form-group">
-                        <b>Empresa:</b><br />
-                        <input type="text" ng-model="emp.NombreEmpresa" class="form-control" name="nombreEmpresa" id="nombreEmpresa" ng-model="nombreEmpresa" required>
+                        <div class="form-group">
+                            <span>Logo de la empresa</span> <i><small>(opcional):</small></i><br />
+                            <input type="file" fileread="emp.ImagenB64" class="form-control" name="logoEmpresa" id="logoEmpresa" style="border-radius:0; max-width:500px; border-color:#dedede;" />
+                        </div>
+
+                        <div class="form-group">
+                            <span>Empresa:</span><br />
+                            <input type="text" ng-model="emp.NombreEmpresa" class="form-control" name="nombreEmpresa" id="nombreEmpresa" ng-model="nombreEmpresa" required style="border-radius:0; max-width:500px; border-color:#dedede;">
+                        </div>
+
+                        <div class="form-group">
+                            <span>Dirección:</span><br />
+                            <input type="text" ng-model="emp.Direccion" class="form-control" name="direccion" id="direccion" required style="border-radius:0; max-width:500px; border-color:#dedede;" />
+                        </div>
+
+                        <div class="form-group">
+                            <span>Teléfono</span> <i><small>(opcional):</small></i><br />
+                            <input type="text" ng-model="emp.Telefono" class="form-control" name="telefono" id="telefono" style="border-radius:0; max-width:500px; border-color:#dedede;" />
+                        </div>
+
+                        <div class="form-group">
+                            <span>Email</span> <i><small>(opcional):</small></i><br />
+                            <input type="email" ng-model="emp.Email" class="form-control" name="email" id="email" style="border-radius:0; max-width:500px; border-color:#dedede;" />
+                        </div>
+
+                        <div class="form-group">
+                            <span>Número de empleados:</span><br />
+                            <input type="number" ng-model="emp.NumeroEmpleados" class="form-control" name="numeroEmpleados" id="numeroEmpleados" placeholder="Mínimo 1 empleado" style="border-radius:0; max-width:500px; border-color:#dedede;" />
+                        </div>
+
+                        <div class="form-group">
+                            <span>Tipo de industria:</span><br />
+                            <select class="form-control" ng-model="emp.TipoIndustria" ng-options="industria.TipoIndustria as industria.Nombre for industria in industrias" required style="border-radius:0; max-width:500px; border-color:#dedede;">
+                                <option value="" selected disabled hidden>Selecciona uno de la lista</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group text-center">
+                            <br /><br />
+                            <input type="submit" class="btn btn-success" value=" Registrar empleador" id="btn-submit" ng-click="GuardarDatosEmpleador()" style="border-radius:0; border:none; max-width:none;">
+                        </div>
                     </div>
-
-                    <div class="form-group">
-                        <b>Dirección:</b><br />
-                        <input type="text" ng-model="emp.Direccion" class="form-control" name="direccion" id="direccion" required />
-                    </div>
-
-                    <div class="form-group">
-                        <b>Teléfono</b> <i><small>(opcional):</small></i><br />
-                        <input type="text" ng-model="emp.Telefono" class="form-control" name="telefono" id="telefono" />
-                    </div>
-
-                    <div class="form-group">
-                        <b>Email</b> <i><small>(opcional):</small></i><br />
-                        <input type="email" ng-model="emp.Email" class="form-control" name="email" id="email" />
-                    </div>
-
-                    <div class="form-group">
-                        <b>Número de empleados:</b><br />
-                        <input type="number" ng-model="emp.NumeroEmpleados" class="form-control" name="numeroEmpleados" id="numeroEmpleados" placeholder="Mínimo 1 empleado"/>
-                    </div>
-
-                    <div class="form-group">
-                        <b>Tipo de industria:</b><br />
-                        <select class="form-control" ng-model="emp.TipoIndustria" ng-options="industria.TipoIndustria as industria.Nombre for industria in industrias" required>
-                            <option value="" selected disabled hidden>Selecciona uno de la lista</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <br /><br /><br />
-                        <input type="submit" class="btn btn-block btn-success" value=" Registrar empleador" id="btn-submit" ng-click="GuardarDatosEmpleador()">
-                        <br /><br /><br />
-                    </div>
-
                 </div>
-
-                <div class="col-sm-3"></div>
+                <div class="col-sm-4"></div>
 
             </div>
         </form>

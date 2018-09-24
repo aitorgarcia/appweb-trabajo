@@ -14,14 +14,11 @@
 
         <br />
         <div class="col-sm-2" style="height:690px">
-            <div>
-                <div class="btn-group-vertical">
-                    <button class="btn btn-info" style="padding-right:90px; text-align:left; border-radius:0; opacity:0.9" ng-click="GetAllOfertas()">@*<i class="glyphicon glyphicon-th-list"></i>*@ Ver ofertas</button>
-                    <button class="btn btn-info" style="text-align:left; border-radius:0; opacity:0.9" ng-click="GetDemandantes()">@*<i class="glyphicon glyphicon-user"></i>*@ Ver demandantes</button>
-                    <button class="btn btn-info" style="text-align:left; border-radius:0; opacity:0.9" ng-click="GetEmpleadores()">@*<i class="glyphicon glyphicon-user"></i>*@ Ver empleadores</button>
-                    <button class="btn btn-info" style="text-align:left; border-radius:0; opacity:0.9" ng-click="GetUsuarios()">@*<i class="glyphicon glyphicon-user"></i>*@ Ver usuarios</button>
-                </div>
-
+            <div class="btn-group-vertical">
+                <button class="btn btn-info" style="padding-right:90px; text-align:left; border-radius:0; opacity:0.9" ng-click="GetAllOfertas()"> Ver ofertas</button>
+                <button class="btn btn-info" style="text-align:left; border-radius:0; opacity:0.9" ng-click="GetDemandantes()"> Ver demandantes</button>
+                <button class="btn btn-info" style="text-align:left; border-radius:0; opacity:0.9" ng-click="GetEmpleadores()"> Ver empleadores</button>
+                <button class="btn btn-info" style="text-align:left; border-radius:0; opacity:0.9" ng-click="GetUsuarios()"> Ver usuarios</button>
             </div>
         </div>
 
@@ -39,13 +36,13 @@
 
 
 
-        <!--  MODAL VER DETALLE MI OFERTA  ###############################  -->
+        <!--  MODAL OFERTAS DE UN EMPLEADOR  ###############################  -->
         <div class="modal fade" id="modalOfertasPorEmpleador" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
-            <div class="modal-dialog" role="document" style="overflow-y: initial !important; width:1000px">
-                <div class="modal-content" style="overflow: hidden">
+            <div class="modal-dialog" role="document" style="overflow-y: initial !important; width:1000px; padding-top:120px">
+                <div class="modal-content" style="overflow:hidden; border-radius:0">
 
-                    <div class="modal-header" style="text-align:center; background-color:#5bc0de; padding-bottom:10px">
-                        <h4 class=" modal-title" id="modalTitle" style="color:white">Detalles del empleador:</h4>
+                    <div class="modal-header" style="text-align:center; background-color:#54a4b5; padding-bottom:10px">
+                        <h5 class=" modal-title" id="modalTitle" style="color:white">Detalles del empleador:</h5>
                     </div>
                     <div class="modal-body" style="max-height: calc(100vh - 200px) !important; overflow-y: auto !important;">
 
@@ -54,19 +51,20 @@
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-" data-dismiss="modal">Atrás</button>
+                        <button type="button" class="btn btn-" data-dismiss="modal" style="border-radius:0">Atrás</button>
                     </div>
                 </div>
             </div>
         </div>
         <!-- ################################ -->
-        <!--  MODAL VER DETALLE MI OFERTA  ###############################  -->
-        <div class="modal fade" id="modalDemandantesInscritos" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
-            <div class="modal-dialog" role="document" style="overflow-y: initial !important; width:1000px">
-                <div class="modal-content" style="overflow: hidden">
 
-                    <div class="modal-header" style="text-align:center; background-color:#5bc0de; padding-bottom:10px">
-                        <h4 class=" modal-title" id="modalTitle" style="color:white">Detalles de la oferta:</h4>
+        <!--  MODAL DEMANDANTES INSCRITOS EN OFERTAS  ###############################  -->
+        <div class="modal fade" id="modalDemandantesInscritos" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document" style="overflow-y: initial !important; width:1000px; padding-top:120px">
+                <div class="modal-content" style="overflow: hidden; border-radius:0">
+
+                    <div class="modal-header" style="text-align:center; background-color:#54a4b5; padding-bottom:10px">
+                        <h5 class=" modal-title" id="modalTitle" style="color:white">Detalles de la oferta:</h5>
                     </div>
                     <div class="modal-body" style="max-height: calc(100vh - 200px) !important; overflow-y: auto !important;">
 
@@ -75,7 +73,7 @@
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-" data-dismiss="modal">Atrás</button>
+                        <button type="button" class="btn btn-" data-dismiss="modal" style="border-radius:0">Atrás</button>
                     </div>
                 </div>
             </div>
@@ -86,9 +84,9 @@
         <!--  MODAL ELIMINAR USUARIO  ###############################  -->
         <div class="modal fade" id="modalEliminarUsuario" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
             <div class="modal-dialog" role="document" style="overflow-y: initial !important; padding-top:350px; width:450px">
-                <div class="modal-content" style="overflow: hidden">
+                <div class="modal-content" style="overflow: hidden; border-radius:0">
 
-                    <div class="modal-header" style="background-color:#565656; padding-bottom:0">
+                    <div class="modal-header" style="background-color:#b94a48; padding-bottom:0">
                         <h5 class=" modal-title" id="modalTitle" style="color:white; margin-bottom:10px"><i class="glyphicon glyphicon-trash"></i></h5>
                     </div>
                     <div class="modal-body" style="max-height: calc(100vh - 200px) !important; overflow-y: auto !important;">
@@ -99,8 +97,8 @@
 
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-" data-dismiss="modal">Cancelar</button>
-                        <button class="btn btn-danger" ng-click="EliminarUsuario(usuarioParaEliminar.Id, usuarioParaEliminar.TipoUsuario)">Eliminar</button>
+                        <button type="button" class="btn btn-" data-dismiss="modal" style="border-radius:0">Cancelar</button>
+                        <button class="btn btn-danger" ng-click="EliminarUsuario(usuarioParaEliminar.Id, usuarioParaEliminar.TipoUsuario)" style="border-radius:0">Eliminar</button>
                     </div>
                 </div>
             </div>
