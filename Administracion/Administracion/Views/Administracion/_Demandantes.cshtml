@@ -5,10 +5,13 @@
 <div data-ng-init="listDemandantes = @Json.Encode(Model)">
 
 
-    <div class="form-group">
-        <input type="text" ng-model="filtroDemandantes" class="form-control pull-right" placeholder="Escribe para filtrar...">
-        <br />
-    </div>
+
+    <form>
+        <div class="input-group">
+            <span class="input-group-addon" style="border-radius:0"><i class="glyphicon glyphicon-search"></i></span>
+            <input id="text" type="text" class="form-control" name="text" placeholder="Escribe para filtrar..." ng-model="filtroDemandantes" style="border-radius:0">
+        </div>
+    </form>
 
     <br />
 

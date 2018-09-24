@@ -223,6 +223,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Imagenes\pexels-photo-196658.jpg" />
+    <Content Include="Imagenes\pexels-photo-273238.jpeg" />
+    <Content Include="Imagenes\pexels-photo-884454.jpeg" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />

@@ -1,14 +1,16 @@
 ﻿@model List<Core.Usuario.Usuario>
 
 
-<h4>Listado de usuarios:</h4>
+<h4>Listado de usuarios:</h4><br />
 <div data-ng-init="listUsuarios = @Json.Encode(Model)">
 
 
-    <div class="form-group">
-        <input type="text" ng-model="filtroUsuarios" class="form-control pull-right" placeholder="Escribe para filtrar...">
-        <br />
-    </div>
+    <form>
+        <div class="input-group">
+            <span class="input-group-addon" style="border-radius:0"><i class="glyphicon glyphicon-search"></i></span>
+            <input id="text" type="text" class="form-control" name="text" placeholder="Escribe para filtrar..." ng-model="filtroUsuarios" style="border-radius:0">
+        </div>
+    </form>
 
     <br />
 
@@ -46,7 +48,7 @@
                 <td style="vertical-align:middle">{{x.Nombre}} {{x.Apellido1}} {{x.Apellido2}}</td>
                 <td style="vertical-align:middle" ng-if="x.TipoUsuario == 0">Empleador</td>
                 <td style="vertical-align:middle" ng-if="x.TipoUsuario == 1">Demandante</td>
-                <td style="vertical-align:middle"><button class="btn btn-danger" data-toggle="modal" ng-click="ModalEliminarUsuario(x)"><i class="glyphicon glyphicon-trash"></i></button></td>
+                <td style="vertical-align:middle"><button class="btn btn-danger" data-toggle="modal" ng-click="ModalEliminarUsuario(x)" style="border-radius: 0"><i class="glyphicon glyphicon-trash"></i></button></td>
             </tr>
         </tbody>
     </table>

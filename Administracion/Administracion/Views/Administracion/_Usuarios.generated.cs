@@ -38,7 +38,7 @@ namespace ASP
         }
         public override void Execute()
         {
-WriteLiteral("\r\n<h4>Listado de usuarios:</h4>\r\n<div");
+WriteLiteral("\r\n<h4>Listado de usuarios:</h4><br />\r\n<div");
 
 WriteLiteral(" data-ng-init=\"listUsuarios = ");
 
@@ -51,21 +51,37 @@ WriteLiteral(" data-ng-init=\"listUsuarios = ");
             #line hidden
 WriteLiteral("\"");
 
-WriteLiteral(">\r\n\r\n\r\n    <div");
+WriteLiteral(">\r\n\r\n\r\n    <form>\r\n        <div");
 
-WriteLiteral(" class=\"form-group\"");
+WriteLiteral(" class=\"input-group\"");
 
-WriteLiteral(">\r\n        <input");
+WriteLiteral(">\r\n            <span");
+
+WriteLiteral(" class=\"input-group-addon\"");
+
+WriteLiteral(" style=\"border-radius:0\"");
+
+WriteLiteral("><i");
+
+WriteLiteral(" class=\"glyphicon glyphicon-search\"");
+
+WriteLiteral("></i></span>\r\n            <input");
+
+WriteLiteral(" id=\"text\"");
 
 WriteLiteral(" type=\"text\"");
 
-WriteLiteral(" ng-model=\"filtroUsuarios\"");
+WriteLiteral(" class=\"form-control\"");
 
-WriteLiteral(" class=\"form-control pull-right\"");
+WriteLiteral(" name=\"text\"");
 
 WriteLiteral(" placeholder=\"Escribe para filtrar...\"");
 
-WriteLiteral(">\r\n        <br />\r\n    </div>\r\n\r\n    <br />\r\n\r\n    <table");
+WriteLiteral(" ng-model=\"filtroUsuarios\"");
+
+WriteLiteral(" style=\"border-radius:0\"");
+
+WriteLiteral(">\r\n        </div>\r\n    </form>\r\n\r\n    <br />\r\n\r\n    <table");
 
 WriteLiteral(" class=\"table table-striped table-bordered\"");
 
@@ -196,6 +212,8 @@ WriteLiteral(" class=\"btn btn-danger\"");
 WriteLiteral(" data-toggle=\"modal\"");
 
 WriteLiteral(" ng-click=\"ModalEliminarUsuario(x)\"");
+
+WriteLiteral(" style=\"border-radius: 0\"");
 
 WriteLiteral("><i");
 

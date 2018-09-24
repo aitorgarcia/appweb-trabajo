@@ -71,7 +71,17 @@ WriteLiteral("></script>\r\n\r\n\r\n<div");
 
 WriteLiteral(" ng-app=\"app\"");
 
-WriteLiteral(">\r\n    <div");
+WriteLiteral(">\r\n    <img");
+
+WriteAttribute("src", Tuple.Create(" src=\'", 482), Tuple.Create("\'", 523)
+, Tuple.Create(Tuple.Create("", 488), Tuple.Create<System.Object, System.Int32>(Href("~/Imagenes/pexels-photo-884454.jpeg")
+, 488), false)
+);
+
+WriteLiteral(" style=\'position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;opacity:0.2" +
+"5\'");
+
+WriteLiteral(">\r\n\r\n    <div");
 
 WriteLiteral(" class=\"row\"");
 
@@ -79,13 +89,15 @@ WriteLiteral(" ng-controller=\"AdministracionController\"");
 
 WriteLiteral(" ng-init=\"GetAllOfertas()\"");
 
-WriteLiteral(">\r\n\r\n\r\n        <br />\r\n        <div");
+WriteLiteral(" style=\"padding-top:50px\"");
+
+WriteLiteral(">\r\n\r\n        <br />\r\n        <div");
 
 WriteLiteral(" class=\"col-sm-2\"");
 
-WriteLiteral(">\r\n            <div>\r\n                ");
+WriteLiteral(" style=\"height:690px\"");
 
-WriteLiteral("\r\n\r\n                <div");
+WriteLiteral(">\r\n            <div>\r\n                <div");
 
 WriteLiteral(" class=\"btn-group-vertical\"");
 
@@ -93,7 +105,7 @@ WriteLiteral(">\r\n                    <button");
 
 WriteLiteral(" class=\"btn btn-info\"");
 
-WriteLiteral(" style=\"padding-right:90px; text-align:left\"");
+WriteLiteral(" style=\"padding-right:90px; text-align:left; border-radius:0; opacity:0.9\"");
 
 WriteLiteral(" ng-click=\"GetAllOfertas()\"");
 
@@ -103,7 +115,7 @@ WriteLiteral(" Ver ofertas</button>\r\n                    <button");
 
 WriteLiteral(" class=\"btn btn-info\"");
 
-WriteLiteral(" style=\"text-align:left\"");
+WriteLiteral(" style=\"text-align:left; border-radius:0; opacity:0.9\"");
 
 WriteLiteral(" ng-click=\"GetDemandantes()\"");
 
@@ -113,7 +125,7 @@ WriteLiteral(" Ver demandantes</button>\r\n                    <button");
 
 WriteLiteral(" class=\"btn btn-info\"");
 
-WriteLiteral(" style=\"text-align:left\"");
+WriteLiteral(" style=\"text-align:left; border-radius:0; opacity:0.9\"");
 
 WriteLiteral(" ng-click=\"GetEmpleadores()\"");
 
@@ -123,7 +135,7 @@ WriteLiteral(" Ver empleadores</button>\r\n                    <button");
 
 WriteLiteral(" class=\"btn btn-info\"");
 
-WriteLiteral(" style=\"text-align:left\"");
+WriteLiteral(" style=\"text-align:left; border-radius:0; opacity:0.9\"");
 
 WriteLiteral(" ng-click=\"GetUsuarios()\"");
 
@@ -133,6 +145,8 @@ WriteLiteral(" Ver usuarios</button>\r\n                </div>\r\n\r\n          
 "iv>\r\n\r\n        <div");
 
 WriteLiteral(" class=\"col-sm-10 well well-lg\"");
+
+WriteLiteral(" style=\"border-radius: 0;\"");
 
 WriteLiteral(">\r\n            <div");
 

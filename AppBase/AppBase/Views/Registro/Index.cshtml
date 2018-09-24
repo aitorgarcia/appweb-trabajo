@@ -8,66 +8,63 @@
 <script src="~/Scripts propios/registroController.js"></script>
 
 <div ng-app="app">
-    <div class="titulo" style="text-align: center">
+    <img src='~/Imagenes/pexels-photo-884454.jpeg' style='position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;opacity:0.4'>
+
+    @*<div class="titulo" style="text-align: center">
         <br>
         <h3>Registro de usuario:</h3>
         <h5>Rellena los campos siguientes para registrar un nuevo usuario.</h5><br>
-    </div>
+    </div>*@
 
 
     <div ng-controller="RegistroController" data-ng-init="init()" class="demo" style="width:auto">
         <form id="myForm" method="post">
 
             <div class="row">
-                <div class="col-sm-3"></div>
-                <div class="col-sm-3">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4" style="padding-top: 50px; height:780px">
 
-                    <div class="form-group">
-                        <b>Usuario:</b><br />
-                        <input type="text" ng-model="user.User" class="form-control" name="user" id="user" ng-model="user" required>
+                    <div class="well" style="border-radius:0; background-color:#383838; padding:0; margin:0; border:1px solid #383838">
+                        <h5 style="text-align:center; color:white">Registro de nuevo usuario</h5>
                     </div>
-
-                    <div class="form-group">
-                        <b>Contraseña:</b><br />
-                        <input type="password" ng-model="user.Password" class="form-control" name="password" id="password" required />
-                    </div>
-
-                    <div class="form-group">
-                        <b>Nombre:</b><br />
-                        <input type="text" ng-model="user.Nombre" class="form-control" name="nombre" id="nombre" required />
-                    </div>
-
-                </div>
-
-
-                    <div class="col-sm-3">
+                    <div class="well" style="border-radius:0; background-color:#f9f9f9;">
 
                         <div class="form-group">
-                            <b>Primer apellido:</b><br />
-                            <input type="text" ng-model="user.Apellido1" class="form-control" name="apellido1" id="apellido1" required/>
+                            <span> Usuario:</span><br />
+                            <input type="text" ng-model="user.User" class="form-control" name="user" id="user" ng-model="user" required style="border-radius:0; max-width:500px; border-color:#dedede;">
                         </div>
-
                         <div class="form-group">
-                            <b>Segundo apellido:</b><br />
-                            <input type="text" ng-model="user.Apellido2" class="form-control" name="apellido2" id="apellido2" required/>
+                            <span> Contraseña:</span><br />
+                            <input type="password" ng-model="user.Password" class="form-control" name="password" id="password" required style="border-radius:0; max-width:500px; border-color:#dedede;" />
                         </div>
-
                         <div class="form-group">
-                            <b>Elige el tipo de usuario:</b><br />
-                            <select class="form-control" ng-model="user.TipoUsuario" required>
+                            <span> Nombre:</span><br />
+                            <input type="text" ng-model="user.Nombre" class="form-control" name="nombre" id="nombre" required style="border-radius:0; max-width:500px; border-color:#dedede;" />
+                        </div>
+                        <div class="form-group">
+                            <span>Primer apellido:</span><br />
+                            <input type="text" ng-model="user.Apellido1" class="form-control" name="apellido1" id="apellido1" required style="border-radius:0; max-width:500px; border-color:#dedede;" />
+                        </div>
+                        <div class="form-group">
+                            <span>Segundo apellido:</span><br />
+                            <input type="text" ng-model="user.Apellido2" class="form-control" name="apellido2" id="apellido2" required style="border-radius:0; max-width:500px; border-color:#dedede;" />
+                        </div>
+                        <div class="form-group">
+                            <span>Elige el tipo de usuario:</span><br />
+                            <select class="form-control" ng-model="user.TipoUsuario" required style="border-radius:0; max-width:500px; border-color:#dedede;">
                                 <option value="" selected disabled hidden>Empleador</option>
                                 <option value=0 selected>Empleador</option>
                                 <option value=1>Demandante</option>
                             </select><br /><br />
                         </div>
-
-                        <div>
-                            <input type="submit" class="btn btn-block btn-info" value=" Registrar usuario" id="btn-submit" ng-click="ValidarDatos()">
-                            <br /><br /><br />
+                        <div class="text-center">
+                            <input type="submit" class="btn btn-info" value=" Registrar usuario" id="btn-submit" ng-click="ValidarDatos()" style="border-radius:0; border:none; max-width:none; background-color:#565656">
                         </div>
-
                     </div>
-                <div class="col-sm-3">
+                </div>
+                <div class="col-sm-4"></div>
+
+            </div>
         </form>
     </div>
 </div>
