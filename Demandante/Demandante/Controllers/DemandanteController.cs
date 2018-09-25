@@ -161,22 +161,7 @@ namespace Demandante.Controllers
 
 
 
-        /// <summary>
-        /// Método que muestra las ofertas que el Demandante tiene disponibles para inscribirse.
-        /// </summary>
-        /// <param name="idDemandante"></param>
-        /// <returns>Un archivo JSON booleano dependiendo de si se ha desisncrito correctamente o no.</returns>
-        [HttpPost]
-        public JsonResult GetOfertasDisponibles(int idDemandante)
-        {
-            CapaNegocio.NGOfertaEmpleoDemandante ngOfertaEmpleoDem = new CapaNegocio.NGOfertaEmpleoDemandante();
 
-            var result = ngOfertaEmpleoDem.GetOfertasDisponibles(idDemandante);
-
-            if (result == null)
-                return Json(false);
-            return Json(result);
-        }
 
 
 
@@ -201,6 +186,40 @@ namespace Demandante.Controllers
         }
 
 
+
+        /// <summary>
+        /// Método que muestra las ofertas que el Demandante tiene disponibles para inscribirse.
+        /// </summary>
+        /// <param name="idDemandante"></param>
+        /// <returns>Un archivo JSON booleano dependiendo de si se ha desisncrito correctamente o no.</returns>
+        //[HttpPost]
+        //public JsonResult GetOfertasDisponibles(int idDemandante)
+        //{
+        //    CapaNegocio.NGOfertaEmpleoDemandante ngOfertaEmpleoDem = new CapaNegocio.NGOfertaEmpleoDemandante();
+
+        //    var result = ngOfertaEmpleoDem.GetOfertasDisponibles(idDemandante);
+
+        //    if (result == null)
+        //        return Json(false);
+        //    return Json(result);
+        //}
+
+
+
+        /// <summary>
+        /// Método que muestra las ofertas que el Demandante tiene disponibles para inscribirse.
+        /// </summary>
+        /// <param name="idDemandante"></param>
+        /// <returns>Un archivo JSON booleano dependiendo de si se ha desisncrito correctamente o no.</returns>
+        [HttpPost]
+        public ActionResult GetOfertasDisponibles(int idDemandante)
+        {
+            CapaNegocio.NGOfertaEmpleoDemandante ngOfertaEmpleoDem = new CapaNegocio.NGOfertaEmpleoDemandante();
+
+            var result = ngOfertaEmpleoDem.GetOfertasDisponibles(idDemandante);
+
+            return PartialView("~/Views/Demandante/_OfertasDisponibles.cshtml", result);
+        }
 
 
         /// <summary>

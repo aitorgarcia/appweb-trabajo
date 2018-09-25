@@ -124,6 +124,8 @@ WriteLiteral(" class=\"btn btn-info\"");
 
 WriteLiteral(" style=\"text-align:left; border-radius:0; opacity:0.9\"");
 
+WriteLiteral(" ng-click=\"GetOfertasDisponibles()\"");
+
 WriteLiteral("> Ofertas disponibles</button>\r\n                <button");
 
 WriteLiteral(" class=\"btn btn-info\"");

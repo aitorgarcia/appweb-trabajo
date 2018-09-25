@@ -1,0 +1,35 @@
+﻿@model List<Core.Empleador.OfertaEmpleo>
+
+
+<h4>Datos de oferta:</h4><br />
+<div data-ng-init="listOfertasDisponibles = @Json.Encode(Model)">
+
+    <div id="ofertasDisponibles" class="tab-pane fade">
+        <div class="tab-content well well-sm" style="background-color:white; padding:0">
+            <div class="container" style="padding:0">
+                <table class="table table-striped table-bordered" style="text-align:center">
+                    <thead style="background-color:#565656; overflow:hidden">
+                        <tr style="color:white">
+                            <th style="text-align:center">Título</th>
+                            <th style="text-align:center">Num. Vacantes</th>
+                            <th style="text-align:center">Sueldo</th>
+                            <th style="text-align:center">Fecha de creación</th>
+                            <th style="text-align:center">Fecha de finalización</th>
+                            <th style="text-align:center">&equiv;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="x in listOfertasDisponibles">
+                            <td style="vertical-align:middle; margin-left:10px !important">{{x.Titulo}}</td>
+                            <td style="vertical-align:middle">{{x.NumeroVacantes}}</td>
+                            <td style="vertical-align:middle">{{x.Sueldo}}</td>
+                            <td style="vertical-align:middle">{{x.FechaLanzamientoString}}</td>
+                            <td style="vertical-align:middle">{{x.FechaFinString}}</td>
+                            <td style="vertical-align:middle"><button class="btn btn-warning" data-toggle="modal" ng-click="ModalVerOfertaDisponible(x)">Ver detalles</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div> <!-- cierre table -->
+        </div>
+    </div>
+</div>
