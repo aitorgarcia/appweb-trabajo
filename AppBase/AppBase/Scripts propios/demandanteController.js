@@ -120,10 +120,23 @@ app.controller('DemandanteController', ['$scope', '$http', '$element', '$interva
     };
 
 
+    //Método para obtener los demandantes de la base de datos.
+    $scope.GetOfertasInscritas = function () {
+        myHttp.post("/Demandante/GetOfertasInscritas", { idDemandante: $scope.dataDemModel.Id })
+          .then(function (result) {
+              $('#MisDatos').empty();
+              $('#OfertasDisponibles').empty();
+              addElementCompileAngularToSelector($('#OfertasInscritas'), result, true, false);
+          })
+          .catch(function () {
+              alert("Error de la promesa");
+          })
+    };
 
-    ////Método que carga las ofertas que tiene disponibles el demandante. (todas - inscritas)
-    //$scope.CargarOfertasDisponibles = function () {
-    //    var url = "/Demandante/GetOfertasDisponibles";
+
+    //Método que carga las ofertas en las que el usuario se ha inscrito.
+    //$scope.CargarOfertasInscritas = function () {
+    //    var url = "/Demandante/GetOfertasInscritas";
 
     //    $http({
     //        method: 'POST',
@@ -134,13 +147,11 @@ app.controller('DemandanteController', ['$scope', '$http', '$element', '$interva
     //        if (result === false) {
     //            alert("Ha ocurrido un error al cargar las ofertas en las que está inscrito.")
     //        } else {
-    //            $scope.listOfertasDisponibles = result;
+    //            $scope.listOfertasInscritas = result;
     //        }
     //    }).error(function () {
     //    });
     //};
-
-
 
     
 

@@ -173,17 +173,17 @@ namespace Demandante.Controllers
         /// </summary>
         /// <param name="idDemandante"></param>
         /// <returns>Un archivo JSON booleano dependiendo de si se ha desisncrito correctamente o no.</returns>
-        [HttpPost]
-        public JsonResult GetOfertasInscritas(int idDemandante)
-        {
-            CapaNegocio.NGOfertaEmpleoDemandante ngOfertaEmpleoDem = new CapaNegocio.NGOfertaEmpleoDemandante();
+        //[HttpPost]
+        //public JsonResult GetOfertasInscritas(int idDemandante)
+        //{
+        //    CapaNegocio.NGOfertaEmpleoDemandante ngOfertaEmpleoDem = new CapaNegocio.NGOfertaEmpleoDemandante();
 
-            var result = ngOfertaEmpleoDem.GetOfertasInscritas(idDemandante);
+        //    var result = ngOfertaEmpleoDem.GetOfertasInscritas(idDemandante);
 
-            if (result == null)
-                return Json(false);
-            return Json(result);
-        }
+        //    if (result == null)
+        //        return Json(false);
+        //    return Json(result);
+        //}
 
 
 
@@ -220,6 +220,19 @@ namespace Demandante.Controllers
 
             return PartialView("~/Views/Demandante/_OfertasDisponibles.cshtml", result);
         }
+
+
+
+        [HttpPost]
+        public ActionResult GetOfertasInscritas(int idDemandante)
+        {
+            CapaNegocio.NGOfertaEmpleoDemandante ngOfertaEmpleoDem = new CapaNegocio.NGOfertaEmpleoDemandante();
+
+            var result = ngOfertaEmpleoDem.GetOfertasInscritas(idDemandante);
+
+            return PartialView("~/Views/Demandante/_OfertasInscritas.cshtml", result);
+        }
+
 
 
         /// <summary>

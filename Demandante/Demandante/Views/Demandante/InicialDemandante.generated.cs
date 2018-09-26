@@ -132,6 +132,8 @@ WriteLiteral(" class=\"btn btn-info\"");
 
 WriteLiteral(" style=\"text-align:left; border-radius:0; opacity:0.9\"");
 
+WriteLiteral(" ng-click=\"GetOfertasInscritas()\"");
+
 WriteLiteral("> Ofertas inscritas</button>\r\n            </div>\r\n        </div>\r\n\r\n        <div");
 
 WriteLiteral(" class=\"col-sm-10 well well-lg\"");
@@ -150,10 +152,8 @@ WriteLiteral("></div>\r\n            <div");
 
 WriteLiteral(" id=\"OfertasInscritas\"");
 
-WriteLiteral("></div>\r\n        </div>\r\n\r\n        ");
-
-WriteLiteral("\r\n\r\n\r\n\r\n        <!--  MODAL VER DETALLE OFERTA DISPONIBLE  ######################" +
-"#########  -->\r\n        <div");
+WriteLiteral("></div>\r\n        </div>\r\n\r\n\r\n\r\n\r\n        <!--  MODAL VER DETALLE OFERTA DISPONIBL" +
+"E  ###############################  -->\r\n        <div");
 
 WriteLiteral(" class=\"modal fade\"");
 

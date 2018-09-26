@@ -1,7 +1,34 @@
-﻿
-@{
-    ViewBag.Title = "_OfertasInscritas";
-}
+﻿@model List<Core.Empleador.OfertaEmpleoInscrita>
 
-<h2>_OfertasInscritas</h2>
+<h4>Datos de oferta:</h4><br />
+<div data-ng-init="listOfertasInscritas = @Json.Encode(Model); @*ObtenerDatosDemandanteModel()*@">
 
+        @*<div class="tab-content well well-sm" style="background-color:white; padding:0">*@
+            @*<div class="container" style="padding:0">*@
+                <table class="table table-striped table-bordered" style="text-align:center">
+                    <thead style="background-color:#565656; overflow:hidden">
+                        <tr style="color:white">
+                            <th style="text-align:center; font-weight:normal; vertical-align:middle">Título</th>
+                            <th style="text-align:center; font-weight:normal; vertical-align:middle">Num. Vacantes</th>
+                            <th style="text-align:center; font-weight:normal; vertical-align:middle">Sueldo</th>
+                            <th style="text-align:center; font-weight:normal; vertical-align:middle">Fecha de creación</th>
+                            <th style="text-align:center; font-weight:normal; vertical-align:middle">Fecha de finalización</th>
+                            <th style="text-align:center; font-weight:normal; vertical-align:middle">Estado inscripción</th>
+                            <th style="text-align:center; font-weight:normal; vertical-align:middle">@*&equiv;*@</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="x in listOfertasInscritas">
+                            <td class="sc" style="vertical-align:middle; margin-left:10px !important">{{x.Titulo}}</td>
+                            <td style="vertical-align:middle">{{x.NumeroVacantes}}</td>
+                            <td style="vertical-align:middle">{{x.Sueldo}}</td>
+                            <td style="vertical-align:middle">{{x.FechaLanzamientoString}}</td>
+                            <td style="vertical-align:middle">{{x.FechaFinString}}</td>
+                            <td style="vertical-align:middle">{{x.Nombre}}</td>
+                            <td style="vertical-align:middle"><button class="btn btn-info" data-toggle="modal" ng-click="ModalVerOfertaInscrita(x)"><i class="glyphicon glyphicon-eye-open"></i></button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            @*</div>*@ <!-- cierre table -->
+        @*</div>*@
+</div>

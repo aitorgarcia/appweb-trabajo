@@ -49,15 +49,11 @@ WriteLiteral(" data-ng-init=\"listOfertasDisponibles = ");
             
             #line default
             #line hidden
+WriteLiteral("; ");
+
 WriteLiteral("\"");
 
-WriteLiteral(">\r\n\r\n    <div");
-
-WriteLiteral(" id=\"ofertasDisponibles\"");
-
-WriteLiteral(" class=\"tab-pane fade\"");
-
-WriteLiteral(">\r\n        <div");
+WriteLiteral(">\r\n\r\n        <div");
 
 WriteLiteral(" class=\"tab-content well well-sm\"");
 
@@ -146,7 +142,7 @@ WriteLiteral(" ng-click=\"ModalVerOfertaDisponible(x)\"");
 
 WriteLiteral(">Ver detalles</button></td>\r\n                        </tr>\r\n                    <" +
 "/tbody>\r\n                </table>\r\n            </div> <!-- cierre table -->\r\n   " +
-"     </div>\r\n    </div>\r\n</div>");
+"     </div>\r\n</div>");
 
         }
     }
